@@ -10,6 +10,10 @@ var users = require('./routes/users');
 
 var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/timecrunch');
+require('./models/Foods');
+require('./models/Recipes');
+
 var app = express();
 
 // view engine setup
