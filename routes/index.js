@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 /* GET food list page. */
 router.get('/food', function(req, res, next) {
-  res.render('index', { title: 'Time Crunch - Food' });
+  res.render('food', { title: 'Time Crunch - Food' });
 });
 
 module.exports = router;
