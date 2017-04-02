@@ -11,4 +11,9 @@ router.get('/food', function(req, res, next) {
   res.render('food', { title: 'Time Crunch - Food' });
 });
 
+/* GET food list page. */
+router.get('/recipes', function(req, res, next) {
+  res.render('recipes', { title: 'Time Crunch - Recipes' });
+});
+
 module.exports = router;
