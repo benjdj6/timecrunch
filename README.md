@@ -4,6 +4,8 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
-* Consolidate food and recipes.ejs into index as templates
+* Change category to dropdown
 
-* Impliment states for template switching
+* Connect food form submission to mongo
+
+* Connect food list to mongo
