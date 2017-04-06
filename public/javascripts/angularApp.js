@@ -28,12 +28,22 @@ app.factory('foods', ['$http', function($http) {
   var o = {
     foods: []
   };
+
+  o.create = function(food) {
+    return $http.post('/food', food, {}).then(function(data) {
+      o.foods.push(data);
+    });
+  };
+
+  return o;
 }]);
 
 app.factory('recipes', ['$http', function($http) {
   var o = {
     recipes: []
   };
+
+  return o;
 }]);
 
 // Controller for dashboard on home/index
@@ -50,6 +60,16 @@ app.controller('FoodCtrl', [
   'foods',
   function($scope, foods){
     $scope.foods = foods.foods;
+
+    $scope.addFood = function() {
+      if(!$scope.name || $scope.name == '') { return; }
+      foods.create({
+        name: $scope.name,
+        sellBy: $scope.sellBy,
+        amount: $scope.amount,
+        category: $scope.category
+      });
+    };
 }]);
 
 // Controller for dashboard on home/index
