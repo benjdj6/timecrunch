@@ -46,7 +46,7 @@
           </div>
           <div class="col-md-9">
             <div class="row addfood">
-              <form ng-submit="#">
+              <form ng-submit="addFood();">
                 <label>Name: </label>
                 <input type="text" placeholder="Lettuce" ng-model="name"/>
                 <label>Sell By: </label>
@@ -56,7 +56,7 @@
                 <label>Category: </label>
                 <input type="text" placeholder="Vegetables" ng-model="category"/>
 
-                <button type="submit" class="btn btn-primary">Add Food</button>
+                <button type="submit" class="btn btn-primary">Add Food</button>    
               </form>
             </div>
             <div class="row foodlist">
