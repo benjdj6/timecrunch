@@ -13,7 +13,12 @@ function($stateProvider, $urlRouterProvider) {
     .state('food', {
       url: '/food',
       templateUrl: '/food.html',
-      controller: 'FoodCtrl'
+      controller: 'FoodCtrl',
+      resolve: {
+        foodPromise: ['foods', function(foods) {
+            return foods.getAll();
+        }]
+      }
     })
     .state('recipes', {
       url: '/recipes',
@@ -27,6 +32,12 @@ function($stateProvider, $urlRouterProvider) {
 app.factory('foods', ['$http', function($http) {
   var o = {
     foods: []
+  };
+
+  o.getAll = function() {
+    return $http.get('/food').then(function(data) {
+      angular.copy(data.data, o.foods);
+    });
   };
 
   o.create = function(food) {
