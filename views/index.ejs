@@ -60,7 +60,9 @@
               </form>
             </div>
             <div class="row foodlist">
-              Food list
+              <div ng-repeat="food in foods">
+                {{food.name}}
+              </div>
             </div>
           </div>
         </div>
