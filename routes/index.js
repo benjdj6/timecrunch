@@ -18,7 +18,7 @@ router.get('/food', function(req, res, next) {
         }
         res.json(food);
     });
-})
+});
 
 // POST food
 router.post('/food', function(req, res, next) {
@@ -30,6 +30,6 @@ router.post('/food', function(req, res, next) {
         }
         res.json(food);
     });
-})
+});
 
 module.exports = router;
