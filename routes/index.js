@@ -10,6 +10,19 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Time Crunch' });
 });
 
+// Param function for selecting food objects
+router.param('food', function(req, res, next, id) {
+    var query = Food.findById(id);
+
+    query.exec(function (err, food){
+        if (err) { return next(err); }
+        if (!food) { return next(new Error('can\'t find food')); }
+
+        req.food = food
+        return next();
+    });
+});
+
 // GET all food
 router.get('/food', function(req, res, next) {
     Food.find(function(err, food){
