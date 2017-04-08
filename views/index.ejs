@@ -60,12 +60,15 @@
               </form>
             </div>
             <div class="row foodlist">
-              <div class="col-md-4"><b>Name</b></div>
+              <div class="col-md-4 col-md-offset-1"><b>Name</b></div>
               <div class="col-md-2"><b>Sell By Date</b></div>
               <div class="col-md-2"><b>Quantity/Weight (lbs)</b></div>
               <div class="col-md-3"><b>Category</b></div>
               <div ng-repeat="food in foods">
                 <div class="row">
+                  <div class="col-md-1">
+                    <button class="btn-danger btn-xs" ng-click="removeFood(food)">Delete</button>
+                  </div>
                   <div class="col-md-4">{{food.name}}</div>
                   <div class="col-md-2">{{food.sellBy}}</div>
                   <div class="col-md-2">{{food.amount}}</div>
