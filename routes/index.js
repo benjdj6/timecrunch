@@ -7,7 +7,7 @@ var Recipe = mongoose.model('Recipe');
 
 // GET home page.
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Time Crunch' });
+    res.render('index', { title: 'Time Crunch' });
 });
 
 // Param function for selecting food objects
@@ -43,6 +43,16 @@ router.post('/food', function(req, res, next) {
         }
         res.json(food);
     });
+});
+
+// DELETE food
+router.delete('/food/:food', function(req, res, next) {
+    Food.remove({_id: req.food}, function(err) {
+        if(err) {
+            res.send(err);
+        }
+        res.sendStatus(204);
+    }); 
 });
 
 module.exports = router;
