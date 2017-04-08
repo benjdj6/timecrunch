@@ -11,3 +11,5 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 * Add alerts for invalid entries
 
 * Implement orderBy selection
+
+* Change delete to checkboxes
