@@ -5,3 +5,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.even {
+  background-color: #81D56E;
+}
+
+.odd {
+  background-color: #B2FD84;
+}
