@@ -78,6 +78,18 @@ app.controller('FoodCtrl', [
   function($scope, foods){
     $scope.foods = foods.foods;
 
+    $scope.categories = [
+      "Baking",
+      "Dairy",
+      "Fruit",
+      "Meat",
+      "Seasoning",
+      "Vegetable",
+      "Other-Ingredient",
+      "Other-Food",
+      "Other-Produce"
+    ];
+
     $scope.addFood = function() {
       if(!$scope.name || $scope.name == '') { return; }
       foods.create({
