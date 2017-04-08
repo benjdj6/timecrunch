@@ -4,7 +4,7 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
-* Change category to dropdown
+* Make sellBy MM/DD/YYYY format
 
 * Add alerts for invalid entries
 
