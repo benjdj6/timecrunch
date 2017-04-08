@@ -54,7 +54,9 @@
                 <label>Quantity/Weight(lbs): </label>
                 <input type="number" placeholder="1" ng-model="amount"/>
                 <label>Category: </label>
-                <input type="text" placeholder="Vegetables" ng-model="category"/>
+                <select ng-model="category" ng-options="opt for opt in categories">
+                  <option value="">None</option>
+                </select>
 
                 <button type="submit" class="btn btn-primary">Add Food</button>    
               </form>
