@@ -46,6 +46,12 @@ app.factory('foods', ['$http', function($http) {
     });
   };
 
+  o.delete = function(food) {
+    return $http.delete('/food/' + food._id).then(function(data) {
+      o.getAll();
+    });
+  };
+
   return o;
 }]);
 
@@ -80,6 +86,10 @@ app.controller('FoodCtrl', [
         amount: $scope.amount,
         category: $scope.category
       });
+    };
+
+    $scope.removeFood = function(food) {
+      foods.delete(food);
     };
 }]);
 
