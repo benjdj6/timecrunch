@@ -91,7 +91,10 @@ app.controller('FoodCtrl', [
     ];
 
     $scope.addFood = function() {
-      if(!$scope.name || $scope.name == '') { return; }
+      if(!$scope.name || $scope.name == '') {
+        alert("Please fill in the name field");
+        return; 
+      }
       foods.create({
         name: $scope.name,
         sellBy: $scope.sellBy,
