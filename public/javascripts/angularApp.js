@@ -95,6 +95,10 @@ app.controller('FoodCtrl', [
         alert("Please fill in the name field");
         return; 
       }
+      if(!$scope.sellBy) {
+        $scope.sellBy = new Date();
+        $scope.sellBy.setDate($scope.sellBy.getDate() + 730);
+      }
       foods.create({
         name: $scope.name,
         sellBy: $scope.sellBy,
