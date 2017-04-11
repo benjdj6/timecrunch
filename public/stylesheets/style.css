@@ -13,3 +13,8 @@ a {
 .odd {
   background-color: #D5F5E3;
 }
+
+.food:hover {
+  background-color: #589D76;
+  color: white;
+}

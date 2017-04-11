@@ -4,8 +4,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
-* Add hover style to food list
-
 * Add alerts for invalid entries
 
 * Implement orderBy selection
