@@ -7,5 +7,3 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 * Implement orderBy selection
 
 * Change delete to checkboxes
-
-* Properly update food list after new entry
