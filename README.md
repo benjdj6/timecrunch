@@ -4,8 +4,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
-* Implement orderBy selection
-
 * Implement filter by category
 
 * Change delete to checkboxes
