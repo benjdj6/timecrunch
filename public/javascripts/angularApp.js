@@ -92,6 +92,13 @@ app.controller('FoodCtrl', [
       "Other-Produce"
     ];
 
+    $scope.sortOptions = [
+      "Name",
+      "Sell By Date",
+      "Quantity",
+      "Category"
+    ];
+
     $scope.addFood = function() {
       if(!$scope.name || $scope.name == '') {
         alert("Please fill in the name field");
