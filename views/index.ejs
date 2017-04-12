@@ -61,6 +61,14 @@
                 <button type="submit" class="btn btn-primary">Add Food</button>    
               </form>
             </div>
+            <div class="row">
+              <div class="col-md-offset-9 col-md-3">
+                <label>Sort By: </label>
+                <select ng-model="sortOpt" ng-options="sortOpt for sortOpt in sortOptions">
+                  <option value="" disabled="disabled">--Select--</option>
+                </select>
+              </div>
+            </div>
             <div class="row foodlist">
               <div class="col-md-4 col-md-offset-1"><b>Name</b></div>
               <div class="col-md-2"><b>Sell By Date</b></div>

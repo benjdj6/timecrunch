@@ -93,10 +93,10 @@ app.controller('FoodCtrl', [
     ];
 
     $scope.sortOptions = [
+      "Category",
       "Name",
-      "Sell By Date",
       "Quantity",
-      "Category"
+      "Sell By Date"
     ];
 
     $scope.addFood = function() {
