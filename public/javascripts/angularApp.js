@@ -92,12 +92,7 @@ app.controller('FoodCtrl', [
       "Other-Produce"
     ];
 
-    $scope.sortOptions = [
-      "Category",
-      "Name",
-      "Quantity",
-      "Sell By Date"
-    ];
+    $scope.sortBy = "name"
 
     $scope.addFood = function() {
       if(!$scope.name || $scope.name == '') {

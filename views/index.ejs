@@ -64,8 +64,11 @@
             <div class="row">
               <div class="col-md-offset-9 col-md-3">
                 <label>Sort By: </label>
-                <select ng-model="sortOpt" ng-options="sortOpt for sortOpt in sortOptions">
-                  <option value="" disabled="disabled">--Select--</option>
+                <select ng-model="sortBy">
+                  <option value="category">Category</option>
+                  <option selected="true" value="name">Name</option>
+                  <option value="amount">Quantity/Weight</option>
+                  <option value="sellBy">Sell By Date</option>
                 </select>
               </div>
             </div>
@@ -75,7 +78,7 @@
               <div class="col-md-2"><b>Quantity/Weight (lbs)</b></div>
               <div class="col-md-3"><b>Category</b></div>
             </div>
-            <div ng-repeat="food in foods | orderBy: 'name'">
+            <div ng-repeat="food in foods | orderBy: sortBy">
               <div class="row food" ng-class-even="'even'" ng-class-odd="'odd'">
                 <div class="col-md-1">
                   <button class="btn-danger btn-xs" ng-click="removeFood(food)">Delete</button>
