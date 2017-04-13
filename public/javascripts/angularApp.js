@@ -97,10 +97,8 @@ app.controller('FoodCtrl', [
 
     $scope.filter = function() {
       return function(item) {
-        if($scope.filterCat == "") {
-          return true;
-        }
-        else if($scope.filterCat == item.category) {
+        if($scope.filterCat == "" || !$scope.filterCat
+          || $scope.filterCat == item.category) {
           return true;
         }
         return false;
