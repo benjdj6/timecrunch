@@ -84,7 +84,7 @@
               <div class="col-md-2"><b>Quantity/Weight (lbs)</b></div>
               <div class="col-md-3"><b>Category</b></div>
             </div>
-            <div ng-repeat="food in foods | orderBy: sortBy">
+            <div ng-repeat="food in foods | filter: filter() | orderBy: sortBy">
               <div class="row food" ng-class-even="'even'" ng-class-odd="'odd'">
                 <div class="col-md-1">
                   <button class="btn-danger btn-xs" ng-click="removeFood(food)">Delete</button>
