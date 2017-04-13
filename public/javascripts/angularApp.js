@@ -92,7 +92,17 @@ app.controller('FoodCtrl', [
       "Other-Produce"
     ];
 
-    $scope.sortBy = "name"
+    $scope.sortBy = "name";
+    $scope.filterCat = "";
+
+    $scope.filter = function() {
+      return function(item) {
+        if($scope.filterCat == item.category) {
+          return true;
+        }
+        return false;
+      };
+    };
 
     $scope.addFood = function() {
       if(!$scope.name || $scope.name == '') {
