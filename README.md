@@ -6,6 +6,4 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Change sort to clicking on name of category
 
-* Implement filter by category
-
 * Change delete to checkboxes
