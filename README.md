@@ -4,6 +4,10 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Create recipe submit form
+
+* Create recipe list
+
 * Change sort to clicking on name of category
 
 * Change delete to checkboxes
