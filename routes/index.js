@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 router.param('food', function(req, res, next, id) {
     var query = Food.findById(id);
 
-    query.exec(function (err, food){
+    query.exec(function (err, food) {
         if (err) { return next(err); }
         if (!food) { return next(new Error('can\'t find food')); }
 
@@ -53,6 +53,16 @@ router.delete('/food/:food', function(req, res, next) {
         }
         res.sendStatus(204);
     }); 
+});
+
+//GET all recipes
+router.get('/recipes', function(req, res, next) {
+    Recipe.find(function(err, recipe) {
+        if(err) {
+            return next(err);
+        }
+        res.json(recipe);
+    });
 });
 
 module.exports = router;
