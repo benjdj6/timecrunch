@@ -55,9 +55,21 @@ router.delete('/food/:food', function(req, res, next) {
     }); 
 });
 
-//GET all recipes
+// GET all recipes
 router.get('/recipes', function(req, res, next) {
     Recipe.find(function(err, recipe) {
+        if(err) {
+            return next(err);
+        }
+        res.json(recipe);
+    });
+});
+
+// POST recipe
+router.post('/recipes', function(req, res, next) {
+    var recipe = new Recipe(req.body);
+
+    recipe.save(function(err, recipe) {
         if(err) {
             return next(err);
         }
