@@ -61,6 +61,12 @@ app.factory('recipes', ['$http', function($http) {
     recipes: []
   };
 
+  o.getAll = function() {
+    return $http.get('/recipes').then(function(data) {
+      angular.copy(data.data, o.recipes);
+    });
+  };
+
   return o;
 }]);
 
