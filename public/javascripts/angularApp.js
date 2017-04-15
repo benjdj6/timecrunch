@@ -66,6 +66,12 @@ app.factory('recipes', ['$http', function($http) {
     });
   };
 
+  o.create = function(recipe) {
+    return $http.post('/recipes', recipe).then(function(data) {
+      o.getAll();
+    });
+  };
+
   return o;
 }]);
 
