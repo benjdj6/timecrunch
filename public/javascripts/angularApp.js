@@ -144,6 +144,20 @@ app.controller('RecipesCtrl', [
   'recipes',
   function($scope, recipes){
     $scope.recipes = recipes.recipes;
+
+    $scope.addRecipe = function() {
+      if(!$scope.name || $scope.name == '' || !$scope.ingredients) {
+        alert("Please make sure all fields are filled out");
+        return;
+      }
+
+      recipes.create({
+        name: $scope.name,
+        ingredients: $scope.ingredients,
+        prepTime: $scope.prepTime,
+        instructions: $scope.instructions
+      });
+    };
 }]);
 
 // Controller for dashboard on home/index
