@@ -4,8 +4,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
-* Create recipe submit form
-
 * Create recipe list
 
 * Make all food names/ingredients same case
