@@ -107,8 +107,21 @@
           <p><a href="#">Add New Recipe</a></p>
           <p><a href="#">Delete Selected</a></p>
         </div>
-        <div class="col-md-9 offset-md-1 recipelist">
-          Recipe list
+        <div class="col-md-9 offset-md-1">
+          <div class="row addrecipe">
+            <form ng-submit="addRecipe();">
+              <label>Name: </label>
+              <input type="text" placeholder="Pizza" ng-model="name"/>
+              <label>Ingredients (comma separated): </label>
+              <input type="text" placeholder="Flour, Mozzarella, Water..." ng-model="ingredients"/>
+              <label>Preparation Time (minutes): </label>
+              <input type="number" placeholder="30" ng-model="prepTime"/>
+              <label>Instructions (link to website): </label>
+              <input type="url" placeholder="http://www.food.com/" ng-model="instructions"/>
+
+              <button type="submit" class="btn btn-primary">Add Recipe</button>    
+            </form>
+          </div>
         </div>
       </div>
     </script>
