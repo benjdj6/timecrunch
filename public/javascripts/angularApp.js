@@ -42,7 +42,6 @@ app.factory('foods', ['$http', function($http) {
 
   o.create = function(food) {
     return $http.post('/food', food).then(function(data) {
-      o.foods.push(data);
       o.getAll();
     });
   };
