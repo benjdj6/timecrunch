@@ -23,7 +23,12 @@ function($stateProvider, $urlRouterProvider) {
     .state('recipes', {
       url: '/recipes',
       templateUrl: '/recipes.html',
-      controller: 'RecipesCtrl'
+      controller: 'RecipesCtrl',
+      resolve: {
+        recipePromise: ['recipes', function(recipes) {
+            return recipes.getAll();
+        }]
+      }
     });
 
   $urlRouterProvider.otherwise('home');
