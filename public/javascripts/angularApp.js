@@ -151,7 +151,8 @@ app.controller('RecipesCtrl', [
     $scope.recipes = recipes.recipes;
 
     $scope.addRecipe = function() {
-      if(!$scope.name || $scope.name == '' || !$scope.ingredients) {
+      if(!$scope.name || $scope.name == '' || !$scope.ingredients
+        || !$scope.instructions) {
         alert("Please make sure all fields are filled out");
         return;
       }
