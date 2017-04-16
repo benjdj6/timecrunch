@@ -4,7 +4,9 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
-* Create recipe list
+* Split ingredients into array
+
+* Display ingredients as string (not array)
 
 * Make all food names/ingredients same case
 
