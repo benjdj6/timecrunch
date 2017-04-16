@@ -157,9 +157,16 @@ app.controller('RecipesCtrl', [
         return;
       }
 
+      var ingredients = ($scope.ingredients).split(',');
+      for(i = 0; i < ingredients.length; ++i) {
+        while(ingredients[i].charAt(0) == " ") {
+          ingredients[i] = ingredients[i].slice(1, ingredients[i].length);
+        }
+      }
+
       recipes.create({
         name: $scope.name,
-        ingredients: $scope.ingredients,
+        ingredients: ingredients,
         prepTime: $scope.prepTime,
         instructions: $scope.instructions
       });
