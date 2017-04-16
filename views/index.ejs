@@ -122,6 +122,20 @@
               <button type="submit" class="btn btn-primary">Add Recipe</button>    
             </form>
           </div>
+          <div class="row recipelist">
+            <div class="col-md-4"><b>Name</b></div>
+            <div class="col-md-2"><b>Ingredients</b></div>
+            <div class="col-md-2"><b>Prep Time</b></div>
+            <div class="col-md-3"><b>Instructions</b></div>
+          </div>
+          <div ng-repeat="recipe in recipes">
+            <div class="row recipe" ng-class-even="'even'" ng-class-odd="'odd'">
+              <div class="col-md-4"><b>{{recipe.name}}</b></div>
+              <div class="col-md-2">{{recipe.ingredients}}</div>
+              <div class="col-md-2">{{recipe.prepTime}}</div>
+              <div class="col-md-3">{{recipe.instructions}}</div>
+            </div>
+          </div>
         </div>
       </div>
     </script>
