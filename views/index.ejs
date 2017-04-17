@@ -131,7 +131,7 @@
           <div ng-repeat="recipe in recipes">
             <div class="row recipe" ng-class-even="'even'" ng-class-odd="'odd'">
               <div class="col-md-4"><b>{{recipe.name}}</b></div>
-              <div class="col-md-2">{{recipe.ingredients}}</div>
+              <div class="col-md-2">{{buildString(recipe.ingredients)}}</div>
               <div class="col-md-2">{{recipe.prepTime}}</div>
               <div class="col-md-3">{{recipe.instructions}}</div>
             </div>
