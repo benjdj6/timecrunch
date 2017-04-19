@@ -176,6 +176,8 @@ app.controller('RecipesCtrl', [
         prepTime: $scope.prepTime,
         instructions: $scope.instructions
       });
+
+      $state.go('recipes');
     };
 
     $scope.buildString = function(ingredients) {
@@ -187,7 +189,6 @@ app.controller('RecipesCtrl', [
     };
 
     $scope.recipeform = function() {
-      console.log('here');
       $state.go('recipeform');
     };
 }]);
