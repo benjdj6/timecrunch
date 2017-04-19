@@ -8,9 +8,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('./models/Foods');
 require('./models/Recipes');
+require('./models/Users');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 
 mongoose.connect('mongodb://localhost/timecrunch');
 
@@ -29,7 +29,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

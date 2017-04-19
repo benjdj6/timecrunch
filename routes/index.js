@@ -4,6 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Food = mongoose.model('Food');
 var Recipe = mongoose.model('Recipe');
+var User = mongoose.model('User');
 
 // GET home page.
 router.get('/', function(req, res, next) {
