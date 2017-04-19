@@ -29,6 +29,11 @@ function($stateProvider, $urlRouterProvider) {
             return recipes.getAll();
         }]
       }
+    })
+    .state('recipeform', {
+      url: '/recipeform',
+      templateUrl: '/recipeform.html',
+      controller: 'RecipesCtrl'
     });
 
   $urlRouterProvider.otherwise('home');
@@ -146,8 +151,9 @@ app.controller('FoodCtrl', [
 // Controller for dashboard on home/index
 app.controller('RecipesCtrl', [
   '$scope',
+  '$state',
   'recipes',
-  function($scope, recipes){
+  function($scope, $state, recipes){
     $scope.recipes = recipes.recipes;
 
     $scope.addRecipe = function() {
@@ -178,6 +184,11 @@ app.controller('RecipesCtrl', [
         result = result.concat(", " + ingredients[i]);
       }
       return result;
+    };
+
+    $scope.recipeform = function() {
+      console.log('here');
+      $state.go('recipeform');
     };
 }]);
 
