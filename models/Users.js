@@ -13,4 +13,10 @@ UserSchema.methods.setPassword = function(password) {
     this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
 };
 
+UserSchema.methods.validPassword = function(password) {
+    var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+
+    return this.hash === hash;
+};
+
 mongoose.model('User', UserSchema);
