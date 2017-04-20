@@ -168,6 +168,9 @@ app.controller('RecipesCtrl', [
         while(ingredients[i].charAt(0) == " ") {
           ingredients[i] = ingredients[i].slice(1, ingredients[i].length);
         }
+        while(ingredients[i].charAt(ingredients[i].length - 1) == " ") {
+          ingredients[i] = ingredients[i].slice(0, ingredients[i].length - 1);
+        }
       }
 
       recipes.create({
