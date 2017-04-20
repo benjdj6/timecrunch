@@ -191,6 +191,10 @@ app.controller('RecipesCtrl', [
     $scope.recipeform = function() {
       $state.go('recipeform');
     };
+
+    $scope.back = function() {
+      $state.go('recipes');
+    };
 }]);
 
 // Controller for dashboard on home/index
