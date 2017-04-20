@@ -165,12 +165,14 @@ app.controller('RecipesCtrl', [
 
       var ingredients = ($scope.ingredients).split(',');
       for(i = 0; i < ingredients.length; ++i) {
-        while(ingredients[i].charAt(0) == " ") {
-          ingredients[i] = ingredients[i].slice(1, ingredients[i].length);
+        ingredients[i] = ingredients[i].split(' ');
+        temp = ingredients[i][0];
+        for(j = 1; j < ingredients[i].length; ++j) {
+          if(ingredients[i][j] != "") {
+            temp = temp.concat(" " + ingredients[i][j]);
+          }
         }
-        while(ingredients[i].charAt(ingredients[i].length - 1) == " ") {
-          ingredients[i] = ingredients[i].slice(0, ingredients[i].length - 1);
-        }
+        ingredients[i] = temp;
       }
 
       recipes.create({
