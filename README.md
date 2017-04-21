@@ -4,6 +4,8 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Consolodate Food list and Recipe list under list controller
+
 * Separate templates into separate files
 
 * Improve ingredient entry to allow for amount
