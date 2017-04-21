@@ -263,15 +263,5 @@ app.controller('NavCtrl', [
   '$state',
   function($scope, $state){
     
-    $scope.home = function() {
-      $state.go('home');
-    };
-
-    $scope.food = function() {
-      $state.go('food');
-    };
-
-    $scope.recipes = function() {
-      $state.go('recipes');
-    };
+    //Temp empty
 }]);
