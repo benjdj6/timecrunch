@@ -34,6 +34,11 @@ function($stateProvider, $urlRouterProvider) {
       url: '/recipeform',
       templateUrl: '/recipeform.html',
       controller: 'RecipesCtrl'
+    })
+    .state('recipe/{id}', {
+      url: '/recipe',
+      templateUrl: '/recipe.html',
+      controller: 'RecipesCtrl'
     });
 
   $urlRouterProvider.otherwise('home');
