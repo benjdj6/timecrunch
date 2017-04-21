@@ -31,12 +31,12 @@ function($stateProvider, $urlRouterProvider) {
       }
     })
     .state('recipeform', {
-      url: '/recipeform',
+      url: '/recipes/form',
       templateUrl: '/recipeform.html',
       controller: 'RecipesCtrl'
     })
-    .state('recipe/{id}', {
-      url: '/recipe',
+    .state('recipe', {
+      url: '/recipes/{id}',
       templateUrl: '/recipe.html',
       controller: 'RecipesCtrl'
     });
