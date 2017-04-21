@@ -8,6 +8,8 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Improve ingredient entry to allow for amount
 
+* Change ingredient entry to not be one single string
+
 * Implement Recipe detail page
 
 * Create user login
