@@ -13,7 +13,7 @@ function($stateProvider, $urlRouterProvider) {
     .state('food', {
       url: '/food',
       templateUrl: '/food.html',
-      controller: 'FoodCtrl',
+      controller: 'ListCtrl',
       resolve: {
         foodPromise: ['foods', function(foods) {
             return foods.getAll();
@@ -98,12 +98,15 @@ app.controller('DashCtrl', [
     $scope.foods = foods.foods; 
 }]);
 
-// Controller for dashboard on home/index
-app.controller('FoodCtrl', [
+// Controller for recipe and food lists
+app.controller('ListCtrl', [
   '$scope',
   'foods',
-  function($scope, foods){
+  'recipes',
+  function($scope, foods, recipes) {
+
     $scope.foods = foods.foods;
+    $scope.recipes = recipes.recipes;
 
     $scope.categories = [
       "Baking",
@@ -151,6 +154,7 @@ app.controller('FoodCtrl', [
     $scope.removeFood = function(food) {
       foods.delete(food);
     };
+
 }]);
 
 // Controller for dashboard on home/index
