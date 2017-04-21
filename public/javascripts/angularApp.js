@@ -206,55 +206,10 @@ app.controller('ListCtrl', [
 // Controller for dashboard on home/index
 app.controller('RecipesCtrl', [
   '$scope',
-  '$state',
+  'recipe',
   'recipes',
-  function($scope, $state, recipes){
-    $scope.recipes = recipes.recipes;
-
-    $scope.addRecipe = function() {
-      if(!$scope.name || $scope.name == '' || !$scope.ingredients
-        || !$scope.instructions) {
-        alert("Please make sure all fields are filled out");
-        return;
-      }
-
-      var ingredients = ($scope.ingredients).split(',');
-      for(i = 0; i < ingredients.length; ++i) {
-        ingredients[i] = ingredients[i].split(' ');
-        temp = ingredients[i][0];
-        for(j = 1; j < ingredients[i].length; ++j) {
-          if(ingredients[i][j] != "") {
-            temp = temp.concat(" " + ingredients[i][j]);
-          }
-        }
-        ingredients[i] = temp;
-      }
-
-      recipes.create({
-        name: $scope.name,
-        ingredients: ingredients,
-        prepTime: $scope.prepTime,
-        instructions: $scope.instructions
-      });
-
-      $state.go('recipes');
-    };
-
-    $scope.buildString = function(ingredients) {
-      var result = ingredients[0];
-      for(i = 1; i < ingredients.length; ++i) {
-        result = result.concat(", " + ingredients[i]);
-      }
-      return result;
-    };
-
-    $scope.recipeform = function() {
-      $state.go('recipeform');
-    };
-
-    $scope.back = function() {
-      $state.go('recipes');
-    };
+  function($scope, recipe, recipes){
+    $scope.recipe = recipe;
 }]);
 
 // Controller for dashboard on home/index
