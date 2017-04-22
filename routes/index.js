@@ -19,7 +19,20 @@ router.param('food', function(req, res, next, id) {
         if (err) { return next(err); }
         if (!food) { return next(new Error('can\'t find food')); }
 
-        req.food = food
+        req.food = food;
+        return next();
+    });
+});
+
+// Param function for selecting recipe objects
+router.param('recipe', function(req, res, next, id) {
+    var query = Recipe.findById(id);
+
+    query.exec(function (err, recipe) {
+        if (err) { return next(err); }
+        if (!recipe) { return next(new Error('can\'t find recipe')); }
+
+        req.recipe = recipe;
         return next();
     });
 });
