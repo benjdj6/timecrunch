@@ -205,6 +205,10 @@ app.controller('ListCtrl', [
       $state.go('recipes');
     };
 
+    $scope.removeRecipe = function(recipe) {
+      recipes.delete(recipe);
+    };
+
     $scope.buildString = function(ingredients) {
       var result = ingredients[0];
       for(i = 1; i < ingredients.length; ++i) {
