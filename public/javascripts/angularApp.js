@@ -101,6 +101,12 @@ app.factory('recipes', ['$http', function($http) {
     });
   };
 
+  o.delete = function(recipe) {
+    return $http.delete('/recipes/' + recipe._id).then(function(data) {
+      o.getAll();
+    });
+  };
+
   return o;
 }]);
 
