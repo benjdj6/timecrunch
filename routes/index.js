@@ -78,4 +78,14 @@ router.post('/recipes', function(req, res, next) {
     });
 });
 
+// DELETE recipe
+router.delete('/recipes/:recipe', function(req, res, next) {
+    Recipe.remove({_id: req.recipe}, function(err) {
+        if(err) {
+            res.send(err);
+        }
+        res.sendStatus(204);
+    });
+});
+
 module.exports = router;
