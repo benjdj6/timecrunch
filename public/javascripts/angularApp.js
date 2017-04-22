@@ -38,7 +38,12 @@ function($stateProvider, $urlRouterProvider) {
     .state('recipe', {
       url: '/recipes/{id}',
       templateUrl: '/recipe.html',
-      controller: 'RecipesCtrl'
+      controller: 'RecipesCtrl',
+      resolve: {
+        recipe: ['$stateParams', 'recipes', function($stateParams, recipes) {
+          return recipes.get($stateParams.id);
+        }]
+      }
     });
 
   $urlRouterProvider.otherwise('home');
@@ -79,6 +84,15 @@ app.factory('recipes', ['$http', function($http) {
     return $http.get('/recipes').then(function(data) {
       angular.copy(data.data, o.recipes);
     });
+  };
+
+  o.get = function(id) {
+    for(i = 0; i < o.recipes.length; ++i) {
+      console.log(i);
+      if(o.recipes[i]._id == id) {
+        return o.recipes[i];
+      }
+    }
   };
 
   o.create = function(recipe) {
