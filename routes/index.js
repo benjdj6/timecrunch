@@ -51,6 +51,14 @@ router.get('/food', function(req, res, next) {
 router.post('/food', function(req, res, next) {
     var food = new Food(req.body);
 
+    food.name = food.name.toLowerCase();
+    food.name = food.name.charAt(0).toUpperCase() + food.name.slice(1);
+    for(i = 1; i < food.name.length; ++i) {
+        if(food.name.charAt(i - 1) == " ") {
+            food.name = food.name.slice(0, i) + food.name.charAt(i).toUpperCase() + food.name.slice(i + 1);
+        }
+    }
+
     food.save(function(err, food){
         if(err) {
             return next(err);

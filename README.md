@@ -26,8 +26,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Create distinction between public/private recipes
 
-* Make all food names/ingredients same case
-
 * Change sort to clicking on name of category
 
 * Change delete to checkboxes
