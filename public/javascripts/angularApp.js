@@ -225,6 +225,14 @@ app.controller('RecipesCtrl', [
   'recipes',
   function($scope, recipe, recipes){
     $scope.recipe = recipe;
+
+    $scope.buildString = function(ingredients) {
+      var result = ingredients[0];
+      for(i = 1; i < ingredients.length; ++i) {
+        result = result.concat(", " + ingredients[i]);
+      }
+      return result;
+    };
 }]);
 
 // Controller for dashboard on home/index
