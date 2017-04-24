@@ -183,5 +183,13 @@
         </form>
       </div>
     </script>
+
+    <!-- Template for recipe details page -->
+    <script type="text/ng-template" id="/recipe.html">
+      <h2>{{recipe.name}}</h2>
+      <p><b>Time:</b> {{recipe.prepTime}}</p>
+      <p><b>Ingredients:</b> {{buildString(recipe.ingredients)}}</p>
+      <p><b>More info:</b> <a href="{{recipe.instructions}}">{{recipe.instructions}}</a></p>
+    </script>
   </body>
 </html>
