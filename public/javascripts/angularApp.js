@@ -88,7 +88,6 @@ app.factory('recipes', ['$http', function($http) {
 
   o.get = function(id) {
     for(i = 0; i < o.recipes.length; ++i) {
-      console.log(i);
       if(o.recipes[i]._id == id) {
         return o.recipes[i];
       }
