@@ -217,7 +217,7 @@ app.controller('ListCtrl', [
     };
 }]);
 
-// Controller for dashboard on home/index
+// Controller for recipe details page
 app.controller('RecipesCtrl', [
   '$scope',
   'recipe',
@@ -240,5 +240,5 @@ app.controller('NavCtrl', [
   '$state',
   function($scope, $state){
     
-    //Temp empty
+    //Temp empty will be populated with user related functions
 }]);
