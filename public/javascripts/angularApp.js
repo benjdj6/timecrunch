@@ -217,7 +217,7 @@ app.controller('ListCtrl', [
     };
 }]);
 
-// Controller for dashboard on home/index
+// Controller for recipe details page
 app.controller('RecipesCtrl', [
   '$scope',
   'recipe',
