@@ -188,7 +188,10 @@
     <script type="text/ng-template" id="/recipe.html">
       <h2>{{recipe.name}}</h2>
       <p><b>Time:</b> {{recipe.prepTime}}</p>
-      <p><b>Ingredients:</b> {{buildString(recipe.ingredients)}}</p>
+      <p><b>Ingredients:</b></p>
+      <div ng-repeat="ingredient in recipe.ingredients">
+        <p>{{ingredient}}</p>
+      </div>
       <p><b>More info:</b> <a href="{{recipe.instructions}}">{{recipe.instructions}}</a></p>
     </script>
   </body>
