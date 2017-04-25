@@ -127,6 +127,7 @@ app.controller('ListCtrl', [
 
     $scope.foods = foods.foods;
     $scope.recipes = recipes.recipes;
+    $scope.ingredients = [];
 
     $scope.categories = [
       "Baking",
@@ -206,6 +207,12 @@ app.controller('ListCtrl', [
 
     $scope.removeRecipe = function(recipe) {
       recipes.delete(recipe);
+    };
+
+    $scope.addIngredient = function() {
+      var ing = $scope.ing_name.concat(" " + $scope.ing_amount +
+        $scope.ing_unit);
+        ($scope.ingredients).push(ing);
     };
 
     $scope.buildString = function(ingredients) {
