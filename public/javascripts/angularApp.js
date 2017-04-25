@@ -240,5 +240,5 @@ app.controller('NavCtrl', [
   '$state',
   function($scope, $state){
     
-    //Temp empty
+    //Temp empty will be populated with user related functions
 }]);
