@@ -121,7 +121,7 @@
           <div ng-repeat="recipe in recipes">
             <div class="row recipe" ng-class-even="'even'" ng-class-odd="'odd'">
               <div class="col-md-1">
-                <button class="btn-danger btn-xs" ng-click="removeRecipe(recipe)">Delete</button>
+                <button class="btn-danger btn-xs" ng-click="removeRecipe(recipe);">Delete</button>
               </div>
               <div class="col-md-4">
                 <a ui-sref="recipe({id: recipe._id})"><b>{{recipe.name}}</b></a>
@@ -149,10 +149,21 @@
           </div>
           <div class="row">
             <div class="col-md-3">
-              <label><p>Ingredients (comma separated): </p></label>
+              <label><p>Ingredients: </p></label>
             </div>
-            <div class="col-md-9">
-              <input type="text" placeholder="Flour, Mozzarella, Water..." ng-model="ingredients"/>
+            <div class="col-md-2">
+              <input type="text" placeholder="Cumin" ng-model="ing_name"/>
+            </div>
+            <div class="col-md-2">
+              <label>Amount: </label>
+              <input type="text" placeholder="1" size="4" ng-model="ing_amount"/>
+            </div>
+            <div class="col-md-2">
+              <label>Unit: </label>
+              <input type="text" placeholder="g" size="4" ng-model="ing_unit"/>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-xs btn-primary" ng-click="addIngredient();">Add Ingredient</button>
             </div>
           </div>
           <div class="row">
