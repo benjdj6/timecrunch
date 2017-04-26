@@ -147,6 +147,13 @@
               <input type="text" placeholder="Pizza" ng-model="name"/>
             </div>
           </div>
+          <div ng-repeat="ingredient in ingredients">
+            <div class="row">
+              <div class="col-md-3">
+                <p>{{ingredient}}</p>
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-3">
               <label><p>Ingredients: </p></label>
