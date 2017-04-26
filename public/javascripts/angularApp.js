@@ -127,6 +127,7 @@ app.controller('ListCtrl', [
 
     $scope.foods = foods.foods;
     $scope.recipes = recipes.recipes;
+    $scope.ingredients = [];
 
     $scope.categories = [
       "Baking",
@@ -182,21 +183,9 @@ app.controller('ListCtrl', [
         return;
       }
 
-      var ingredients = ($scope.ingredients).split(',');
-      for(i = 0; i < ingredients.length; ++i) {
-        ingredients[i] = ingredients[i].split(' ');
-        temp = ingredients[i][0];
-        for(j = 1; j < ingredients[i].length; ++j) {
-          if(ingredients[i][j] != "") {
-            temp = temp.concat(" " + ingredients[i][j]);
-          }
-        }
-        ingredients[i] = temp;
-      }
-
       recipes.create({
         name: $scope.name,
-        ingredients: ingredients,
+        ingredients: $scope.ingredients,
         prepTime: $scope.prepTime,
         instructions: $scope.instructions
       });
@@ -206,6 +195,13 @@ app.controller('ListCtrl', [
 
     $scope.removeRecipe = function(recipe) {
       recipes.delete(recipe);
+    };
+
+    $scope.addIngredient = function() {
+      var ing = $scope.ing_name.concat(" " + $scope.ing_amount +
+        " " + $scope.ing_unit);
+      ($scope.ingredients).push(ing);
+      console.log($scope.ingredients);
     };
 
     $scope.buildString = function(ingredients) {
