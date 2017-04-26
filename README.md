@@ -4,6 +4,8 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Make recipe form prettier
+
 * Add edit button to recipe detail page
 
 * Format ingredients on details page to be more table/list like
@@ -13,10 +15,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 * Implement pagination
 
 * Separate templates into separate files
-
-* Improve ingredient entry to allow for amount
-
-* Change ingredient entry to not be one single string
 
 * Create user login
 
