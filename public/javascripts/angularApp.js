@@ -200,7 +200,12 @@ app.controller('ListCtrl', [
     $scope.addIngredient = function() {
       var ing = $scope.ing_name.concat(" " + $scope.ing_amount +
         " " + $scope.ing_unit);
-      ($scope.ingredients).push(ing);
+      if($scope.ingredients.indexOf(ing) > -1) {
+        alert("Duplicate ingredients! Please change your entry.");
+      }
+      else {
+        ($scope.ingredients).push(ing);
+      }
     };
 
     $scope.removeIngredient = function(ingredient) {
