@@ -6,6 +6,10 @@ a {
   color: #00B7FF;
 }
 
+.ingredient {
+  padding-bottom: 5px;
+}
+
 .even {
   background-color: #ABEBC6;
 }
