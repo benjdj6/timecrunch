@@ -201,7 +201,6 @@ app.controller('ListCtrl', [
       var ing = $scope.ing_name.concat(" " + $scope.ing_amount +
         " " + $scope.ing_unit);
       ($scope.ingredients).push(ing);
-      console.log($scope.ingredients);
     };
 
     $scope.buildString = function(ingredients) {
