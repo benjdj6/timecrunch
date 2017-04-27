@@ -203,6 +203,16 @@ app.controller('ListCtrl', [
       ($scope.ingredients).push(ing);
     };
 
+    $scope.removeIngredient = function(ingredient) {
+      if($scope.ingredients.length == 1) {
+        $scope.ingredients = [];
+      }
+      else {
+        var i = $scope.ingredients.indexOf(ingredient);
+        $scope.ingredients = $scope.ingredients.splice(i, 1);
+      }
+    };
+
     $scope.buildString = function(ingredients) {
       var result = ingredients[0];
       for(i = 1; i < ingredients.length; ++i) {
