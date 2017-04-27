@@ -148,9 +148,12 @@
             </div>
           </div>
           <div ng-repeat="ingredient in ingredients">
-            <div class="row">
-              <div class="col-md-3">
-                <p>{{ingredient}}</p>
+            <div class="row ingredient">
+              <div class="col-md-2 col-md-offset-3">
+                {{ingredient}}
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="btn-danger btn-xs" ng-click="removeIngredient(ingredient);">Remove</button>
               </div>
             </div>
           </div>
