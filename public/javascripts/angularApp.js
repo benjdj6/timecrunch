@@ -214,7 +214,7 @@ app.controller('ListCtrl', [
       }
       else {
         var i = $scope.ingredients.indexOf(ingredient);
-        $scope.ingredients = $scope.ingredients.splice(i, 1);
+        $scope.ingredients.splice(i, 1);
       }
     };
 
