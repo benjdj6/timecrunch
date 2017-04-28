@@ -111,9 +111,9 @@
             <p><a href="#">Delete Selected</a></p>
           </div>
         </div>
+        <div class="col-md-9">
           <div class="row recipelist">
-            <div class="col-md-4 col-md-offset-1"><b>Name</b></div>
-            <div class="col-md-2"><b>Ingredients</b></div>
+            <div class="col-md-3 col-md-offset-1"><b>Name</b></div>
             <div class="col-md-2"><b>Prep Time</b></div>
             <div class="col-md-3"><b>Instructions</b></div>
           </div>
@@ -122,10 +122,9 @@
               <div class="col-md-1">
                 <button class="btn-danger btn-xs" ng-click="removeRecipe(recipe);">Delete</button>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <a ui-sref="recipe({id: recipe._id})"><b>{{recipe.name}}</b></a>
               </div>
-              <div class="col-md-2">{{buildString(recipe.ingredients)}}</div>
               <div class="col-md-2">{{recipe.prepTime}}</div>
               <div class="col-md-3">{{recipe.instructions}}</div>
             </div>
