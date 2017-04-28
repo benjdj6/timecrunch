@@ -4,8 +4,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
-* Remove ingredients from recipes list
-
 * Make recipe form prettier
 
 * Add edit button to recipe detail page
