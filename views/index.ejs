@@ -79,10 +79,10 @@
               </div>
             </div>
             <div class="row foodlist">
-              <div class="col-md-4 col-md-offset-1"><b>Name</b></div>
-              <div class="col-md-2"><b>Sell By Date</b></div>
-              <div class="col-md-2"><b>Quantity/Weight (lbs)</b></div>
-              <div class="col-md-3"><b>Category</b></div>
+              <div class="col-md-4 col-md-offset-1" ng-click="sortBy='name'"><b>Name</b></div>
+              <div class="col-md-2" ng-click="sortBy='sellBy'"><b>Sell By Date</b></div>
+              <div class="col-md-2" ng-click="sortBy='amount'"><b>Quantity/Weight (lbs)</b></div>
+              <div class="col-md-3" ng-click="sortBy='category'"><b>Category</b></div>
             </div>
             <div ng-repeat="food in foods | filter: filter() | orderBy: sortBy">
               <div class="row food" ng-class-even="'even'" ng-class-odd="'odd'">
