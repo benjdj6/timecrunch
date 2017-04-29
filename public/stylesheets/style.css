@@ -22,7 +22,7 @@ a {
   background-color: #D5F5E3;
 }
 
-.food:hover {
+.even:hover, .odd:hover {
   background-color: #589D76;
   color: white;
 }
