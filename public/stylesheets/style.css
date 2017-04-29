@@ -6,6 +6,10 @@ a {
   color: #00B7FF;
 }
 
+.addfood {
+  padding-bottom: 5px;
+}
+
 .ingredient {
   padding-bottom: 5px;
 }
