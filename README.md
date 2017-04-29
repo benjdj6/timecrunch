@@ -4,6 +4,8 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Update food entry to allow units
+
 * Allow recipes to be sorted by name or time
 
 * Make recipe form prettier
