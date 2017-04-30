@@ -2,12 +2,12 @@ body {
   font: 14px 'Lato', Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+  background-color: #000066;
 }
 
-li {
-  color: #35D649;
+.navbar-nav, .navbar-nav a {
+  color: white;
 }
 
 .addfood {
