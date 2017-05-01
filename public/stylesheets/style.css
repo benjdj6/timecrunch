@@ -19,15 +19,13 @@ html, body, .container-fluid {
   padding-bottom: 5px;
 }
 
-.even {
-  background-color: #ABEBC6;
+.food, .recipe {
+  background-color: #ffffff;
+  border-bottom: thin solid;
+  margin-bottom: 2px;
 }
 
-.odd {
-  background-color: #D5F5E3;
-}
-
-.even:hover, .odd:hover {
-  background-color: #589D76;
+.food:hover, .recipe:hover {
+  background-color: #000066;
   color: white;
 }
