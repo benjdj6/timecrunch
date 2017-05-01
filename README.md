@@ -4,6 +4,8 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Fix positioning of links in navbar
+
 * Implement "active" classes for appropriate navbar links
 
 * Update food entry to allow units
@@ -31,7 +33,5 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 * Implement recipe favorite button
 
 * Create distinction between public/private recipes
-
-* Change sort to clicking on name of category
 
 * Change delete to checkboxes
