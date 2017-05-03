@@ -7,7 +7,7 @@ html, body, .container-fluid {
   background-color: #000066;
 }
 
-.navbar-nav, .navbar-nav a {
+.navbar-nav, .navbar-nav a, .navbar-header a, .navbar-header a:hover {
   color: white;
 }
 
