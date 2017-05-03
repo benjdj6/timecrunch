@@ -8,7 +8,7 @@ var User = mongoose.model('User');
 
 // GET home page.
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Time Crunch' });
+    res.render('index', { title: 'time crunch' });
 });
 
 // Param function for selecting food objects
