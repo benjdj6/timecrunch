@@ -171,6 +171,7 @@ app.controller('ListCtrl', [
         name: $scope.name,
         sellBy: $scope.sellBy,
         amount: $scope.amount,
+        units: $scope.units,
         category: $scope.category
       });
     };
