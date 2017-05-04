@@ -209,7 +209,7 @@ app.controller('ListCtrl', [
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
       // Build the ingredient string
-      var ing = $scope.ing_name.concat(" " + $scope.ing_amount);
+      var ing = $scope.ing_name.concat(" - " + $scope.ing_amount);
       if($scope.ing_unit) {
         ing = ing.concat(" " + $scope.ing_unit);
       }
