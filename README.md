@@ -6,8 +6,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Implement "active" classes for appropriate navbar links
 
-* Allow recipes to be sorted by name or time
-
 * Make recipe form prettier
 
 * Add edit button to recipe detail page
