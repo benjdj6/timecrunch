@@ -33,3 +33,7 @@ input[type=number]{
   background-color: #000066;
   color: white;
 }
+
+.title-row {
+  padding-bottom: 5px;
+}
