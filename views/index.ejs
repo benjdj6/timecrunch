@@ -53,8 +53,10 @@
                   <input type="text" placeholder="Lettuce" ng-model="name"/>
                   <label>Sell By: </label>
                   <input type="date" placeholder="YYYY-MM-DD" ng-model="sellBy" size="10"/>
-                  <label>Quantity/Weight(lbs): </label>
+                  <label>Quantity: </label>
                   <input type="number" placeholder="1" ng-model="amount"/>
+                  <label>Unit: </label>
+                  <input type="text" placeholder="g" ng-model="unit" size="3">
                   <label>Category: </label>
                   <select ng-model="category" ng-options="opt for opt in categories">
                     <option value="">None</option>
