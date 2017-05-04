@@ -209,8 +209,10 @@ app.controller('ListCtrl', [
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
       // Build the ingredient string
-      var ing = $scope.ing_name.concat(" " + $scope.ing_amount +
-        " " + $scope.ing_unit);
+      var ing = $scope.ing_name.concat(" " + $scope.ing_amount);
+      if($scope.ing_unit) {
+        ing = ing.concat(" " + $scope.ing_unit);
+      }
 
       // Check if the ingredient is a duplicate
       if($scope.ingredients.indexOf(ing) > -1) {
