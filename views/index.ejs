@@ -110,11 +110,11 @@
           </div>
           <div class="col-md-9">
             <div class="row recipelist">
-              <div class="col-md-3 col-md-offset-1"><b>Name</b></div>
-              <div class="col-md-2"><b>Prep Time</b></div>
+              <div class="col-md-3 col-md-offset-1" ng-click="sortBy='name'"><b>Name</b></div>
+              <div class="col-md-2" ng-click="sortBy='prepTime'"><b>Prep Time</b></div>
               <div class="col-md-3"><b>Instructions</b></div>
             </div>
-            <div ng-repeat="recipe in recipes">
+            <div ng-repeat="recipe in recipes | orderBy: sortBy">
               <div class="row recipe">
                 <div class="col-md-1">
                   <button class="btn-danger btn-xs" ng-click="removeRecipe(recipe);">Delete</button>
