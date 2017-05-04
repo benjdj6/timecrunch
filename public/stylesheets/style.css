@@ -5,21 +5,9 @@ html, body, .container-fluid {
 
 input[type=number]{
     width: 60px;
-} 
-
-.navbar {
-  background-color: #000066;
 }
 
-.navbar-nav, .navbar-nav a, .navbar-header a, .navbar-header a:hover {
-  color: white;
-}
-
-.addfood {
-  padding-bottom: 5px;
-}
-
-.ingredient {
+.addfood, .ingredient, .title-row {
   padding-bottom: 5px;
 }
 
@@ -34,6 +22,10 @@ input[type=number]{
   color: white;
 }
 
-.title-row {
-  padding-bottom: 5px;
+.navbar {
+  background-color: #000066;
+}
+
+.navbar-nav, .navbar-nav a, .navbar-header a, .navbar-header a:hover {
+  color: white;
 }
