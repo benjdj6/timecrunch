@@ -4,6 +4,12 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Default sort food by expiration then alpha
+
+* Filter recipes by only what user has ingredients for
+
+* Allow user to mark recipe as "made" subtract food from pantry
+
 * Implement "active" classes for appropriate navbar links
 
 * Make recipe form prettier
