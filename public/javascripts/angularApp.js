@@ -63,6 +63,8 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
       auth.saveToken(data.token);
     });
   };
+
+  return auth;
 }])
 
 app.factory('foods', ['$http', function($http) {
