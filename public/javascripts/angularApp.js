@@ -246,6 +246,24 @@ app.controller('RecipesCtrl', [
     // Temporarily empty
 }]);
 
+// Controller for logging in and registering
+app.controller('AuthCtrl', [
+  '$scope',
+  '$state',
+  'auth',
+  function($scope, $state, auth) {
+    $scope.user = {};
+
+    $scope.register = function() {
+      auth.register($scope.user).error(function(error) {
+        $scope.error = error;
+      }).then(function() {
+        // Go to dashboard once logged in
+        $state.go('home');
+      });
+    };
+}]);
+
 // Controller for dashboard on home/index
 app.controller('NavCtrl', [
   '$scope',
