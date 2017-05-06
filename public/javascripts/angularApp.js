@@ -49,6 +49,22 @@ function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('home');
 }]);
 
+app.factory('auth', ['$http', '$window', function($http, $window) {
+  var auth = {};
+
+  // save given token
+  auth.saveToken = function(token) {
+    $window.localStorage['flapper-news-token'] = token;
+  };
+
+  // register user
+  auth.register = function(user) {
+    return $http.post('/register', user).success(function(data) {
+      auth.saveToken(data.token);
+    });
+  };
+}])
+
 app.factory('foods', ['$http', function($http) {
   var o = {
     foods: []
