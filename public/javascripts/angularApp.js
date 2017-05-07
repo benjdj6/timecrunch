@@ -59,13 +59,18 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
 
   // save given token
   auth.saveToken = function(token) {
-    $window.localStorage['flapper-news-token'] = token;
+    $window.localStorage['time-crunch-token'] = token;
+  };
+
+  // get token from localStorage
+  auth.getToken = function() {
+    return $window.localStorage['time-crunch-token'];
   };
 
   // register user
   auth.register = function(user) {
-    return $http.post('/register', user).success(function(data) {
-      auth.saveToken(data.token);
+    return $http.post('/register', user).then(function(data) {
+      auth.saveToken(data.data.token);
     });
   };
 
@@ -278,9 +283,7 @@ app.controller('AuthCtrl', [
     $scope.user = {};
 
     $scope.register = function() {
-      auth.register($scope.user).error(function(error) {
-        $scope.error = error;
-      }).then(function() {
+      auth.register($scope.user).then(function() {
         // Go to dashboard once logged in
         $state.go('home');
       });
