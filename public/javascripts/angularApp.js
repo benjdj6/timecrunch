@@ -75,7 +75,7 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
   };
 
   return auth;
-}])
+}]);
 
 app.factory('foods', ['$http', function($http) {
   var o = {
