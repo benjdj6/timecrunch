@@ -44,6 +44,11 @@ function($stateProvider, $urlRouterProvider) {
           return recipes.get($stateParams.id);
         }]
       }
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: '/register.html',
+      controller: 'AuthCtrl'
     });
 
   $urlRouterProvider.otherwise('home');
