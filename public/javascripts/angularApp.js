@@ -74,6 +74,18 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
     });
   };
 
+  // login user save token
+  auth.logIn = function(user) {
+    return $http.post('/login', user).success(function(data) {
+      auth.saveToken(data.token);
+    });
+  };
+
+  // logout a user and delete token
+  auth.logOut = function() {
+    $window.localStorage.removeItem('flapper-news-token');
+  };
+
   return auth;
 }]);
 
