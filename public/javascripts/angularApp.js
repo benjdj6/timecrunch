@@ -98,7 +98,7 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
 
   // logout a user and delete token
   auth.logOut = function() {
-    $window.localStorage.removeItem('flapper-news-token');
+    $window.localStorage.removeItem('time-crunch-token');
   };
 
   // check if user is logged in
