@@ -4,6 +4,10 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* modify foods to have owners
+
+* modify recipes to have authors
+
 * Update forms to use bootstrap inputs
 
 * Default sort food by expiration then alpha
