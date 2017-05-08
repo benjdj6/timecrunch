@@ -353,8 +353,8 @@ app.controller('AuthCtrl', [
 // Controller for dashboard on home/index
 app.controller('NavCtrl', [
   '$scope',
-  '$state',
-  function($scope, $state){
+  'auth',
+  function($scope, auth){
     
-    //Temp empty will be populated with user related functions
+    $scope.isLoggedIn = auth.isLoggedIn();
 }]);
