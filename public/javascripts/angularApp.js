@@ -317,9 +317,19 @@ app.controller('AuthCtrl', [
   function($scope, $state, auth) {
     $scope.user = {};
 
+    // Registers a new user
     $scope.register = function() {
       auth.register($scope.user).then(function() {
         // Go to dashboard once logged in
+        $state.go('home');
+      });
+    };
+
+    // Starts a new login session
+    $scope.logIn = function() {
+      auth.logIn($scope.user).error(function(error) {
+        $scope.error = error;
+      }).then(function() {
         $state.go('home');
       });
     };
