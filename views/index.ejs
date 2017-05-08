@@ -23,6 +23,9 @@
           <li><a ui-sref="home">Home</a></li>
           <li><a ui-sref="food">Food</a></li>
           <li><a ui-sref="recipes">Recipes</a></li>
+          <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
+          <li ng-hide="isLoggedIn()"><a ui-sref="login">Log In</a></li>
+          <li ng-hide="isLoggedIn()"><a ui-sref="register">Register</a></li>
         </ul>
       </nav>
 
