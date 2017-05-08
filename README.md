@@ -30,8 +30,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Separate templates into separate files
 
-* Create user login
-
 * Restrict food and recipe creation to logged in users
 
 * Create favorite recipe function
