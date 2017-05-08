@@ -232,6 +232,31 @@
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
       </script>
+
+      <!-- Template for login page -->
+      <script type="text/ng-template" id="/login.html">
+        <div ng-show="error" class="alert alert-danger row">
+          <span>{{ error.message }}</span>
+        </div>
+
+        <form ng-submit="logIn()" style="margin-top:30px;">
+          <h3>Log In</h3>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <input type="text" class="form-control" placeholder="Username" ng-model="user.username"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-4">
+              <input type="password" class="form-control" placeholder="Password" ng-model="user.password"/>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+      </script>
     </div>
   </body>
 </html>
