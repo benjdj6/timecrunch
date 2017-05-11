@@ -127,7 +127,7 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
   return auth;
 }]);
 
-app.factory('foods', ['$http', function($http) {
+app.factory('foods', ['$http', 'auth', function($http, auth) {
   var o = {
     foods: []
   };
@@ -139,7 +139,9 @@ app.factory('foods', ['$http', function($http) {
   };
 
   o.create = function(food) {
-    return $http.post('/food', food).then(function(data) {
+    return $http.post('/food', food, {
+      headers: {Authorization: 'Bearer ' + auth.getToken()}
+    }).then(function(data) {
       o.getAll();
     });
   };
