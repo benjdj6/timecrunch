@@ -53,8 +53,9 @@ router.get('/food', function(req, res, next) {
 });
 
 // POST food
-router.post('/food', function(req, res, next) {
+router.post('/food', auth, function(req, res, next) {
   var food = new Food(req.body);
+  food.owner = req.payload.username;
 
   food.name = food.name.toLowerCase();
   food.name = food.name.charAt(0).toUpperCase() + food.name.slice(1);
