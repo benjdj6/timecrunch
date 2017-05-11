@@ -12,6 +12,9 @@ require('./models/Users');
 
 var index = require('./routes/index');
 
+var passport = require('passport');
+require('./config/passport');
+
 mongoose.connect('mongodb://localhost/timecrunch');
 
 var app = express();
@@ -29,6 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use(passport.initialize());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
