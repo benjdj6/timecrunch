@@ -155,7 +155,7 @@ app.factory('foods', ['$http', 'auth', function($http, auth) {
   return o;
 }]);
 
-app.factory('recipes', ['$http', function($http) {
+app.factory('recipes', ['$http', 'auth', function($http, auth) {
   var o = {
     recipes: []
   };
@@ -175,7 +175,9 @@ app.factory('recipes', ['$http', function($http) {
   };
 
   o.create = function(recipe) {
-    return $http.post('/recipes', recipe).then(function(data) {
+    return $http.post('/recipes', recipe, {
+      headers: {Authorization: 'Bearer ' + auth.getToken()}
+    }).then(function(data) {
       o.getAll();
     });
   };

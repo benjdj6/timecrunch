@@ -94,8 +94,9 @@ router.get('/recipes', function(req, res, next) {
 });
 
 // POST recipe
-router.post('/recipes', function(req, res, next) {
+router.post('/recipes', auth, function(req, res, next) {
   var recipe = new Recipe(req.body);
+  recipe.author = req.payload.username;
 
   recipe.save(function(err, recipe) {
     if(err) {

@@ -207,6 +207,7 @@
       <!-- Template for recipe details page -->
       <script type="text/ng-template" id="/recipe.html">
         <h2>{{recipe.name}}</h2>
+        <h4 ng-show="recipe.author">By: {{recipe.author}}</h4>
         <p><b>Time:</b> {{recipe.prepTime}}</p>
         <p><b>Ingredients:</b></p>
         <div ng-repeat="ingredient in recipe.ingredients">
