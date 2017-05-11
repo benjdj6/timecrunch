@@ -92,7 +92,7 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
   // login user save token
   auth.logIn = function(user) {
     return $http.post('/login', user).then(function(data) {
-      auth.saveToken(data.token);
+      auth.saveToken(data.data.token);
     });
   };
 
@@ -342,9 +342,7 @@ app.controller('AuthCtrl', [
 
     // Starts a new login session
     $scope.logIn = function() {
-      auth.logIn($scope.user).error(function(error) {
-        $scope.error = error;
-      }).then(function() {
+      auth.logIn($scope.user).then(function() {
         $state.go('home');
       });
     };
