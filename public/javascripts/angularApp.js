@@ -155,7 +155,7 @@ app.factory('foods', ['$http', 'auth', function($http, auth) {
   return o;
 }]);
 
-app.factory('recipes', ['$http', function($http) {
+app.factory('recipes', ['$http', 'auth', function($http, auth) {
   var o = {
     recipes: []
   };
