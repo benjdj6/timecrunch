@@ -6,8 +6,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Handle user/unauthorized errors more elegantly
 
-* Only show current user's food
-
 * modify recipes to have "link" or "instructions" fields for users generating original content
 
 * Update forms to use bootstrap inputs
