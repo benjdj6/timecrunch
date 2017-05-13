@@ -16,7 +16,7 @@ function($stateProvider, $urlRouterProvider) {
       controller: 'ListCtrl',
       resolve: {
         foodPromise: ['foods', function(foods) {
-            return foods.getAll();
+            return foods.getFood();
         }]
       }
     })
@@ -132,8 +132,10 @@ app.factory('foods', ['$http', 'auth', function($http, auth) {
     foods: []
   };
 
-  o.getAll = function() {
-    return $http.get('/food').then(function(data) {
+  o.getFood = function() {
+    return $http.get('/food', {
+      headers: {Authorization: 'Bearer ' + auth.getToken()}
+    }).then(function(data) {
       angular.copy(data.data, o.foods);
     });
   };
@@ -142,13 +144,13 @@ app.factory('foods', ['$http', 'auth', function($http, auth) {
     return $http.post('/food', food, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
-      o.getAll();
+      o.getFood();
     });
   };
 
   o.delete = function(food) {
     return $http.delete('/food/' + food._id).then(function(data) {
-      o.getAll();
+      o.getFood();
     });
   };
 
