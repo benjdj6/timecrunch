@@ -43,8 +43,8 @@ router.param('recipe', function(req, res, next, id) {
 });
 
 // GET all food
-router.get('/food', function(req, res, next) {
-  Food.find(function(err, food){
+router.get('/food', auth, function(req, res, next) {
+  Food.find({ 'owner': req.payload.username }, function(err, food){
     if(err){
       return next(err);
     }
