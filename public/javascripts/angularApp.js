@@ -127,17 +127,20 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
   return auth;
 }]);
 
-app.factory('foods', ['$http', 'auth', function($http, auth) {
+app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
   var o = {
     foods: []
   };
 
   o.getFood = function() {
-    return $http.get('/food', {
-      headers: {Authorization: 'Bearer ' + auth.getToken()}
-    }).then(function(data) {
-      angular.copy(data.data, o.foods);
-    });
+    if(auth.isLoggedIn()) {
+      return $http.get('/food', {
+        headers: {Authorization: 'Bearer ' + auth.getToken()}
+      }).then(function(data) {
+        angular.copy(data.data, o.foods);
+      });
+    }
+    $state.go('login');
   };
 
   o.create = function(food) {
