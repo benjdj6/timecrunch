@@ -354,8 +354,12 @@ app.controller('AuthCtrl', [
 
     // Starts a new login session
     $scope.logIn = function() {
-      auth.logIn($scope.user).then(function() {
+      auth.logIn($scope.user).then(function success() {
+        // Go to dashboard once logged in
         $state.go('home');
+      }, function failure(error) {
+        // Show error message
+        $scope.error = error.data;
       });
     };
 }]);
