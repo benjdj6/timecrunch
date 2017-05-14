@@ -140,8 +140,12 @@
             <span>{{ error.message }}</span>
         </div>
 
+        <div ng-hide="isLoggedIn()">
+            <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h3>
+        </div>
+
         <div class="row addrecipe">
-          <form ng-submit="addRecipe();">
+          <form ng-show="isLoggedIn()" ng-submit="addRecipe();">
             <div class="row">
               <div class="col-md-3">
                 <label><p>Name: </p></label>
