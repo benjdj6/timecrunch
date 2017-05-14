@@ -282,10 +282,13 @@ app.controller('ListCtrl', [
         ingredients: $scope.ingredients,
         prepTime: $scope.prepTime,
         instructions: $scope.instructions
+      }).then(function success() {
+        // Return to the recipe list
+        $state.go('recipes');
+      }, function failure(error) {
+        // Show error message
+        $scope.error = error.data;
       });
-
-      // Return to the recipe list
-      $state.go('recipes');
     };
 
     // Remove a recipe
