@@ -136,6 +136,10 @@
 
       <!--  Template for add recipe form -->
       <script type="text/ng-template" id="/recipeform.html">
+        <div ng-show="error" class="alert alert-danger row">
+            <span>{{ error.message }}</span>
+        </div>
+
         <div class="row addrecipe">
           <form ng-submit="addRecipe();">
             <div class="row">
