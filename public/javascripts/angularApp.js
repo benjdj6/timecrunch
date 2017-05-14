@@ -208,13 +208,15 @@ app.controller('DashCtrl', [
 app.controller('ListCtrl', [
   '$scope',
   '$state',
+  'auth',
   'foods',
   'recipes',
-  function($scope, $state, foods, recipes) {
+  function($scope, $state, auth, foods, recipes) {
 
     $scope.foods = foods.foods;
     $scope.recipes = recipes.recipes;
     $scope.ingredients = [];
+    $scope.isLoggedIn = auth.isLoggedIn;
 
     $scope.categories = [
       "Baking",
