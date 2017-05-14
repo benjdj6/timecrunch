@@ -343,9 +343,12 @@ app.controller('AuthCtrl', [
 
     // Registers a new user
     $scope.register = function() {
-      auth.register($scope.user).then(function() {
+      auth.register($scope.user).then(function success() {
         // Go to dashboard once logged in
         $state.go('home');
+      }, function failure(error) {
+        // Show error message
+        $scope.error = error.data;
       });
     };
 
