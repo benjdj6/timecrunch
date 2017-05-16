@@ -12,8 +12,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * change recipe form for better formatted instructions
 
-* update angularApp to support recipe link
-
 * Update forms to use bootstrap inputs
 
 * Default sort food by expiration then alpha
