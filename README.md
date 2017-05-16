@@ -8,6 +8,12 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Handle unauthorized errors more elegantly
 
+* change recipe form to allow link data
+
+* change recipe form for better formatted instructions
+
+* update angularApp to support recipe link
+
 * modify recipes to have "link" or "instructions" fields for users generating original content
 
 * Update forms to use bootstrap inputs
