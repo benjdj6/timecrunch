@@ -5,6 +5,7 @@ var RecipeSchema = new mongoose.Schema({
     author: String,
     ingredients: [{type: String}],
     prepTime: {type: Number, default: 30},
+    link: String,
     instructions: String
 });
 
