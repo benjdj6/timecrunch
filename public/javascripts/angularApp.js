@@ -283,6 +283,7 @@ app.controller('ListCtrl', [
         name: $scope.name,
         ingredients: $scope.ingredients,
         prepTime: $scope.prepTime,
+        link: $scope.link,
         instructions: $scope.instructions
       }).then(function success() {
         // Return to the recipe list
