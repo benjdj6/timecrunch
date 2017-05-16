@@ -45,6 +45,9 @@
 
       <!-- Template for food list -->
       <script type="text/ng-template" id="/food.html">
+        <div ng-hide="isLoggedIn()">
+            <h3>You need to <a ui-sref="login">Log In</a> or <a ui-sref="register">Register</a> before you can view and add food.</h3>
+        </div>
         <div class="row">
           <div class="row">
             <div class="col-md-2 sidebar">
