@@ -8,8 +8,6 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 * Handle unauthorized errors more elegantly
 
-* change recipe form for better formatted instructions
-
 * Update forms to use bootstrap inputs
 
 * Default sort food by expiration then alpha
