@@ -4,6 +4,8 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Reject recipes missing both instruction and link
+
 * Make recipe form cleaner with link/instructions toggle
 
 * Don't expose stack trace on prod
