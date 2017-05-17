@@ -232,7 +232,9 @@
         <div ng-repeat="ingredient in recipe.ingredients">
           <p>{{ingredient}}</p>
         </div>
-        <p><b>More info:</b> <a href="{{recipe.instructions}}">{{recipe.instructions}}</a></p>
+        <p ng-show="recipe.instructions"><b>Instructions:</b> {{recipe.instructions}}</p>
+
+        <p ng-show="recipe.link"><b>Link:</b> <a href="{{recipe.link}}">{{recipe.link}}</a></p>
       </script>
 
       <!-- Template for user registration page -->
