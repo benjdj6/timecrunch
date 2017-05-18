@@ -273,9 +273,13 @@ app.controller('ListCtrl', [
     // Add a new recipe
     $scope.addRecipe = function() {
       //Check that the recipe has a name, ingredients, and instructions
-      if(!$scope.name || $scope.name == '' || !$scope.ingredients
-        || !$scope.instructions) {
+      if(!$scope.name || $scope.name == '' || !$scope.ingredients) {
         alert("Please make sure all fields are filled out");
+        return;
+      }
+
+      if(!$scope.instructions && !$scope.link) {
+        alert("Please provide either instructions or a link to the full recipe");
         return;
       }
 
@@ -283,6 +287,7 @@ app.controller('ListCtrl', [
         name: $scope.name,
         ingredients: $scope.ingredients,
         prepTime: $scope.prepTime,
+        link: $scope.link,
         instructions: $scope.instructions
       }).then(function success() {
         // Return to the recipe list

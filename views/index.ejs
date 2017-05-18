@@ -196,10 +196,23 @@
             </div>
             <div class="row">
               <div class="col-md-3">
-                <label><p>Instructions (link to website): </p></label>
+                <input type="checkbox" ng-model="recipeLink"/><b> Link to Instructions</b>
+              </div>
+            </div>
+            <div class="row" ng-hide="recipeLink">
+              <div class="col-md-3">
+                <label><p>Instructions: </p></label>
               </div>
               <div class="col-md-9">
-                <input type="url" placeholder="http://www.food.com/" ng-model="instructions"/>
+                <textarea ng-model="instructions" cols="50" rows="10"></textarea>
+              </div>
+            </div>
+            <div class="row" ng-show="recipeLink">
+              <div class="col-md-3">
+                <label><p>Link: </p></label>
+              </div>
+              <div class="col-md-9">
+                <input type="url" placeholder="http://www.food.com/" ng-model="link"/>
               </div>
             </div>
 
@@ -224,7 +237,9 @@
         <div ng-repeat="ingredient in recipe.ingredients">
           <p>{{ingredient}}</p>
         </div>
-        <p><b>More info:</b> <a href="{{recipe.instructions}}">{{recipe.instructions}}</a></p>
+        <p ng-show="recipe.instructions"><b>Instructions:</b> {{recipe.instructions}}</p>
+
+        <p ng-show="recipe.link"><b>More info:</b> <a href="{{recipe.link}}">{{recipe.link}}</a></p>
       </script>
 
       <!-- Template for user registration page -->
