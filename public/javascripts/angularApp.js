@@ -335,7 +335,10 @@ app.controller('RecipesCtrl', [
   function($scope, recipe, recipes){
     $scope.recipe = recipe;
 
-    // Temporarily empty
+    $scope.deleteRecipe = function() {
+      recipes.delete(recipe);
+    }
+
 }]);
 
 // Controller for logging in and registering
