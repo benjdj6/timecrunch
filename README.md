@@ -28,6 +28,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * HTTPS support
 
+* Write "Concept/Purpose" section in README
+
 * Write "How to Use" documentation
 
 * Improve comments in angularapp
