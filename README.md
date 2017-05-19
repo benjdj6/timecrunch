@@ -4,6 +4,14 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 ## TODO
 
+* Write "Set Up" documentation
+
+* Write "How to Use" documentation
+
+* Improve comments in angularapp
+
+* Improve comments on templates
+
 * Don't expose stack trace on prod
 
 * Handle unauthorized errors more elegantly
