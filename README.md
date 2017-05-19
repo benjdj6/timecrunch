@@ -6,7 +6,7 @@ A webapp that keeps track of sell by dates of food in the user's fridge and pant
 
 #### Before Cloning
 
-Before following the rest of this setup you must install Node.js and npm. npm has provided some helpful instructions on how to do this that can be found [here](https://docs.npmjs.com/getting-started/installing-node)
+Before following the rest of this setup you must install Node.js and npm. npm has provided some helpful instructions on how to do this that can be found [here](https://docs.npmjs.com/getting-started/installing-node).
 
 #### Installation and Running
 
@@ -26,7 +26,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Write "Set Up" documentation
 
 * Write "How to Use" documentation
 
