@@ -117,20 +117,17 @@
           </div>
           <div class="col-md-9">
             <div class="row title-row">
-              <div class="col-md-3 col-md-offset-1" ng-click="sortBy='name'"><b>Name</b></div>
+              <div class="col-md-3" ng-click="sortBy='name'"><b>Name</b></div>
               <div class="col-md-2" ng-click="sortBy='prepTime'"><b>Prep Time</b></div>
-              <div class="col-md-3"><b>Instructions</b></div>
+              <div class="col-md-5"><b>Instructions</b></div>
             </div>
             <div ng-repeat="recipe in recipes | orderBy: sortBy">
               <div class="row recipe">
-                <div class="col-md-1">
-                  <button class="btn-danger btn-xs" ng-click="removeRecipe(recipe);">Delete</button>
-                </div>
                 <div class="col-md-3">
                   <a ui-sref="recipe({id: recipe._id})"><b>{{recipe.name}}</b></a>
                 </div>
                 <div class="col-md-2">{{recipe.prepTime}}</div>
-                <div class="col-md-3">{{recipe.instructions}}</div>
+                <div class="col-md-5">{{recipe.instructions}}</div>
               </div>
             </div>
           </div>
