@@ -330,13 +330,15 @@ app.controller('ListCtrl', [
 // Controller for recipe details page
 app.controller('RecipesCtrl', [
   '$scope',
+  '$state',
   'recipe',
   'recipes',
-  function($scope, recipe, recipes){
+  function($scope, $state, recipe, recipes){
     $scope.recipe = recipe;
 
     $scope.deleteRecipe = function() {
       recipes.delete(recipe);
+      $state.go('recipes');
     }
 
 }]);
