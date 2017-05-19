@@ -298,11 +298,6 @@ app.controller('ListCtrl', [
       });
     };
 
-    // Remove a recipe
-    $scope.removeRecipe = function(recipe) {
-      recipes.delete(recipe);
-    };
-
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
       // Build the ingredient string
