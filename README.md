@@ -26,6 +26,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
+* Design recipe categories
+
 * Implement upvotes/downvotes for recipes
 
 * Backend unit conversions
