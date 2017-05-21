@@ -42,8 +42,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Write "How to Use" documentation
 
-* Improve comments in angularapp
-
 * Improve comments on templates
 
 * Don't expose stack trace on prod
