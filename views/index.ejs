@@ -235,7 +235,7 @@
 
         <p ng-show="recipe.link"><b>More info:</b> <a href="{{recipe.link}}">{{recipe.link}}</a></p>
 
-        <button class="btn-danger btn-xs" ng-click="deleteRecipe(recipe);">Delete</button>
+        <button class="btn-danger btn-xs" ng-show="canEdit();" ng-click="deleteRecipe();">Delete</button>
       </script>
 
       <!-- Template for user registration page -->

@@ -336,7 +336,11 @@ app.controller('RecipesCtrl', [
   'auth',
   function($scope, $state, recipe, recipes, auth){
     $scope.recipe = recipe;
-    $scope.currentUser = auth.currentUser;
+    $scope.currentUser = auth.currentUser();
+
+    $scope.canEdit = function() {
+      return recipe.author == $scope.currentUser;
+    }
 
     $scope.deleteRecipe = function() {
       recipes.delete(recipe);
