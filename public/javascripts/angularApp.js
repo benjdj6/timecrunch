@@ -343,8 +343,13 @@ app.controller('RecipesCtrl', [
     }
 
     $scope.deleteRecipe = function() {
-      recipes.delete(recipe);
-      $state.go('recipes');
+      if($scope.canEdit()) {
+        recipes.delete(recipe);
+        $state.go('recipes');
+      }
+      else {
+        alert('You cannot delete this recipe!');
+      }
     }
 
 }]);
