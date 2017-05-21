@@ -69,6 +69,8 @@ function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('home');
 }]);
 
+// Factory for auth handling all authorization and
+// user id related functions
 app.factory('auth', ['$http', '$window', function($http, $window) {
   var auth = {};
 
@@ -127,6 +129,7 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
   return auth;
 }]);
 
+// Factory for foods handling all related functions
 app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
   var o = {
     foods: []
@@ -163,17 +166,20 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
   return o;
 }]);
 
+// Factory for recipes handling related functions
 app.factory('recipes', ['$http', 'auth', function($http, auth) {
   var o = {
     recipes: []
   };
 
+  // Get all recipes
   o.getAll = function() {
     return $http.get('/recipes').then(function(data) {
       angular.copy(data.data, o.recipes);
     });
   };
 
+  // Get a specific recipe
   o.get = function(id) {
     for(i = 0; i < o.recipes.length; ++i) {
       if(o.recipes[i]._id == id) {
@@ -182,6 +188,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
     }
   };
 
+  // Create a new recipe
   o.create = function(recipe) {
     return $http.post('/recipes', recipe, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
@@ -190,6 +197,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
     });
   };
 
+  // Delete a recipe
   o.delete = function(recipe) {
     return $http.delete('/recipes/' + recipe._id).then(function(data) {
       o.getAll();
