@@ -338,16 +338,21 @@ app.controller('RecipesCtrl', [
     $scope.recipe = recipe;
     $scope.currentUser = auth.currentUser();
 
+    // Determines if a user is allowed to edit this
+    // recipe
     $scope.canEdit = function() {
       return recipe.author == $scope.currentUser;
     }
 
+    // Deletes the recipe
     $scope.deleteRecipe = function() {
+      // Make sure user is authorized
       if($scope.canEdit()) {
         recipes.delete(recipe);
         $state.go('recipes');
       }
       else {
+        // If not allowed show an alert
         alert('You cannot delete this recipe!');
       }
     }
