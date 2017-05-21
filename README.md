@@ -66,8 +66,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Format ingredients on details page to be more table/list like
 
-* Restrict recipe deletion to creator
-
 * Implement pagination
 
 * Separate templates into separate files
