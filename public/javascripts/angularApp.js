@@ -333,6 +333,7 @@ app.controller('RecipesCtrl', [
   '$state',
   'recipe',
   'recipes',
+  'auth',
   function($scope, $state, recipe, recipes, auth){
     $scope.recipe = recipe;
     $scope.currentUser = auth.currentUser;
