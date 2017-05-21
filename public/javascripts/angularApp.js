@@ -132,6 +132,7 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
     foods: []
   };
 
+  // Load food list for the current user
   o.getFood = function() {
     if(auth.isLoggedIn()) {
       return $http.get('/food', {
@@ -143,6 +144,7 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
     $state.go('login');
   };
 
+  // Add a food to a user's food list
   o.create = function(food) {
     return $http.post('/food', food, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
@@ -151,6 +153,7 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
     });
   };
 
+  // Remove a food from a user's food list
   o.delete = function(food) {
     return $http.delete('/food/' + food._id).then(function(data) {
       o.getFood();
