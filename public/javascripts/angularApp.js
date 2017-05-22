@@ -32,7 +32,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('recipeform', {
       url: '/recipes/form',
-      templateUrl: '/recipeform.html',
+      templateUrl: '/templates/recipeform.html',
       controller: 'ListCtrl'
     })
     .state('recipe', {
