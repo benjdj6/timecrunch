@@ -242,7 +242,7 @@ app.controller('ListCtrl', [
       "Other-Produce"
     ];
 
-    $scope.sortBy = "name";
+    $scope.sortBy = ["sellBy", "name"];
     $scope.filterCat = "";
 
     $scope.filter = function() {

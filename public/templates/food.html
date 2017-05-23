@@ -23,9 +23,10 @@
             <option value="">None</option>
           </select>
 
-          <button type="submit" class="btn btn-primary">Add Food</button>    
+          <button type="submit" class="btn btn-primary">Add Food</button> 
         </form>
       </div>
+
       <div class="row">
         <div class="col-md-offset-9 col-md-3">
           <label>Filter Category: </label>
@@ -34,13 +35,15 @@
           </select>
         </div>
       </div>
+
       <div class="row title-row">
-        <div class="col-md-3 col-md-offset-1" ng-click="sortBy='name'"><b>Name</b></div>
-        <div class="col-md-2" ng-click="sortBy='sellBy'"><b>Sell By Date</b></div>
+        <div class="col-md-3 col-md-offset-1" ng-click="sortBy=['name', 'sellBy']"><b>Name</b></div>
+        <div class="col-md-2" ng-click="sortBy=['sellBy', 'name']"><b>Sell By Date</b></div>
         <div class="col-md-1" ng-click="sortBy='amount'"><b>Quantity</b></div>
         <div class="col-md-1"><b>Units</b></div>
         <div class="col-md-3 col-md-offset-1" ng-click="sortBy='category'"><b>Category</b></div>
       </div>
+
       <div ng-repeat="food in foods | filter: filter() | orderBy: sortBy">
         <div class="row food">
           <div class="col-md-1">
