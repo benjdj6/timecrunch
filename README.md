@@ -54,8 +54,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Update forms to use bootstrap inputs
 
-* Default sort food by expiration then alpha
-
 * Filter recipes by only what user has ingredients for
 
 * Allow user to mark recipe as "made" subtract food from pantry
