@@ -1,0 +1,58 @@
+<!-- Template for food list -->
+<div ng-hide="isLoggedIn()">
+  <h3>You need to <a ui-sref="login">Log In</a> or <a ui-sref="register">Register</a> before you can view and add food.</h3>
+</div>
+<div class="row">
+  <div class="row">
+    <div class="col-md-2 sidebar">
+      <p><a href="#">Delete Selected</a></p>
+    </div>
+    <div class="col-md-9">
+      <div class="row addfood">
+        <form ng-submit="addFood();">
+          <label>Name: </label>
+          <input type="text" placeholder="Lettuce" ng-model="name"/>
+          <label>Sell By: </label>
+          <input type="date" placeholder="YYYY-MM-DD" ng-model="sellBy" size="10"/>
+          <label>Quantity: </label>
+          <input type="number" placeholder="1" ng-model="amount" min="0" step="any"/>
+          <label>Unit: </label>
+          <input type="text" placeholder="g" ng-model="units" size="3">
+          <label>Category: </label>
+          <select ng-model="category" ng-options="opt for opt in categories">
+            <option value="">None</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary">Add Food</button>    
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-9 col-md-3">
+          <label>Filter Category: </label>
+          <select ng-model="filterCat" ng-options="cat for cat in categories">
+            <option value="">None</option>
+          </select>
+        </div>
+      </div>
+      <div class="row title-row">
+        <div class="col-md-3 col-md-offset-1" ng-click="sortBy='name'"><b>Name</b></div>
+        <div class="col-md-2" ng-click="sortBy='sellBy'"><b>Sell By Date</b></div>
+        <div class="col-md-1" ng-click="sortBy='amount'"><b>Quantity</b></div>
+        <div class="col-md-1"><b>Units</b></div>
+        <div class="col-md-3 col-md-offset-1" ng-click="sortBy='category'"><b>Category</b></div>
+      </div>
+      <div ng-repeat="food in foods | filter: filter() | orderBy: sortBy">
+        <div class="row food">
+          <div class="col-md-1">
+            <button class="btn-danger btn-xs" ng-click="removeFood(food)">Delete</button>
+          </div>
+          <div class="col-md-3"><b>{{food.name}}</b></div>
+          <div class="col-md-2" ng-bind="food.sellBy | date: 'MM/dd/yyyy'"></div>
+          <div class="col-md-1">{{food.amount}}</div>
+          <div class="col-md-1">{{food.units}}</div>
+          <div class="col-md-3 col-md-offset-1">{{food.category}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
