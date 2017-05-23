@@ -7,7 +7,7 @@ function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: '/home.html',
+      templateUrl: '/templates/home.html',
       controller: 'DashCtrl'
     })
     .state('food', {
