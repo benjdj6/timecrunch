@@ -1,0 +1,19 @@
+<!-- Template for user registration page -->
+<div ng-show="error" class="alert alert-danger row">
+  <span>{{ error.message }}</span>
+</div>
+
+<form ng-submit="register()" style="margin-top:30px;">
+  <h3>Register</h3>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <input type="text" class="form-control" placeholder="Username" ng-model="user.username"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <input type="password" class="form-control" placeholder="Password" ng-model="user.password"/>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
