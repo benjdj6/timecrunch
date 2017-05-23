@@ -1,0 +1,13 @@
+<!-- Template for recipe details page -->
+<h2>{{recipe.name}}</h2>
+<h4 ng-show="recipe.author">By: {{recipe.author}}</h4>
+<p><b>Time:</b> {{recipe.prepTime}}</p>
+<p><b>Ingredients:</b></p>
+<div ng-repeat="ingredient in recipe.ingredients">
+  <p>{{ingredient}}</p>
+</div>
+<p ng-show="recipe.instructions"><b>Instructions:</b> {{recipe.instructions}}</p>
+
+<p ng-show="recipe.link"><b>More info:</b> <a href="{{recipe.link}}">{{recipe.link}}</a></p>
+
+<button class="btn-danger btn-xs" ng-show="canEdit();" ng-click="deleteRecipe();">Delete</button>

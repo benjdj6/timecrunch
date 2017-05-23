@@ -37,7 +37,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('recipe', {
       url: '/recipes/{id}',
-      templateUrl: '/recipe.html',
+      templateUrl: '/templates/recipe.html',
       controller: 'RecipesCtrl',
       resolve: {
         recipe: ['$stateParams', 'recipes', function($stateParams, recipes) {
