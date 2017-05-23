@@ -22,7 +22,7 @@ function($stateProvider, $urlRouterProvider) {
     })
     .state('recipes', {
       url: '/recipes',
-      templateUrl: '/recipes.html',
+      templateUrl: '/templates/recipes.html',
       controller: 'ListCtrl',
       resolve: {
         recipePromise: ['recipes', function(recipes) {

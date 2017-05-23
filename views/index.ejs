@@ -42,33 +42,6 @@
           Dashboard
         </div>
       </script>
-
-      <!-- Template for recipe list -->
-      <script type="text/ng-template" id="/recipes.html">
-        <div class="row">
-          <div class="col-md-2 sidebar">
-            <div class="row">
-              <p ng-show="isLoggedIn()"><a ui-sref="recipeform">Add New Recipe</a></p>
-            </div>
-          </div>
-          <div class="col-md-9">
-            <div class="row title-row">
-              <div class="col-md-3" ng-click="sortBy='name'"><b>Name</b></div>
-              <div class="col-md-2" ng-click="sortBy='prepTime'"><b>Prep Time</b></div>
-              <div class="col-md-5"><b>Instructions</b></div>
-            </div>
-            <div ng-repeat="recipe in recipes | orderBy: sortBy">
-              <div class="row recipe">
-                <div class="col-md-3">
-                  <a ui-sref="recipe({id: recipe._id})"><b>{{recipe.name}}</b></a>
-                </div>
-                <div class="col-md-2">{{recipe.prepTime}}</div>
-                <div class="col-md-5">{{recipe.instructions}}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </script>
     </div>
   </body>
 </html>
