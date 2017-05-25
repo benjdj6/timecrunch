@@ -34,8 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Create recipe edit page
 
-* Implement recipe PUT route
-
 * Implement recipe edit function in factory
 
 * Allow user to update food amount values
