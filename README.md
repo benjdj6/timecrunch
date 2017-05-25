@@ -34,6 +34,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Create recipe edit page
 
+* Restrict recipe editing to original author
+
 * Allow user to update food amount values
 
 * Design recipe categories
