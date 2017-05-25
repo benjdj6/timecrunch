@@ -1,6 +1,10 @@
-# timecrunch - WIP
+# time crunch - WIP
 
 A webapp that keeps track of sell by dates of food in the user's fridge and pantry, and recommends recipes based on the food the user currently owns.
+
+## Concept/Premise
+
+time crunch is a web application for finding recipes that use your soon-to-expire food and help reduce your home's food waste. Users can add/share their own recipes or link to their favorite recipes hosted on other sites.
 
 ## Setup
 
