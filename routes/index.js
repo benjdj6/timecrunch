@@ -107,7 +107,7 @@ router.post('/recipes', auth, function(req, res, next) {
 });
 
 // PUT recipe
-router.put('/recipes/:recipe', function(req, res, next) {
+router.put('/recipes/:recipe', auth, function(req, res, next) {
   Recipe.update({_id: req.recipe}, {$set: req.body}, function(err) {
     if(err) {
       res.send(err);
