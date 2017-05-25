@@ -2,7 +2,7 @@
 
 A webapp that keeps track of sell by dates of food in the user's fridge and pantry, and recommends recipes based on the food the user currently owns.
 
-## Concept/Premise
+## Concept
 
 time crunch is a web application for finding recipes that use your soon-to-expire food and help reduce your home's food waste. Users can add/share their own recipes or link to their favorite recipes hosted on other sites.
 
@@ -47,8 +47,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 * Standardized unit inputs
 
 * HTTPS support
-
-* Write "Concept/Purpose" section in README
 
 * Write "How to Use" documentation
 
