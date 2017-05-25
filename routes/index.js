@@ -106,6 +106,16 @@ router.post('/recipes', auth, function(req, res, next) {
   });
 });
 
+// PUT recipe
+router.put('/recipes/:recipe', function(req, res, next) {
+  Recipe.update({_id: req.recipe}, {$set: req.body}, function(err) {
+    if(err) {
+      res.send(err);
+    }
+    res.sendStatus(204);
+  });
+});
+
 // DELETE recipe
 router.delete('/recipes/:recipe', function(req, res, next) {
   Recipe.remove({_id: req.recipe}, function(err) {
