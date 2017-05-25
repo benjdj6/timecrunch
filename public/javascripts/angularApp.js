@@ -197,6 +197,15 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
     });
   };
 
+  // Update a recipe
+  o.update = function(recipe) {
+    return $http.put('/recipes/' + recipe._id, recipe, {
+      headers: {Authorization: 'Bearer ' auth.getToken()}
+    }).then(function(data) {
+      o.getAll();
+    });
+  };
+
   // Delete a recipe
   o.delete = function(recipe) {
     return $http.delete('/recipes/' + recipe._id).then(function(data) {
