@@ -362,6 +362,38 @@ app.controller('RecipesCtrl', [
     $scope.canEdit = function() {
       return recipe.author == auth.currentUser();
     };
+
+    // Remove an ingredient from a recipe
+    $scope.removeIngredient = function(ingredient) {
+      if($scope.recipe.ingredients.length == 1) {
+        $scope.recipe.ingredients = [];
+      }
+      else {
+        var i = $scope.recipe.ingredients.indexOf(ingredient);
+        $scope.recipe.ingredients.splice(i, 1);
+      }
+    };
+
+    // Add an ingredient to a recipe
+    $scope.addIngredient = function() {
+      // Build the ingredient string
+      var ing = $scope.ing_name.concat(" - " + $scope.ing_amount);
+      if($scope.ing_unit) {
+        ing = ing.concat(" " + $scope.ing_unit);
+      }
+
+      // Check if the ingredient is a duplicate
+      if($scope.recipe.ingredients.indexOf(ing) > -1) {
+        alert("Duplicate ingredients! Please change your entry.");
+      }
+      else {
+        ($scope.recipe.ingredients).push(ing);
+      }
+    };
+
+    // Edit an existing recipe
+    $scope.editRecipe = function() {
+      
     }
 
     // Deletes the recipe
@@ -375,7 +407,6 @@ app.controller('RecipesCtrl', [
         // If not allowed show an alert
         alert('You cannot delete this recipe!');
       }
-    }
     };
 
 }]);
