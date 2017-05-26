@@ -200,7 +200,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
   // Update a recipe
   o.update = function(recipe) {
     return $http.put('/recipes/' + recipe._id, recipe, {
-      headers: {Authorization: 'Bearer ' auth.getToken()}
+      headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
       o.getAll();
     });
@@ -362,6 +362,7 @@ app.controller('RecipesCtrl', [
     // recipe
     $scope.canEdit = function() {
       return recipe.author == $scope.currentUser;
+    };
     }
 
     // Deletes the recipe
@@ -376,6 +377,7 @@ app.controller('RecipesCtrl', [
         alert('You cannot delete this recipe!');
       }
     }
+    };
 
 }]);
 
