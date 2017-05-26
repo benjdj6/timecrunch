@@ -356,12 +356,11 @@ app.controller('RecipesCtrl', [
   'auth',
   function($scope, $state, recipe, recipes, auth){
     $scope.recipe = recipe;
-    $scope.currentUser = auth.currentUser();
 
     // Determines if a user is allowed to edit this
     // recipe
     $scope.canEdit = function() {
-      return recipe.author == $scope.currentUser;
+      return recipe.author == auth.currentUser();
     };
     }
 
