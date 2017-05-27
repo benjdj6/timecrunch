@@ -393,7 +393,13 @@ app.controller('RecipesCtrl', [
 
     // Edit an existing recipe
     $scope.editRecipe = function() {
-      
+      recipes.update($scope.recipe).then(function success() {
+        // Return to the recipe list
+        $state.go('recipe', {id: recipe._id});
+      }, function failure(error) {
+        // Show error message
+        $scope.error = error.data;
+      });
     }
 
     // Deletes the recipe
