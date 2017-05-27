@@ -11,6 +11,12 @@ input[type=number]{
   padding-bottom: 5px;
 }
 
+.separator {
+  width: 8px;
+  height: auto;
+  display: inline-block;
+}
+
 .food, .recipe {
   background-color: #ffffff;
   border-bottom: thin solid;
