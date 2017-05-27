@@ -66,8 +66,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Make recipe form prettier
 
-* Add edit button to recipe detail page
-
 * Format ingredients on details page to be more table/list like
 
 * Implement pagination
