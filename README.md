@@ -32,8 +32,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Highlight expired and soon-to-expire foods
 
-* Create recipe edit page
-
 * Restrict recipe editing to original author
 
 * Allow user to update food amount values
