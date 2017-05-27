@@ -10,4 +10,12 @@
 
 <p ng-show="recipe.link"><b>More info:</b> <a href="{{recipe.link}}">{{recipe.link}}</a></p>
 
-<button class="btn-danger btn-xs" ng-show="canEdit();" ng-click="deleteRecipe();">Delete</button>
+<div class="row">
+  <div class="col-md-2">
+    <a ui-sref="recipes">Back</a>
+    <div class="separator" />
+    <a ng-show="canEdit();" ui-sref="editRecipe({id: recipe._id})">Edit</a>
+    <div class="separator" />
+    <button class="btn-danger btn-xs" ng-show="canEdit();" ng-click="deleteRecipe();">Delete</button>
+  </div>
+</div>
