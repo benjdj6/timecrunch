@@ -45,6 +45,16 @@ function($stateProvider, $urlRouterProvider) {
         }]
       }
     })
+    .state('editRecipe', {
+      url: '/recipes/{id}/edit',
+      templateUrl: '/templates/recipeeditform.html',
+      controller: 'RecipesCtrl',
+      resolve: {
+        recipe: ['$stateParams', 'recipes', function($stateParams, recipes) {
+          return recipes.get($stateParams.id);
+        }]
+      }
+    })
     .state('login', {
       url: '/login',
       templateUrl: '/templates/login.html',
