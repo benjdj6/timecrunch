@@ -108,11 +108,17 @@ router.post('/recipes', auth, function(req, res, next) {
 
 // PUT recipe
 router.put('/recipes/:recipe', auth, function(req, res, next) {
-  Recipe.update({_id: req.recipe}, {$set: req.body}, function(err) {
+  Recipe.update({_id: req.recipe, author: req.payload.username},
+                {$set: req.body}, function(err, rec) {
     if(err) {
       res.send(err);
     }
-    res.sendStatus(204);
+    else if(rec['n'] == 0) {
+      res.sendStatus(401);
+    }
+    else {
+      res.sendStatus(204);
+    }
   });
 });
 
