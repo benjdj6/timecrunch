@@ -5,17 +5,16 @@
 
 <div class="row addrecipe">
   <form ng-show="canEdit()" ng-submit="editRecipe()">
-    <div class="row">
+    <div class="form-group row">
+      <label for="food-name" class="col-md-2 col-form-label">Name:</label>
       <div class="col-md-3">
-        <label><p>Name: </p></label>
-      </div>
-      <div class="col-md-9">
-        <input type="text" ng-model="recipe.name"/>
+        <input class="form-control" type="text" ng-model="recipe.name" id="food-name"/>
       </div>
     </div>
+
     <div ng-repeat="ingredient in recipe.ingredients">
       <div class="row ingredient">
-        <div class="col-md-2 col-md-offset-3">
+        <div class="col-md-2 col-md-offset-2">
           {{ingredient}}
         </div>
         <div class="col-md-1">
@@ -23,52 +22,49 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3">
-        <label><p>Ingredients: </p></label>
+
+    <div class="form-group row">
+      <label for="ingredient-name-input" class="col-md-2 col-form-label">Ingredients:</label>
+      <div class="col-md-2">
+        <input class="form-control" type="text" placeholder="Cumin" ng-model="ing_name" id="ingredient-name-input"/>
+      </div>
+      <label for="ingredient-value-input" class="col-md-1 col-form-label">Amount:</label>
+      <div class="col-md-1">
+        <input class="form-control" type="number" placeholder="1.5" step="any" min="0" ng-model="ing_amount" id="ingredient-value-input"/>
+      </div>
+      <label for="ingredient-unit-input" class="col-md-1 col-form-label">Units:</label>
+      <div class="col-md-1">
+        <input class="form-control" type="text" placeholder="g" size="4" ng-model="ing_unit" id="ingredient-unit-input"/>
       </div>
       <div class="col-md-2">
-        <input type="text" placeholder="Cumin" ng-model="ing_name"/>
-      </div>
-      <div class="col-md-2">
-        <label>Amount: </label>
-        <input type="number" placeholder="1.5" step="any" min="0" ng-model="ing_amount"/>
-      </div>
-      <div class="col-md-2">
-        <label>Units: </label>
-        <input type="text" placeholder="g" size="4" ng-model="ing_unit"/>
-      </div>
-      <div class="col-md-2">
-        <button type="button" class="btn btn-xs btn-primary" ng-click="addIngredient();">Add Ingredient</button>
+        <button type="button" class="btn btn-s btn-primary" ng-click="addIngredient();">Add Ingredient</button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3">
-        <label><p>Preparation Time (minutes): </p></label>
-      </div>
-      <div class="col-md-9">
-        <input type="number" ng-model="recipe.prepTime" min="1"/>
+
+    <div class="form-group row">
+      <label for="prep-time" class="col-md-2 col-form-label">Preparation Time (minutes):</label>
+      <div class="col-md-2">
+        <input class="form-control" type="number" ng-model="recipe.prepTime" min="1" id="prep-time"/>
       </div>
     </div>
-    <div class="row">
+
+    <div class="row instructions">
       <div class="col-md-3">
         <input type="checkbox" ng-model="recipeLink"/><b> Link to Instructions</b>
       </div>
     </div>
-    <div class="row" ng-hide="recipeLink">
-      <div class="col-md-3">
-        <label><p>Instructions: </p></label>
-      </div>
-      <div class="col-md-9">
-        <textarea ng-model="recipe.instructions" cols="50" rows="10"></textarea>
+
+    <div class="form-group row" ng-hide="recipeLink">
+      <label for="instructions" class="col-md-2 col-form-label">Instructions:</label>
+      <div class="col-md-4">
+        <textarea class="form-control" ng-model="recipe.instructions" cols="50" rows="10" id="instructions"></textarea>
       </div>
     </div>
+
     <div class="row" ng-show="recipeLink">
+      <label for="link" class="col-md-2 col-form-label">Link:</label>
       <div class="col-md-3">
-        <label><p>Link: </p></label>
-      </div>
-      <div class="col-md-9">
-        <input type="url" ng-model="recipe.link"/>
+        <input class="form-control" type="url" placeholder="http://www.food.com/" ng-model="recipe.link" id="link"/>
       </div>
     </div>
 
