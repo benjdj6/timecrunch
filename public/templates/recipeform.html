@@ -64,12 +64,11 @@
         <textarea class="form-control" ng-model="instructions" cols="50" rows="10" id="instructions-input"></textarea>
       </div>
     </div>
+
     <div class="row" ng-show="recipeLink">
+      <label for="link-input" class="col-md-2 col-form-label">Link:</label>
       <div class="col-md-3">
-        <label><p>Link: </p></label>
-      </div>
-      <div class="col-md-9">
-        <input type="url" placeholder="http://www.food.com/" ng-model="link"/>
+        <input class="form-control" type="url" placeholder="http://www.food.com/" ng-model="link" id="link-input"/>
       </div>
     </div>
 
