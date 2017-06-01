@@ -1,15 +1,23 @@
 <!-- Template for recipe details page -->
+<!-- Show recipe details -->
 <h2>{{recipe.name}}</h2>
+
 <h4 ng-show="recipe.author">By: {{recipe.author}}</h4>
+
 <p><b>Time:</b> {{recipe.prepTime}}</p>
+
+<!-- Show every ingredient in a new paragraph -->
 <p><b>Ingredients:</b></p>
 <div ng-repeat="ingredient in recipe.ingredients">
   <p>{{ingredient}}</p>
 </div>
+
+<!-- Show either instructions or link if available -->
 <p ng-show="recipe.instructions"><b>Instructions:</b> {{recipe.instructions}}</p>
 
 <p ng-show="recipe.link"><b>More info:</b> <a href="{{recipe.link}}">{{recipe.link}}</a></p>
 
+<!-- Bottom page buttons -->
 <div class="row">
   <div class="col-md-2">
     <a ui-sref="recipes">Back</a>
