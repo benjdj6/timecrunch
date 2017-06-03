@@ -84,6 +84,27 @@ router.delete('/food/:food', function(req, res, next) {
   }); 
 });
 
+// POST ingredient
+router.post('/ingredient', auth, function(req, res, next) {
+  var ingredient = new Ingredient(req.body);
+
+  ingredient.name = ingredient.name.toLowerCase();
+  ingredient.name = ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1);
+  for(i = 1; i < ingredient.name.length; ++i) {
+    if(ingredient.name.charAt(i - 1) == " ") {
+      ingredient.name = ingredient.name.slice(0, i) + ingredient.name.charAt(i).toUpperCase() + ingredient.name.slice(i + 1);
+    }
+  }
+
+  ingredient.save(function(err, ingredient) {
+    if(err) {
+      return next(err);
+    }
+    res.json(ingredient);
+  });
+
+});
+
 // GET all recipes
 router.get('/recipes', function(req, res, next) {
   Recipe.find(function(err, recipe) {
