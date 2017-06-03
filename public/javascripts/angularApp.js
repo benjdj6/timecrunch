@@ -226,6 +226,19 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
   return o;
 }]);
 
+// Factory for ingredients handling related functions
+app.factory('ingredients', ['$http', function(){
+  var o = {};
+  
+  o.create = function(ingredient) {
+    return $http.post('/ingredients', ingredient).then(function(data) {
+      return data.data;
+    });
+  };
+
+  return o;
+}]);
+
 // Controller for dashboard on home/index
 app.controller('DashCtrl', [
   '$scope',
