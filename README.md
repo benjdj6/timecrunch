@@ -30,8 +30,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Create POST Ingredient route
-
 * Populate Recipe's Ingredients upon GET
 
 * Change addIngredient to use new model
