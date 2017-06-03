@@ -30,10 +30,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Create ingredient factory
-
-* Create ingredient create function
-
 * Create ingredient delete function
 
 * Make old recipes compatible with new ingredient model
