@@ -85,7 +85,7 @@ router.delete('/food/:food', function(req, res, next) {
 });
 
 // POST ingredient
-router.post('/ingredient', auth, function(req, res, next) {
+router.post('/ingredients', auth, function(req, res, next) {
   var ingredient = new Ingredient(req.body);
 
   ingredient.name = ingredient.name.toLowerCase();
@@ -103,6 +103,16 @@ router.post('/ingredient', auth, function(req, res, next) {
     res.json(ingredient);
   });
 
+});
+
+// DELETE ingredient
+route.delete('/ingredients/:ingredient', function(req, res, next) {
+  Ingredient.remove({_id: req.ingredient}, function(err) {
+    if(err) {
+      res.send(err);
+    }
+    res.sendStatus(204);
+  });
 });
 
 // GET all recipes
