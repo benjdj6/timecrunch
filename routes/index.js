@@ -115,6 +115,16 @@ router.get('/recipes', function(req, res, next) {
   });
 });
 
+// GET specific recipe
+router.get('/recipes/:recipe', function(req, res, next) {
+  req.recipe.populate('ingredients', function(err, recipe) {
+    if(err) {
+      return next(err);
+    }
+    res.json(recipe);
+  });
+});
+
 // POST recipe
 router.post('/recipes', auth, function(req, res, next) {
   var recipe = new Recipe(req.body);
