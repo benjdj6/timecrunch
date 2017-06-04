@@ -230,10 +230,16 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 app.factory('ingredients', ['$http', function(){
   var o = {};
   
+  // Create a new ingredient
   o.create = function(ingredient) {
     return $http.post('/ingredients', ingredient).then(function(data) {
       return data.data;
     });
+  };
+
+  // Delete an ingredient
+  o.delete = function(ingredient) {
+    return $http.delete('/ingredients/' + ingredient._id);
   };
 
   return o;
