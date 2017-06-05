@@ -258,9 +258,10 @@ app.controller('ListCtrl', [
   '$scope',
   '$state',
   'auth',
+  'ingredients',
   'foods',
   'recipes',
-  function($scope, $state, auth, foods, recipes) {
+  function($scope, $state, auth, ingredients, foods, recipes) {
 
     $scope.foods = foods.foods;
     $scope.recipes = recipes.recipes;
