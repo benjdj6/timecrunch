@@ -106,7 +106,7 @@ router.post('/ingredients', auth, function(req, res, next) {
 });
 
 // DELETE ingredient
-route.delete('/ingredients/:ingredient', function(req, res, next) {
+router.delete('/ingredients/:ingredient', function(req, res, next) {
   Ingredient.remove({_id: req.ingredient}, function(err) {
     if(err) {
       res.send(err);
