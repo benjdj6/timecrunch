@@ -34,10 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Make old recipes compatible with new ingredient model
 
-* Change addIngredient to use new model
-
-* Change deleteIngredient to use new model
-
 * Change views to use new model
 
 * Highlight expired and soon-to-expire foods
