@@ -30,6 +30,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
+* Change addRecipe to create ingredient objects in db
+
 * Implement new duplicate ingredient detection
 
 * Make old recipes compatible with new ingredient model
