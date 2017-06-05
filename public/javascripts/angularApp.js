@@ -350,19 +350,17 @@ app.controller('ListCtrl', [
 
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
-      // Build the ingredient string
-      var ing = $scope.ing_name.concat(" - " + $scope.ing_amount);
-      if($scope.ing_unit) {
-        ing = ing.concat(" " + $scope.ing_unit);
+      if($scope.ing_name) {
+        ($scope.ingredients).push({
+          name: $scope.ing_name,
+          amount: $scope.ing_amount,
+          unit: $scope.ing_unit
+        });
       }
 
-      // Check if the ingredient is a duplicate
-      if($scope.ingredients.indexOf(ing) > -1) {
-        alert("Duplicate ingredients! Please change your entry.");
-      }
-      else {
-        ($scope.ingredients).push(ing);
-      }
+      $scope.error = {
+        message: "Missing ingredient name"
+      };
     };
 
     // Remove an ingredient from a recipe
