@@ -357,10 +357,11 @@ app.controller('ListCtrl', [
           unit: $scope.ing_unit
         });
       }
-
-      $scope.error = {
-        message: "Missing ingredient name"
-      };
+      else {
+        $scope.error = {
+          message: "Missing ingredient name"
+        };
+      }
     };
 
     // Remove an ingredient from a recipe
