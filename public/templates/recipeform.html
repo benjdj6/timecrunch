@@ -16,13 +16,13 @@
       </div>
     </div>
 
-    <div ng-repeat="ingredient in ingredients">
+    <div ng-repeat="ing in ingredients">
       <div class="row ingredient">
         <div class="col-md-2 col-md-offset-2">
-          {{ingredient}}
+          {{ing.name}} - {{ing.amount}} {{ing.unit}}
         </div>
         <div class="col-md-1">
-          <button type="button" class="btn-danger btn-xs" ng-click="removeIngredient(ingredient);">Remove</button>
+          <button type="button" class="btn-danger btn-xs" ng-click="removeIngredient(ing);">Remove</button>
         </div>
       </div>
     </div>
