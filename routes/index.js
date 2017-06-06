@@ -84,37 +84,6 @@ router.delete('/food/:food', function(req, res, next) {
   }); 
 });
 
-// POST ingredient
-router.post('/ingredients', auth, function(req, res, next) {
-  var ingredient = new Ingredient(req.body);
-
-  ingredient.name = ingredient.name.toLowerCase();
-  ingredient.name = ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1);
-  for(i = 1; i < ingredient.name.length; ++i) {
-    if(ingredient.name.charAt(i - 1) == " ") {
-      ingredient.name = ingredient.name.slice(0, i) + ingredient.name.charAt(i).toUpperCase() + ingredient.name.slice(i + 1);
-    }
-  }
-
-  ingredient.save(function(err, ingredient) {
-    if(err) {
-      return next(err);
-    }
-    res.json(ingredient);
-  });
-
-});
-
-// DELETE ingredient
-router.delete('/ingredients/:ingredient', function(req, res, next) {
-  Ingredient.remove({_id: req.ingredient}, function(err) {
-    if(err) {
-      res.send(err);
-    }
-    res.sendStatus(204);
-  });
-});
-
 // GET all recipes
 router.get('/recipes', function(req, res, next) {
   Recipe.find(function(err, recipe) {
@@ -167,6 +136,37 @@ router.put('/recipes/:recipe', auth, function(req, res, next) {
 // DELETE recipe
 router.delete('/recipes/:recipe', function(req, res, next) {
   Recipe.remove({_id: req.recipe}, function(err) {
+    if(err) {
+      res.send(err);
+    }
+    res.sendStatus(204);
+  });
+});
+
+// POST ingredient
+router.post('/recipes/:recipe/ingredients', auth, function(req, res, next) {
+  var ingredient = new Ingredient(req.body);
+
+  ingredient.name = ingredient.name.toLowerCase();
+  ingredient.name = ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1);
+  for(i = 1; i < ingredient.name.length; ++i) {
+    if(ingredient.name.charAt(i - 1) == " ") {
+      ingredient.name = ingredient.name.slice(0, i) + ingredient.name.charAt(i).toUpperCase() + ingredient.name.slice(i + 1);
+    }
+  }
+
+  ingredient.save(function(err, ingredient) {
+    if(err) {
+      return next(err);
+    }
+    res.json(ingredient);
+  });
+
+});
+
+// DELETE ingredient
+router.delete('/recipes/:recipe/ingredients/:ingredient', function(req, res, next) {
+  Ingredient.remove({_id: req.ingredient}, function(err) {
     if(err) {
       res.send(err);
     }
