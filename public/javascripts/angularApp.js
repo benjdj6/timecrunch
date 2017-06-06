@@ -204,6 +204,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
       o.getAll();
+      return data.data._id;
     });
   };
 
