@@ -232,9 +232,10 @@ app.factory('ingredients', ['$http', function(){
   var o = {};
   
   // Create a new ingredient
-  o.create = function(ingredient) {
-    return $http.post('/ingredients', ingredient).then(function(data) {
-      return data.data;
+  o.create = function(recipeID, ingredient) {
+    return $http.post('/recipes/' + recipeID + '/ingredients',
+      ingredient).then(function(data) {
+        return data.data;
     });
   };
 
