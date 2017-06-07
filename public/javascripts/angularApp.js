@@ -240,8 +240,8 @@ app.factory('ingredients', ['$http', function(){
   };
 
   // Delete an ingredient
-  o.delete = function(ingredient) {
-    return $http.delete('/ingredients/' + ingredient._id);
+  o.delete = function(recipeID, ingredient) {
+    return $http.delete('/recipes/' + recipeID + 'ingredients/' + ingredient._id);
   };
 
   return o;
