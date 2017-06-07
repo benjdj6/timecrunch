@@ -159,9 +159,16 @@ router.post('/recipes/:recipe/ingredients', auth, function(req, res, next) {
     if(err) {
       return next(err);
     }
-    res.json(ingredient);
-  });
 
+    req.recipe.ingredients.push(ingredient);
+    req.recipe.save(function(err, recipe) {
+      if(err) {
+        return next(err);
+      }
+
+      res.json(ingredient);
+    });
+  });
 });
 
 // DELETE ingredient
