@@ -342,8 +342,8 @@ app.controller('ListCtrl', [
         instructions: $scope.instructions
       }).then(function success(id) {
         // Return to the recipe list
-        for(i = 0; i < $scope.instructions.length; i++) {
-          ingredients.create(id, $scope.instructions[i]);
+        for(i = 0; i < $scope.ingredients.length; i++) {
+          ingredients.create(id, $scope.ingredients[i]);
         }
         $state.go('recipes');
       }, function failure(error) {
