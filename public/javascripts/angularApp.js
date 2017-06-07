@@ -228,7 +228,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 }]);
 
 // Factory for ingredients handling related functions
-app.factory('ingredients', ['$http', function(){
+app.factory('ingredients', ['$http', function($http){
   var o = {};
   
   // Create a new ingredient
