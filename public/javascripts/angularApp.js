@@ -337,12 +337,14 @@ app.controller('ListCtrl', [
 
       recipes.create({
         name: $scope.name,
-        ingredients: $scope.ingredients,
         prepTime: $scope.prepTime,
         link: $scope.link,
         instructions: $scope.instructions
-      }).then(function success() {
+      }).then(function success(id) {
         // Return to the recipe list
+        for(i = 0; i < $scope.instructions.length; i++) {
+          ingredients.create(id, $scope.instructions[i]);
+        }
         $state.go('recipes');
       }, function failure(error) {
         // Show error message
