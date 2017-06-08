@@ -30,6 +30,19 @@ router.param('food', function(req, res, next, id) {
   });
 });
 
+// Param function for selecting ingredient objects
+router.param('ingredient', function(req, res, next, id) {
+    var query = Ingredient.findById(id);
+
+    query.exec(function (err, ingredient) {
+        if (err) { return next(err); }
+        if (!ingredient) { return next(new Error('can\'t find ingredient')); }
+
+        req.ingredient = ingredient;
+        return next();
+    });
+});
+
 // Param function for selecting recipe objects
 router.param('recipe', function(req, res, next, id) {
   var query = Recipe.findById(id);
