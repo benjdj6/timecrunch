@@ -144,7 +144,7 @@ router.delete('/recipes/:recipe', function(req, res, next) {
 });
 
 // POST ingredient
-router.post('/recipes/:recipe/ingredients', auth, function(req, res, next) {
+router.post('/recipes/:recipe/ingredients', function(req, res, next) {
   var ingredient = new Ingredient(req.body);
 
   ingredient.name = ingredient.name.toLowerCase();
@@ -154,6 +154,8 @@ router.post('/recipes/:recipe/ingredients', auth, function(req, res, next) {
       ingredient.name = ingredient.name.slice(0, i) + ingredient.name.charAt(i).toUpperCase() + ingredient.name.slice(i + 1);
     }
   }
+
+  ingredient.recipe = req.recipe;
 
   ingredient.save(function(err, ingredient) {
     if(err) {
