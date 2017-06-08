@@ -203,7 +203,6 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
     return $http.post('/recipes', recipe, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
-      o.getAll();
       return data.data._id;
     });
   };
@@ -345,6 +344,7 @@ app.controller('ListCtrl', [
         for(i = 0; i < $scope.ingredients.length; i++) {
           ingredients.create(id, $scope.ingredients[i]);
         }
+        $scope.recipes = recipes.recipes;
         $state.go('recipes');
       }, function failure(error) {
         // Show error message
