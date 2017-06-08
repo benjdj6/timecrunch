@@ -191,11 +191,9 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 
   // Get a specific recipe
   o.get = function(id) {
-    for(i = 0; i < o.recipes.length; ++i) {
-      if(o.recipes[i]._id == id) {
-        return o.recipes[i];
-      }
-    }
+    return $http.get('/recipes/' + id).then(function(data) {
+      return data.data;
+    });
   };
 
   // Create a new recipe
