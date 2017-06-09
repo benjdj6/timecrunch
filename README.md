@@ -36,8 +36,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Implement new duplicate ingredient detection
 
-* Make old recipes compatible with new ingredient model
-
 * Highlight expired and soon-to-expire foods
 
 * Allow user to update food amount values
