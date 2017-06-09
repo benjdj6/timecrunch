@@ -372,14 +372,8 @@ app.controller('ListCtrl', [
         $scope.ingredients = [];
       }
       else {
-        for(i = 0; i < $scope.ingredients.length; i++) {
-          if($scope.ingredients[i].name === ingredient.name &&
-            $scope.ingredients[i].amount === ingredient.amount &&
-            $scope.ingredients[i].unit === ingredient.unit) {
-            $scope.ingredients.splice(i, 1);
-            break;
-          }
-        }
+        var i = $scope.ingredients.indexOf(ingredient);
+        $scope.ingredients.splice(i, 1);
       }
     };
 }]);
