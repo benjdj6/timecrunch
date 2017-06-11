@@ -283,6 +283,9 @@ app.controller('ListCtrl', [
     $scope.sortBy = ["sellBy", "name"];
     $scope.filterCat = "";
 
+    // Set containing ingredient names
+    let ingNames = new Set();
+
     $scope.filter = function() {
       return function(item) {
         if($scope.filterCat == "" || !$scope.filterCat
@@ -352,6 +355,17 @@ app.controller('ListCtrl', [
 
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
+      // Load existing ingredients into ingNames
+      if(ingNames.size == 0 && $scope.ingredients.length > 0) {
+        for(i = 0; i < $scope.ingredients.length; i++) {
+          ingNames.add($scope.ing_name);
+        }
+      }
+      // If ingredient already exists show alert
+      if(ingNames.has($scope.ing_name)) {
+        return alert("Duplicate ingredient, please change ingredient name");
+      }
+
       if($scope.ing_name) {
         ($scope.ingredients).push({
           name: $scope.ing_name,
@@ -364,6 +378,9 @@ app.controller('ListCtrl', [
           message: "Missing ingredient name"
         };
       }
+
+      // Add new ingredient name to the set
+      ingNames.add($scope.ing_name);
     };
 
     // Remove an ingredient from a recipe
@@ -373,6 +390,8 @@ app.controller('ListCtrl', [
       }
       else {
         let i = $scope.ingredients.indexOf(ingredient);
+        // Remove ingredient name from set
+        ingNames.delete(ingredient.name);
         $scope.ingredients.splice(i, 1);
       }
     };
