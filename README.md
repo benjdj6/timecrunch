@@ -32,8 +32,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Separate recipe form from ListCtrl
 
-* Implement new duplicate ingredient detection
-
 * Highlight expired and soon-to-expire foods
 
 * Allow user to update food amount values
