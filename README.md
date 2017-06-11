@@ -52,8 +52,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Improve comments on templates
 
-* Handle unauthorized errors more elegantly
-
 * Filter recipes by only what user has ingredients for
 
 * Allow user to mark recipe as "made" subtract food from pantry
