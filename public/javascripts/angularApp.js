@@ -363,7 +363,10 @@ app.controller('ListCtrl', [
       }
       // If ingredient already exists show alert
       if(ingNames.has($scope.ing_name)) {
-        return alert("Duplicate ingredient, please change ingredient name");
+        $scope.error = {
+          message: "Duplicate ingredient, please change ingredient name"
+        };
+        return;
       }
 
       if($scope.ing_name) {
@@ -440,7 +443,10 @@ app.controller('RecipesCtrl', [
       }
       // If ingredient already exists show alert
       if(ingNames.has($scope.ing_name)) {
-        return alert("Duplicate ingredient, please change ingredient name");
+        $scope.error = {
+          message: "Duplicate ingredient, please change ingredient name"
+        };
+        return;
       }
       // Build the ingredient string
       let ing = {
@@ -448,10 +454,16 @@ app.controller('RecipesCtrl', [
         amount: $scope.ing_amount,
         unit: $scope.ing_unit
       };
-
-      ($scope.recipe.ingredients).push(ing);
-      // Add new ingredient name to the set
-      ingNames.add(ing.name);
+      if(ing.name) {
+        ($scope.recipe.ingredients).push(ing);
+        // Add new ingredient name to the set
+        ingNames.add(ing.name);
+      }
+      else {
+        $scope.error = {
+          message: "Missing ingredient name"
+        };
+      }
     };
 
     // Edit an existing recipe
