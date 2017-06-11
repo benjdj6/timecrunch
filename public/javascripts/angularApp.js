@@ -326,12 +326,16 @@ app.controller('ListCtrl', [
     $scope.addRecipe = function() {
       //Check that the recipe has a name, ingredients, and instructions
       if(!$scope.name || $scope.name == '' || !$scope.ingredients) {
-        alert("Please make sure all fields are filled out");
+        $scope.error = {
+          message: "Please make sure all fields are filled out"
+        };
         return;
       }
 
       if(!$scope.instructions && !$scope.link) {
-        alert("Please provide either instructions or a link to the full recipe");
+        $scope.error= {
+          message: "Please provide either instructions or a link to the full recipe"
+        };
         return;
       }
 
