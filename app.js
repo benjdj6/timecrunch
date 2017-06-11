@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 require('./models/Foods');
 require('./models/Recipes');
 require('./models/Users');
+require('./models/Ingredients');
 
 var index = require('./routes/index');
 

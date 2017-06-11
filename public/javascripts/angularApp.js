@@ -1,4 +1,4 @@
-var app = angular.module('timecrunch', ['ui.router']);
+let app = angular.module('timecrunch', ['ui.router']);
 
 app.config([
 '$stateProvider',
@@ -82,7 +82,7 @@ function($stateProvider, $urlRouterProvider) {
 // Factory for auth handling all authorization and
 // user id related functions
 app.factory('auth', ['$http', '$window', function($http, $window) {
-  var auth = {};
+  let auth = {};
 
   // save given token
   auth.saveToken = function(token) {
@@ -115,10 +115,10 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
 
   // check if user is logged in
   auth.isLoggedIn = function() {
-    var token = auth.getToken();
+    let token = auth.getToken();
 
     if(token) {
-      var payload = JSON.parse($window.atob(token.split('.')[1]));
+      let payload = JSON.parse($window.atob(token.split('.')[1]));
 
       return payload.exp > Date.now() / 1000;
     } else {
@@ -129,8 +129,8 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
   // returns currently logged in username
   auth.currentUser = function() {
     if(auth.isLoggedIn()) {
-      var token = auth.getToken();
-      var payload = JSON.parse($window.atob(token.split('.')[1]));
+      let token = auth.getToken();
+      let payload = JSON.parse($window.atob(token.split('.')[1]));
 
       return payload.username;
       }
@@ -141,7 +141,7 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
 
 // Factory for foods handling all related functions
 app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
-  var o = {
+  let o = {
     foods: []
   };
 
@@ -178,7 +178,7 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
 
 // Factory for recipes handling related functions
 app.factory('recipes', ['$http', 'auth', function($http, auth) {
-  var o = {
+  let o = {
     recipes: []
   };
 
@@ -191,11 +191,9 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 
   // Get a specific recipe
   o.get = function(id) {
-    for(i = 0; i < o.recipes.length; ++i) {
-      if(o.recipes[i]._id == id) {
-        return o.recipes[i];
-      }
-    }
+    return $http.get('/recipes/' + id).then(function(data) {
+      return data.data;
+    });
   };
 
   // Create a new recipe
@@ -203,7 +201,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
     return $http.post('/recipes', recipe, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
-      o.getAll();
+      return data.data._id;
     });
   };
 
@@ -226,6 +224,26 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
   return o;
 }]);
 
+// Factory for ingredients handling related functions
+app.factory('ingredients', ['$http', function($http){
+  let o = {};
+  
+  // Create a new ingredient
+  o.create = function(recipeID, ingredient) {
+    return $http.post('/recipes/' + recipeID + '/ingredients',
+      ingredient).then(function(data) {
+        return data.data;
+    });
+  };
+
+  // Delete an ingredient
+  o.delete = function(recipeID, ingredient) {
+    return $http.delete('/recipes/' + recipeID + 'ingredients/' + ingredient._id);
+  };
+
+  return o;
+}]);
+
 // Controller for dashboard on home/index
 app.controller('DashCtrl', [
   '$scope',
@@ -239,9 +257,10 @@ app.controller('ListCtrl', [
   '$scope',
   '$state',
   'auth',
+  'ingredients',
   'foods',
   'recipes',
-  function($scope, $state, auth, foods, recipes) {
+  function($scope, $state, auth, ingredients, foods, recipes) {
 
     $scope.foods = foods.foods;
     $scope.recipes = recipes.recipes;
@@ -263,6 +282,9 @@ app.controller('ListCtrl', [
 
     $scope.sortBy = ["sellBy", "name"];
     $scope.filterCat = "";
+
+    // Set containing ingredient names
+    let ingNames = new Set();
 
     $scope.filter = function() {
       return function(item) {
@@ -315,12 +337,15 @@ app.controller('ListCtrl', [
 
       recipes.create({
         name: $scope.name,
-        ingredients: $scope.ingredients,
         prepTime: $scope.prepTime,
         link: $scope.link,
         instructions: $scope.instructions
-      }).then(function success() {
+      }).then(function success(id) {
         // Return to the recipe list
+        for(i = 0; i < $scope.ingredients.length; i++) {
+          ingredients.create(id, $scope.ingredients[i]);
+        }
+        $scope.recipes = recipes.recipes;
         $state.go('recipes');
       }, function failure(error) {
         // Show error message
@@ -330,19 +355,35 @@ app.controller('ListCtrl', [
 
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
-      // Build the ingredient string
-      var ing = $scope.ing_name.concat(" - " + $scope.ing_amount);
-      if($scope.ing_unit) {
-        ing = ing.concat(" " + $scope.ing_unit);
+      // Load existing ingredients into ingNames
+      if(ingNames.size == 0 && $scope.ingredients.length > 0) {
+        for(i = 0; i < $scope.ingredients.length; i++) {
+          ingNames.add($scope.ing_name);
+        }
+      }
+      // If ingredient already exists show alert
+      if(ingNames.has($scope.ing_name)) {
+        $scope.error = {
+          message: "Duplicate ingredient, please change ingredient name"
+        };
+        return;
       }
 
-      // Check if the ingredient is a duplicate
-      if($scope.ingredients.indexOf(ing) > -1) {
-        alert("Duplicate ingredients! Please change your entry.");
+      if($scope.ing_name) {
+        ($scope.ingredients).push({
+          name: $scope.ing_name,
+          amount: $scope.ing_amount,
+          unit: $scope.ing_unit
+        });
       }
       else {
-        ($scope.ingredients).push(ing);
+        $scope.error = {
+          message: "Missing ingredient name"
+        };
       }
+
+      // Add new ingredient name to the set
+      ingNames.add($scope.ing_name);
     };
 
     // Remove an ingredient from a recipe
@@ -351,7 +392,9 @@ app.controller('ListCtrl', [
         $scope.ingredients = [];
       }
       else {
-        var i = $scope.ingredients.indexOf(ingredient);
+        let i = $scope.ingredients.indexOf(ingredient);
+        // Remove ingredient name from set
+        ingNames.delete(ingredient.name);
         $scope.ingredients.splice(i, 1);
       }
     };
@@ -361,11 +404,14 @@ app.controller('ListCtrl', [
 app.controller('RecipesCtrl', [
   '$scope',
   '$state',
+  'ingredients',
   'recipe',
   'recipes',
   'auth',
-  function($scope, $state, recipe, recipes, auth){
+  function($scope, $state, ingredients, recipe, recipes, auth){
     $scope.recipe = recipe;
+    // Set containing ingredient names
+    let ingNames = new Set();
 
     // Determines if a user is allowed to edit this
     // recipe
@@ -377,32 +423,56 @@ app.controller('RecipesCtrl', [
     $scope.removeIngredient = function(ingredient) {
       if($scope.recipe.ingredients.length == 1) {
         $scope.recipe.ingredients = [];
+        ingNames.clear();
       }
       else {
-        var i = $scope.recipe.ingredients.indexOf(ingredient);
+        let i = $scope.recipe.ingredients.indexOf(ingredient);
+        // Remove ingredient name from set
+        ingNames.delete(ingredient.name);
         $scope.recipe.ingredients.splice(i, 1);
       }
     };
 
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
-      // Build the ingredient string
-      var ing = $scope.ing_name.concat(" - " + $scope.ing_amount);
-      if($scope.ing_unit) {
-        ing = ing.concat(" " + $scope.ing_unit);
+      // Load existing ingredients into ingNames
+      if(ingNames.size == 0 && $scope.recipe.ingredients.length > 0) {
+        for(i = 0; i < $scope.recipe.ingredients.length; i++) {
+          ingNames.add($scope.ing_name);
+        }
       }
-
-      // Check if the ingredient is a duplicate
-      if($scope.recipe.ingredients.indexOf(ing) > -1) {
-        alert("Duplicate ingredients! Please change your entry.");
+      // If ingredient already exists show alert
+      if(ingNames.has($scope.ing_name)) {
+        $scope.error = {
+          message: "Duplicate ingredient, please change ingredient name"
+        };
+        return;
+      }
+      // Build the ingredient string
+      let ing = {
+        name: $scope.ing_name,
+        amount: $scope.ing_amount,
+        unit: $scope.ing_unit
+      };
+      if(ing.name) {
+        ($scope.recipe.ingredients).push(ing);
+        // Add new ingredient name to the set
+        ingNames.add(ing.name);
       }
       else {
-        ($scope.recipe.ingredients).push(ing);
+        $scope.error = {
+          message: "Missing ingredient name"
+        };
       }
     };
 
     // Edit an existing recipe
     $scope.editRecipe = function() {
+      for(i = 0; i < $scope.recipe.ingredients.length; i++) {
+        if(!$scope.recipe.ingredients[i]._id) {
+          ingredients.create($scope.recipe._id, $scope.recipe.ingredients[i]);
+        }
+      }
       recipes.update($scope.recipe).then(function success() {
         // Return to the recipe list
         $state.go('recipe', {id: recipe._id});
@@ -410,7 +480,7 @@ app.controller('RecipesCtrl', [
         // Show error message
         $scope.error = error.data;
       });
-    }
+    };
 
     // Deletes the recipe
     $scope.deleteRecipe = function() {

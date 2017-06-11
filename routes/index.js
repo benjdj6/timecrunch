@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Food = mongoose.model('Food');
 var Recipe = mongoose.model('Recipe');
 var User = mongoose.model('User');
+var Ingredient = mongoose.model('Ingredient');
 
 var passport = require('passport');
 
@@ -27,6 +28,19 @@ router.param('food', function(req, res, next, id) {
     req.food = food;
     return next();
   });
+});
+
+// Param function for selecting ingredient objects
+router.param('ingredient', function(req, res, next, id) {
+    var query = Ingredient.findById(id);
+
+    query.exec(function (err, ingredient) {
+        if (err) { return next(err); }
+        if (!ingredient) { return next(new Error('can\'t find ingredient')); }
+
+        req.ingredient = ingredient;
+        return next();
+    });
 });
 
 // Param function for selecting recipe objects
@@ -93,6 +107,16 @@ router.get('/recipes', function(req, res, next) {
   });
 });
 
+// GET specific recipe
+router.get('/recipes/:recipe', function(req, res, next) {
+  req.recipe.populate('ingredients', function(err, recipe) {
+    if(err) {
+      return next(err);
+    }
+    res.json(recipe);
+  });
+});
+
 // POST recipe
 router.post('/recipes', auth, function(req, res, next) {
   var recipe = new Recipe(req.body);
@@ -125,6 +149,46 @@ router.put('/recipes/:recipe', auth, function(req, res, next) {
 // DELETE recipe
 router.delete('/recipes/:recipe', function(req, res, next) {
   Recipe.remove({_id: req.recipe}, function(err) {
+    if(err) {
+      res.send(err);
+    }
+    res.sendStatus(204);
+  });
+});
+
+// POST ingredient
+router.post('/recipes/:recipe/ingredients', function(req, res, next) {
+  var ingredient = new Ingredient(req.body);
+
+  ingredient.name = ingredient.name.toLowerCase();
+  ingredient.name = ingredient.name.charAt(0).toUpperCase() + ingredient.name.slice(1);
+  for(i = 1; i < ingredient.name.length; ++i) {
+    if(ingredient.name.charAt(i - 1) == " ") {
+      ingredient.name = ingredient.name.slice(0, i) + ingredient.name.charAt(i).toUpperCase() + ingredient.name.slice(i + 1);
+    }
+  }
+
+  ingredient.recipe = req.recipe;
+
+  ingredient.save(function(err, ingredient) {
+    if(err) {
+      return next(err);
+    }
+
+    req.recipe.ingredients.push(ingredient);
+    req.recipe.save(function(err, recipe) {
+      if(err) {
+        return next(err);
+      }
+
+      res.json(ingredient);
+    });
+  });
+});
+
+// DELETE ingredient
+router.delete('/recipes/:recipe/ingredients/:ingredient', function(req, res, next) {
+  Ingredient.remove({_id: req.ingredient}, function(err) {
     if(err) {
       res.send(err);
     }

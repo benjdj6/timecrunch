@@ -8,8 +8,8 @@
 
 <!-- Show every ingredient in a new paragraph -->
 <p><b>Ingredients:</b></p>
-<div ng-repeat="ingredient in recipe.ingredients">
-  <p>{{ingredient}}</p>
+<div ng-repeat="ing in recipe.ingredients">
+  <p>{{ing.name}} - {{ing.amount}} {{ing.unit}}</p>
 </div>
 
 <!-- Show either instructions or link if available -->
