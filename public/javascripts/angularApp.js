@@ -382,10 +382,11 @@ app.controller('ListCtrl', [
 app.controller('RecipesCtrl', [
   '$scope',
   '$state',
+  'ingredients',
   'recipe',
   'recipes',
   'auth',
-  function($scope, $state, recipe, recipes, auth){
+  function($scope, $state, ingredients, recipe, recipes, auth){
     $scope.recipe = recipe;
 
     // Determines if a user is allowed to edit this
@@ -419,6 +420,11 @@ app.controller('RecipesCtrl', [
 
     // Edit an existing recipe
     $scope.editRecipe = function() {
+      for(i = 0; i < $scope.recipe.ingredients.length; i++) {
+        if(!$scope.recipe.ingredients[i]._id) {
+          ingredients.create($scope.recipe._id, $scope.recipe.ingredients[i]);
+        }
+      }
       recipes.update($scope.recipe).then(function success() {
         // Return to the recipe list
         $state.go('recipe', {id: recipe._id});
@@ -426,7 +432,7 @@ app.controller('RecipesCtrl', [
         // Show error message
         $scope.error = error.data;
       });
-    }
+    };
 
     // Deletes the recipe
     $scope.deleteRecipe = function() {
