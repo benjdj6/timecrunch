@@ -388,6 +388,8 @@ app.controller('RecipesCtrl', [
   'auth',
   function($scope, $state, ingredients, recipe, recipes, auth){
     $scope.recipe = recipe;
+    // Set containing ingredient names
+    let ingNames = new Set();
 
     // Determines if a user is allowed to edit this
     // recipe
@@ -399,15 +401,28 @@ app.controller('RecipesCtrl', [
     $scope.removeIngredient = function(ingredient) {
       if($scope.recipe.ingredients.length == 1) {
         $scope.recipe.ingredients = [];
+        ingNames.clear();
       }
       else {
         var i = $scope.recipe.ingredients.indexOf(ingredient);
+        // Remove ingredient name from set
+        ingNames.delete(ingredient.name);
         $scope.recipe.ingredients.splice(i, 1);
       }
     };
 
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
+      // Load existing ingredients into ingNames
+      if(ingNames.size == 0 && $scope.recipe.ingredients.length > 0) {
+        for(i = 0; i < $scope.recipe.ingredients.length; i++) {
+          ingNames.add($scope.ing_name);
+        }
+      }
+      // If ingredient already exists show alert
+      if(ingNames.has($scope.ing_name)) {
+        return alert("Duplicate ingredient, please change ingredient name");
+      }
       // Build the ingredient string
       var ing = {
         name: $scope.ing_name,
@@ -416,6 +431,8 @@ app.controller('RecipesCtrl', [
       };
 
       ($scope.recipe.ingredients).push(ing);
+      // Add new ingredient name to the set
+      ingNames.add(ing.name);
     };
 
     // Edit an existing recipe
