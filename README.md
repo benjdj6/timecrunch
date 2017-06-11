@@ -30,8 +30,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Update recipe edit form to be compatible with new ingredients
-
 * Separate recipe form from ListCtrl
 
 * Implement new duplicate ingredient detection
