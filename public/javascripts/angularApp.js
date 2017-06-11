@@ -1,4 +1,4 @@
-var app = angular.module('timecrunch', ['ui.router']);
+let app = angular.module('timecrunch', ['ui.router']);
 
 app.config([
 '$stateProvider',
@@ -82,7 +82,7 @@ function($stateProvider, $urlRouterProvider) {
 // Factory for auth handling all authorization and
 // user id related functions
 app.factory('auth', ['$http', '$window', function($http, $window) {
-  var auth = {};
+  let auth = {};
 
   // save given token
   auth.saveToken = function(token) {
@@ -115,10 +115,10 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
 
   // check if user is logged in
   auth.isLoggedIn = function() {
-    var token = auth.getToken();
+    let token = auth.getToken();
 
     if(token) {
-      var payload = JSON.parse($window.atob(token.split('.')[1]));
+      let payload = JSON.parse($window.atob(token.split('.')[1]));
 
       return payload.exp > Date.now() / 1000;
     } else {
@@ -129,8 +129,8 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
   // returns currently logged in username
   auth.currentUser = function() {
     if(auth.isLoggedIn()) {
-      var token = auth.getToken();
-      var payload = JSON.parse($window.atob(token.split('.')[1]));
+      let token = auth.getToken();
+      let payload = JSON.parse($window.atob(token.split('.')[1]));
 
       return payload.username;
       }
@@ -141,7 +141,7 @@ app.factory('auth', ['$http', '$window', function($http, $window) {
 
 // Factory for foods handling all related functions
 app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
-  var o = {
+  let o = {
     foods: []
   };
 
@@ -178,7 +178,7 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
 
 // Factory for recipes handling related functions
 app.factory('recipes', ['$http', 'auth', function($http, auth) {
-  var o = {
+  let o = {
     recipes: []
   };
 
@@ -226,7 +226,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 
 // Factory for ingredients handling related functions
 app.factory('ingredients', ['$http', function($http){
-  var o = {};
+  let o = {};
   
   // Create a new ingredient
   o.create = function(recipeID, ingredient) {
@@ -372,7 +372,7 @@ app.controller('ListCtrl', [
         $scope.ingredients = [];
       }
       else {
-        var i = $scope.ingredients.indexOf(ingredient);
+        let i = $scope.ingredients.indexOf(ingredient);
         $scope.ingredients.splice(i, 1);
       }
     };
@@ -404,7 +404,7 @@ app.controller('RecipesCtrl', [
         ingNames.clear();
       }
       else {
-        var i = $scope.recipe.ingredients.indexOf(ingredient);
+        let i = $scope.recipe.ingredients.indexOf(ingredient);
         // Remove ingredient name from set
         ingNames.delete(ingredient.name);
         $scope.recipe.ingredients.splice(i, 1);
@@ -424,7 +424,7 @@ app.controller('RecipesCtrl', [
         return alert("Duplicate ingredient, please change ingredient name");
       }
       // Build the ingredient string
-      var ing = {
+      let ing = {
         name: $scope.ing_name,
         amount: $scope.ing_amount,
         unit: $scope.ing_unit
