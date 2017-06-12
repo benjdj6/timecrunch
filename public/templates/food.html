@@ -4,9 +4,13 @@
 </div>
 <div class="row">
   <div class="row">
+
+    <!-- Sidebar links -->
     <div class="col-md-2 sidebar">
       <p><a href="#">Delete Selected</a></p>
     </div>
+
+    <!-- Add food form -->
     <div class="col-md-9">
       <div class="row addfood">
         <form ng-submit="addFood();">
@@ -27,6 +31,7 @@
         </form>
       </div>
 
+      <!-- Category filter option -->
       <div class="row">
         <div class="col-md-offset-9 col-md-3">
           <label>Filter Category: </label>
@@ -36,6 +41,7 @@
         </div>
       </div>
 
+      <!-- Column names -->
       <div class="row title-row">
         <div class="col-md-3 col-md-offset-1" ng-click="sortBy=['name', 'sellBy']"><b>Name</b></div>
         <div class="col-md-2" ng-click="sortBy=['sellBy', 'name']"><b>Sell By Date</b></div>
@@ -44,6 +50,7 @@
         <div class="col-md-3 col-md-offset-1" ng-click="sortBy='category'"><b>Category</b></div>
       </div>
 
+      <!-- List food info -->
       <div ng-repeat="food in foods | filter: filter() | orderBy: sortBy">
         <div class="row food">
           <div class="col-md-1">
