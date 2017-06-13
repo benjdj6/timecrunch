@@ -1,10 +1,14 @@
 <!--  Template for add recipe form -->
+
+<!-- Error messages -->
 <div ng-show="error" class="alert alert-danger row">
     <span>{{ error.message }}</span>
 </div>
 
 <div class="row addrecipe">
   <form ng-show="canEdit()" ng-submit="editRecipe()">
+
+    <!-- Name input -->
     <div class="form-group row">
       <label for="food-name" class="col-md-2 col-form-label">Name:</label>
       <div class="col-md-3">
@@ -12,6 +16,7 @@
       </div>
     </div>
 
+    <!-- Ingredients list -->
     <div ng-repeat="ing in recipe.ingredients">
       <div class="row ingredient">
         <div class="col-md-2 col-md-offset-2">
@@ -23,6 +28,7 @@
       </div>
     </div>
 
+    <!-- New ingredient input -->
     <div class="form-group row">
       <label for="ingredient-name-input" class="col-md-2 col-form-label">Ingredients:</label>
       <div class="col-md-2">
@@ -41,6 +47,7 @@
       </div>
     </div>
 
+    <!-- Prep time input -->
     <div class="form-group row">
       <label for="prep-time" class="col-md-2 col-form-label">Preparation Time (minutes):</label>
       <div class="col-md-2">
@@ -48,12 +55,14 @@
       </div>
     </div>
 
+    <!-- Instructions and link toggle -->
     <div class="row instructions">
       <div class="col-md-3">
         <input type="checkbox" ng-model="recipeLink"/><b> Link to Instructions</b>
       </div>
     </div>
 
+    <!-- Instructions text input -->
     <div class="form-group row" ng-hide="recipeLink">
       <label for="instructions" class="col-md-2 col-form-label">Instructions:</label>
       <div class="col-md-4">
@@ -61,6 +70,7 @@
       </div>
     </div>
 
+    <!-- Link input -->
     <div class="row" ng-show="recipeLink">
       <label for="link" class="col-md-2 col-form-label">Link:</label>
       <div class="col-md-3">
@@ -68,6 +78,7 @@
       </div>
     </div>
 
+    <!-- Back and submit buttons -->
     <div class="row">
       <div class="col-md-1">
         <a ui-sref="recipe({id: recipe._id})">Back</a>
