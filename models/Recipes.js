@@ -6,7 +6,8 @@ var RecipeSchema = new mongoose.Schema({
     ingredients: [{type: mongoose.Schema.Types.ObjectId, ref: 'Ingredient' }],
     prepTime: {type: Number, default: 30},
     link: String,
-    instructions: String
+    instructions: String,
+    private: {type: Boolean, default: false}
 });
 
 mongoose.model('Recipe', RecipeSchema);
