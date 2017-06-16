@@ -440,7 +440,7 @@ app.controller('RecipesCtrl', [
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
       // Load existing ingredients into ingNames
-      if(ingNames.size == 0 && $scope.recipe.ingredients.length > 0) {
+      if(ingNames.size < $scope.recipe.ingredients.length) {
         for(i = 0; i < $scope.recipe.ingredients.length; i++) {
           ingNames.add($scope.ing_name);
         }
