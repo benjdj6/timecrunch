@@ -30,8 +30,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Add PUT food route for updating values
-
 * Add input fields to food list template for updating
 
 * Add update button to food list
