@@ -82,12 +82,13 @@
 
     <!-- Back and submit buttons -->
     <div class="row">
-      <div class="col-md-1">
+      <div class="col-md-3">
         <a ui-sref="recipes">Back</a>
-      </div>
-      <div class="col-md-1">
+        <div class="separator"/>
         <button type="submit" class="btn btn-primary">Add Recipe</button>
-      </div>  
+        <div class="separator"/>
+        <input type="checkbox" ng-model="private"/><b> Private</b>
+      </div>
     </div>  
   </form>
 </div>
