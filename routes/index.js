@@ -87,6 +87,22 @@ router.post('/food', auth, function(req, res, next) {
   });
 });
 
+// PUT food
+router.put('/food/:food', auth, function(req, res, next) {
+  Recipe.update({_id: req.food, author: req.payload.username},
+                {$set: req.body}, function(err, food) {
+    if(err) {
+      res.send(err);
+    }
+    else if(food['n'] == 0) {
+      res.sendStatus(401);
+    }
+    else {
+      res.sendStatus(204);
+    }
+  });
+});
+
 // DELETE food
 router.delete('/food/:food', function(req, res, next) {
   Food.remove({_id: req.food}, function(err) {
