@@ -343,7 +343,8 @@ app.controller('ListCtrl', [
         name: $scope.name,
         prepTime: $scope.prepTime,
         link: $scope.link,
-        instructions: $scope.instructions
+        instructions: $scope.instructions,
+        private: $scope.private
       }).then(function success(id) {
         // Return to the recipe list
         for(i = 0; i < $scope.ingredients.length; i++) {
