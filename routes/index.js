@@ -115,7 +115,10 @@ router.delete('/food/:food', function(req, res, next) {
 
 // GET all recipes
 router.get('/recipes', function(req, res, next) {
-  Recipe.find(function(err, recipe) {
+  Recipe.find( { $or: [
+    { 'private': false },
+    { 'private': null}] },
+    function(err, recipe) {
     if(err) {
       return next(err);
     }
