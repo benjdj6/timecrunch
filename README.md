@@ -34,8 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add update button to food list
 
-* Update recipe route to not return private recipes
-
 * Allow user to see their own private recipes
 
 * Update angularApp to support private recipes
