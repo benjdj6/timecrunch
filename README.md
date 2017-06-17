@@ -38,8 +38,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Update angularApp to support private recipes
 
-* Update recipe form to have private checkbox
-
 * Separate recipe form from ListCtrl
 
 * Highlight expired and soon-to-expire foods
