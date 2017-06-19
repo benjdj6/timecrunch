@@ -127,6 +127,19 @@ router.get('/recipes', auth, function(req, res, next) {
   });
 });
 
+// GET all recipes
+router.get('/recipes/public', function(req, res, next) {
+  Recipe.find( { $or: [
+    { 'private': false },
+    { 'private': null}] },
+    function(err, recipe) {
+    if(err) {
+      return next(err);
+    }
+    res.json(recipe);
+  });
+});
+
 // GET specific recipe
 router.get('/recipes/:recipe', function(req, res, next) {
   req.recipe.populate('ingredients', function(err, recipe) {
