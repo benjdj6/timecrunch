@@ -184,7 +184,14 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 
   // Get all recipes
   o.getAll = function() {
-    return $http.get('/recipes').then(function(data) {
+    if(auth.isLoggedIn()) {
+      return $http.get('/recipes', {
+        headers: {Authorization: 'Bearer ' + auth.getToken()}
+      }).then(function(data) {
+        angular.copy(data.data, o.recipes);
+      });
+    }
+    return $http.get('/recipes/public').then(function(data) {
       angular.copy(data.data, o.recipes);
     });
   };
