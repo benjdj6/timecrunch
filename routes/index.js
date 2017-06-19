@@ -114,10 +114,11 @@ router.delete('/food/:food', function(req, res, next) {
 });
 
 // GET all recipes
-router.get('/recipes', function(req, res, next) {
+router.get('/recipes', auth, function(req, res, next) {
   Recipe.find( { $or: [
     { 'private': false },
-    { 'private': null}] },
+    { 'private': null},
+    { 'private': true, 'author': req.payload.username }] },
     function(err, recipe) {
     if(err) {
       return next(err);
