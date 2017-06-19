@@ -34,8 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add update button to food list
 
-* Allow user to see their own private recipes
-
 * Separate recipe form from ListCtrl
 
 * Highlight expired and soon-to-expire foods
@@ -69,7 +67,5 @@ Once the server has started up you'll be able to access time crunch by going to 
 * Create favorite recipe function
 
 * Implement recipe favorite button
-
-* Create distinction between public/private recipes
 
 * Change delete to checkboxes
