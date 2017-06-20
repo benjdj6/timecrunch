@@ -166,6 +166,15 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
     });
   };
 
+  // Update a specific food
+  o.update = function(food) {
+    return $http.put('/food/' + food._id, food, {
+      headers: {Authorization: 'Bearer ' + auth.getToken()}
+    }).then(function(data) {
+      o.getAll();
+    });
+  }
+
   // Remove a food from a user's food list
   o.delete = function(food) {
     return $http.delete('/food/' + food._id).then(function(data) {
