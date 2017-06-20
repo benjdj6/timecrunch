@@ -24,6 +24,8 @@ Now you're ready to run!
 
 >SECRET='{ENTER_A_SECRET}' npm start
 
+to run in development mode use `env='development'` in the above command.
+
 The secret is necessary for signing json web tokens, and this application cannot run properly without one.
 
 Once the server has started up you'll be able to access time crunch by going to http://localhost:3000
