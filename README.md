@@ -36,8 +36,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add update button to food list
 
-* Implement update food in ListCtrl
-
 * Separate recipe form from ListCtrl
 
 * Highlight expired and soon-to-expire foods
