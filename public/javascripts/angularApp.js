@@ -302,6 +302,7 @@ app.controller('ListCtrl', [
     // Set containing ingredient names
     let ingNames = new Set();
 
+    // Function used to filter food by category
     $scope.filter = function() {
       return function(item) {
         if($scope.filterCat == "" || !$scope.filterCat
@@ -335,13 +336,15 @@ app.controller('ListCtrl', [
 
     // Update specific food
     $scope.updateFood = function(food) {
+      // Make sure food name is valid
       if(!$scope.name || $scope.name == '') {
         alert("Please fill in the name field");
         return;
       }
+
       foods.update(food).then(function success() {
         // Reload food list
-        $state.go('rfood');
+        $state.go('food');
       }, function failure(error) {
         // Show error message
         $scope.error = error.data;
