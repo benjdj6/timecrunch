@@ -333,6 +333,21 @@ app.controller('ListCtrl', [
       });
     };
 
+    // Update specific food
+    $scope.updateFood = function(food) {
+      if(!$scope.name || $scope.name == '') {
+        alert("Please fill in the name field");
+        return;
+      }
+      foods.update(food).then(function success() {
+        // Reload food list
+        $state.go('rfood');
+      }, function failure(error) {
+        // Show error message
+        $scope.error = error.data;
+      });
+    }
+
     // Remove a food
     $scope.removeFood = function(food) {
       foods.delete(food);
