@@ -89,7 +89,7 @@ router.post('/food', auth, function(req, res, next) {
 
 // PUT food
 router.put('/food/:food', auth, function(req, res, next) {
-  Recipe.update({_id: req.food, author: req.payload.username},
+  Food.update({_id: req.food, owner: req.payload.username},
                 {$set: req.body}, function(err, food) {
     if(err) {
       res.send(err);
