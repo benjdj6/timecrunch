@@ -171,7 +171,7 @@ app.factory('foods', ['$http', '$state', 'auth', function($http, $state, auth) {
     return $http.put('/food/' + food._id, food, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
-      o.getAll();
+      o.getFood();
     });
   }
 
@@ -337,7 +337,7 @@ app.controller('ListCtrl', [
     // Update specific food
     $scope.updateFood = function(food) {
       // Make sure food name is valid
-      if(!$scope.name || $scope.name == '') {
+      if(!food.name || food.name == '') {
         alert("Please fill in the name field");
         return;
       }
