@@ -33,7 +33,7 @@
 
       <!-- Category filter option -->
       <div class="row">
-        <div class="col-md-offset-9 col-md-3">
+        <div class="col-md-offset-8 col-md-3">
           <label>Filter Category: </label>
           <select ng-model="filterCat" ng-options="cat for cat in categories">
             <option value="">None</option>
@@ -47,7 +47,7 @@
         <div class="col-md-2" ng-click="sortBy=['sellBy', 'name']"><b>Sell By Date</b></div>
         <div class="col-md-1" ng-click="sortBy='amount'"><b>Quantity</b></div>
         <div class="col-md-1"><b>Units</b></div>
-        <div class="col-md-3 col-md-offset-1" ng-click="sortBy='category'"><b>Category</b></div>
+        <div class="col-md-2" ng-click="sortBy='category'"><b>Category</b></div>
       </div>
 
       <!-- List food info -->
@@ -60,7 +60,7 @@
           <div class="col-md-2" ng-bind="food.sellBy | date: 'MM/dd/yyyy'"></div>
           <div class="col-md-1">{{food.amount}}</div>
           <div class="col-md-1">{{food.units}}</div>
-          <div class="col-md-3 col-md-offset-1">{{food.category}}</div>
+          <div class="col-md-2">{{food.category}}</div>
         </div>
       </div>
     </div>
