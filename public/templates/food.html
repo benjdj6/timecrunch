@@ -52,7 +52,7 @@
 
       <!-- List food info -->
       <div ng-repeat="food in foods | filter: filter() | orderBy: sortBy">
-        <div class="row food">
+        <div ng-hide="edit" class="row food">
           <div class="col-md-1">
             <button class="btn-danger btn-xs" ng-click="removeFood(food)">Delete</button>
           </div>
@@ -61,6 +61,30 @@
           <div class="col-md-1">{{food.amount}}</div>
           <div class="col-md-1">{{food.units}}</div>
           <div class="col-md-2">{{food.category}}</div>
+          <div class="col-md-1">
+            <button class="btn-link btn-xs" ng-click="edit=true">Edit</button>
+          </div>
+        </div>
+
+        <div ng-show="edit" class="row food-edit">
+          <div class="col-md-3 col-md-offset-1">
+            <input type="text" ng-model="food.name"/>
+          </div>
+          <div class="col-md-2" ng-bind="food.sellBy | date: 'MM/dd/yyyy'"></div>
+          <div class="col-md-1">
+            <input type="number" ng-model="food.amount" min="0" step="any"/>
+          </div>
+          <div class="col-md-1">
+            <input type="text" ng-model="food.units" size="3">
+          </div>
+          <div class="col-md-2">
+            <select ng-model="food.category" ng-options="opt for opt in categories">
+              <option value="">None</option>
+            </select>
+          </div>
+          <div class="col-md-1">
+            <button class="btn-primary btn-xs" ng-click="updateFood(food)">Update</button>
+          </div>
         </div>
       </div>
     </div>
