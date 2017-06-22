@@ -17,7 +17,7 @@ input[type=number] {
   display: inline-block;
 }
 
-.food, .recipe {
+.food, .food-edit, .recipe {
   background-color: #ffffff;
   border-bottom: thin solid;
   margin-bottom: 2px;
