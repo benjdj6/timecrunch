@@ -42,8 +42,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add upvote function to controller
 
-* Add upvote function to recipe model
-
 * Add upvote route
 
 * Separate recipe form from ListCtrl
