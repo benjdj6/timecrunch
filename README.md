@@ -32,6 +32,22 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
+* Add upvote/like button to recipes
+
+* Add score to recipe model
+
+* Sort recipes by score
+
+* Implement different recipe sorts
+
+* Add upvote function to recipe factory
+
+* Add upvote function to controller
+
+* Add upvote function to recipe model
+
+* Add upvote route
+
 * Separate recipe form from ListCtrl
 
 * Highlight expired and soon-to-expire foods
