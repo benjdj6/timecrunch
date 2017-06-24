@@ -54,6 +54,14 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Backend unit conversions
 
+* Convert all volume to ml on backend
+
+* Create volume conversion table
+
+* Convert all weight to g on backend
+
+* Create weight conversion table
+
 * Backend metric to imperial conversions (and reverse)
 
 * Standardized unit inputs
