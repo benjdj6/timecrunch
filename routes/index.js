@@ -179,6 +179,17 @@ router.put('/recipes/:recipe', auth, function(req, res, next) {
   });
 });
 
+// Upvote recipe
+router.put('/recipes/:recipe/upvote', auth, function(req, res, next) {
+  req.recipe.upvote(function(err, recipe){
+    if(err) {
+      return next(err);
+    }
+
+    res.json(recipe);
+  });
+});
+
 // DELETE recipe
 router.delete('/recipes/:recipe', function(req, res, next) {
   Recipe.remove({_id: req.recipe}, function(err) {
