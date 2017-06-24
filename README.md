@@ -44,8 +44,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add upvote function to controller
 
-* Add upvote route
-
 * Separate recipe form from ListCtrl
 
 * Highlight expired and soon-to-expire foods
