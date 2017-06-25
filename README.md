@@ -40,8 +40,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Implement different recipe sorts
 
-* Add upvote function to recipe factory
-
 * Add upvote function to controller
 
 * Separate recipe form from ListCtrl
