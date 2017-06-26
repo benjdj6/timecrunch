@@ -34,8 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add upvote/like button to recipes
 
-* Sort recipes by score
-
 * Style recipe score better
 
 * Implement different recipe sorts
