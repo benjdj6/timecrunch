@@ -452,7 +452,7 @@ app.controller('ListCtrl', [
     };
 }]);
 
-// Controller for recipe details page
+// Controller for recipe details page and edit form
 app.controller('RecipesCtrl', [
   '$scope',
   '$state',
