@@ -305,7 +305,7 @@ app.controller('ListCtrl', [
       "Other-Produce"
     ];
 
-    $scope.sortBy = ["sellBy", "name"];
+    $scope.sortBy = ["score", "sellBy", "name"];
     $scope.filterCat = "";
 
     // Set containing ingredient names
