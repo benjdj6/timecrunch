@@ -19,6 +19,8 @@ input[type=number] {
 
 .score {
   color: #c6c6c6;
+  font-weight: bold;
+  font-size: 115%;
 }
 
 .food, .food-edit, .recipe {
