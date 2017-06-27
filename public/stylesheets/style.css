@@ -17,6 +17,10 @@ input[type=number] {
   display: inline-block;
 }
 
+.score {
+  color: #c6c6c6;
+}
+
 .food, .food-edit, .recipe {
   background-color: #ffffff;
   border-bottom: thin solid;
