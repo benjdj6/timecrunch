@@ -534,6 +534,10 @@ app.controller('RecipesCtrl', [
       });
     };
 
+    $scope.upvoteRecipe = function() {
+      recipes.upvote($scope.recipe);
+    };
+
     // Deletes the recipe
     $scope.deleteRecipe = function() {
       // Make sure user is authorized
