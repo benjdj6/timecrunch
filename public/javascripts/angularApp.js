@@ -401,6 +401,7 @@ app.controller('ListCtrl', [
       });
     };
 
+    // Upvote specific recipe
     $scope.upvoteRecipe = function(recipe) {
       recipes.upvote(recipe);
     };
@@ -534,6 +535,7 @@ app.controller('RecipesCtrl', [
       });
     };
 
+    // Upvote this recipe
     $scope.upvoteRecipe = function() {
       recipes.upvote($scope.recipe);
     };
