@@ -32,6 +32,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
+* Change recipe list style for better legibility on hover
+
 * Add upvote/like button to recipe list (?)
 
 * Show upvote/like button on recipe detail page
