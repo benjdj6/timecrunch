@@ -11,9 +11,16 @@ var RecipeSchema = new mongoose.Schema({
   score: {type: Number, default: 1}
 });
 
-RecipeSchema.methods.upvote = function(db) {
+RecipeSchema.methods.upvote = function(cb) {
   this.score += 1;
   this.save(cb);
 };
+
+RecipeSchema.methods.unvote = function(cb) {
+  if(this.score > 1) {
+    this.score -= 1;
+    this.save(cb);
+  }
+}
 
 mongoose.model('Recipe', RecipeSchema);
