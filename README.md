@@ -44,8 +44,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add upvote/like button to recipe list (?)
 
-* Show upvote/like button on recipe detail page
-
 * limit user to one like/upvote per recipe
 
 * undo like/upvote if user clicks a second time
