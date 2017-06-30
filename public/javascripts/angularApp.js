@@ -538,6 +538,7 @@ app.controller('RecipesCtrl', [
     // Upvote this recipe
     $scope.upvoteRecipe = function() {
       recipes.upvote($scope.recipe);
+      $scope.recipe.score += 1;
     };
 
     // Deletes the recipe
