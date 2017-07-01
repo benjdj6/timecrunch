@@ -181,7 +181,7 @@ router.put('/recipes/:recipe', auth, function(req, res, next) {
 
 // PUT upvote recipe
 router.put('/recipes/:recipe/upvote', auth, function(req, res, next) {
-  req.recipe.upvote(function(err, recipe){
+  req.recipe.upvote(function(err, recipe) {
     if(err) {
       return next(err);
     }
@@ -192,7 +192,7 @@ router.put('/recipes/:recipe/upvote', auth, function(req, res, next) {
 
 // PUT unvote recipe
 router.put('/recipes/:recipe/unvote', auth, function(req, res, next) {
-  req.recipe.unvote(function(err, recipe){
+  req.recipe.unvote(function(err, recipe) {
     if(err) {
       return next(err);
     }
