@@ -36,8 +36,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Style recipe score and like button using bootstrap grid
 
-* Change upvote/like icon color to indicate vote counted
-
 * Add unvote function to recipe factory
 
 * Implement vote model
