@@ -2,8 +2,12 @@
 <!-- Show recipe details -->
 <h2>{{recipe.name}}</h2> 
 
-Score: <font class="score">{{recipe.score}}</font> Like: <span class="glyphicon glyphicon-thumbs-up" ng-click="upvoteRecipe();"></span>
-
+<div ng-hide="voted">
+    Score: <font class="score">{{recipe.score}}</font> Like: <span class="glyphicon glyphicon-thumbs-up" ng-click="upvoteRecipe();"></span>
+</div>
+<div ng-show="voted">
+    Score: <font class="voted">{{recipe.score}}</font> Like: <span class="glyphicon glyphicon-thumbs-up voted" ng-click="upvoteRecipe();"></span>
+</div>
 <h4 ng-show="recipe.author">By: {{recipe.author}}</h4>
 
 <p><b>Time:</b> {{recipe.prepTime}}</p>
