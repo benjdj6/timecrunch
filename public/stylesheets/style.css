@@ -23,6 +23,12 @@ input[type=number] {
   font-size: 115%;
 }
 
+.voted {
+  color: #4292f4;
+  font-weight: bold;
+  font-size: 115%;
+}
+
 .food, .food-edit, .recipe {
   background-color: #ffffff;
   border-bottom: thin solid;
