@@ -239,6 +239,16 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
     });
   };
 
+  // Reverse a vote on a recipe
+  o.unvote = function(recipe) {
+    return $http.put('/recipes/' + recipe._id + '/unvote', null, {
+      headers: {Authorization: 'Bearer ' + auth.getToken()}
+    }).then(function(data) {
+      recipe.score -= 1;
+    });
+  };
+
+
   // Delete a recipe
   o.delete = function(recipe) {
     return $http.delete('/recipes/' + recipe._id).then(function(data) {
