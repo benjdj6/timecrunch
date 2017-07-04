@@ -1,35 +1,48 @@
 <!-- Template for recipe details page -->
 <!-- Show recipe details -->
-<h2>{{recipe.name}}</h2> 
+<div class="row">
+    <h2>{{recipe.name}}</h2> 
+</div>
 
-<div ng-hide="voted">
+<div class="row" ng-hide="voted">
     Score: <font class="score">{{recipe.score}}</font> Like: <span class="glyphicon glyphicon-thumbs-up" ng-click="upvoteRecipe();"></span>
 </div>
-<div ng-show="voted">
+<div class="row" ng-show="voted">
     Score: <font class="voted">{{recipe.score}}</font> Like: <span class="glyphicon glyphicon-thumbs-up voted" ng-click="upvoteRecipe();"></span>
 </div>
-<h4 ng-show="recipe.author">By: {{recipe.author}}</h4>
 
-<p><b>Time:</b> {{recipe.prepTime}}</p>
+<div class="row">
+    <h4 ng-show="recipe.author">By: {{recipe.author}}</h4>
+</div>
+
+<div class="row">
+    <b>Time:</b> {{recipe.prepTime}}
+</div>
 
 <!-- Show every ingredient in a new paragraph -->
-<p><b>Ingredients:</b></p>
+<div class="row">
+    <b>Ingredients:</b>
+</div>
 <div ng-repeat="ing in recipe.ingredients">
-  <p>{{ing.name}} - {{ing.amount}} {{ing.unit}}</p>
+  <div class="row">
+    {{ing.name}} - {{ing.amount}} {{ing.unit}}
+  </div>
 </div>
 
 <!-- Show either instructions or link if available -->
-<p ng-show="recipe.instructions"><b>Instructions:</b> {{recipe.instructions}}</p>
+<div class="row" ng-show="recipe.instructions">
+    <b>Instructions:</b> {{recipe.instructions}}
+</div>
 
-<p ng-show="recipe.link"><b>More info:</b> <a href="{{recipe.link}}">{{recipe.link}}</a></p>
+<div class="row" ng-show="recipe.link">
+    <b>More info:</b> <a href="{{recipe.link}}">{{recipe.link}}</a>
+</div>
 
 <!-- Bottom page buttons -->
 <div class="row">
-  <div class="col-md-2">
     <a ui-sref="recipes">Back</a>
     <div class="separator" />
     <a ng-show="canEdit();" ui-sref="editRecipe({id: recipe._id})">Edit</a>
     <div class="separator" />
     <button class="btn-danger btn-xs" ng-show="canEdit();" ng-click="deleteRecipe();">Delete</button>
-  </div>
 </div>
