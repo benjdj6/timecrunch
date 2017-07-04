@@ -36,8 +36,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Reflect voting style even after refresh or navigate away
 
-* Add unvote function to recipe factory
-
 * Implement vote model
 
 * Create vote factory
