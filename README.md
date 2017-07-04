@@ -34,8 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Change recipe list style for better legibility on hover
 
-* Style recipe score and like button using bootstrap grid
-
 * Reflect voting style even after refresh or navigate away
 
 * Add unvote function to recipe factory
