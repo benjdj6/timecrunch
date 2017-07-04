@@ -401,11 +401,6 @@ app.controller('ListCtrl', [
       });
     };
 
-    // Upvote specific recipe
-    $scope.upvoteRecipe = function(recipe) {
-      recipes.upvote(recipe);
-    };
-
     // Add an ingredient to a recipe
     $scope.addIngredient = function() {
       // Load existing ingredients into ingNames
