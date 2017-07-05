@@ -32,8 +32,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Show error if user tries to vote while logged out
-
 * Reflect voting style even after refresh or navigate away
 
 * Implement vote model
