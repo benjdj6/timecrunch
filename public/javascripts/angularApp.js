@@ -542,8 +542,15 @@ app.controller('RecipesCtrl', [
 
     // Upvote this recipe
     $scope.upvoteRecipe = function() {
-      recipes.upvote($scope.recipe);
-      $scope.voted = true;
+      if(auth.isLoggedIn()) {
+        recipes.upvote($scope.recipe);
+        $scope.voted = true;
+      }
+      else {
+        $scope.error = {
+          message: "You must be logged in to vote"
+        };
+      }
     };
 
     // Deletes the recipe
