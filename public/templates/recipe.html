@@ -1,4 +1,10 @@
 <!-- Template for recipe details page -->
+
+<!-- Error messages -->
+<div ng-show="error" class="alert alert-danger row">
+    <span>{{ error.message }}</span>
+</div>
+
 <!-- Show recipe details -->
 <div class="row">
     <h2>{{recipe.name}}</h2> 
