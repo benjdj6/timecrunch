@@ -35,9 +35,13 @@ input[type=number] {
   margin-bottom: 2px;
 }
 
-.food:hover, .recipe:hover {
+.food:hover, .recipe:hover, .recipe:hover a {
   background-color: #000066;
   color: white;
+}
+
+.recipe a {
+  color: black;  
 }
 
 .navbar {
