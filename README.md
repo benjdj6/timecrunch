@@ -34,8 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Reflect proper vote status after refresh
 
-* Implement vote model
-
 * Integrate vote model into application
 
 * Create vote factory
