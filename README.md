@@ -32,7 +32,7 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Reflect voting style even after refresh or navigate away
+* Reflect proper vote status after refresh
 
 * Implement vote model
 
