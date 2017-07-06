@@ -21,6 +21,6 @@ RecipeSchema.methods.unvote = function(cb) {
     this.score -= 1;
     this.save(cb);
   }
-}
+};
 
 mongoose.model('Recipe', RecipeSchema);
