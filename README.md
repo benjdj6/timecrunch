@@ -32,6 +32,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
+* Separate factories into separate files
+
 * Reflect proper vote status after refresh
 
 * Create vote factory
