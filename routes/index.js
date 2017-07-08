@@ -6,6 +6,7 @@ var Food = mongoose.model('Food');
 var Recipe = mongoose.model('Recipe');
 var User = mongoose.model('User');
 var Ingredient = mongoose.model('Ingredient');
+var Vote = mongoose.model('Vote');
 
 var passport = require('passport');
 

@@ -10,6 +10,7 @@ require('./models/Foods');
 require('./models/Recipes');
 require('./models/Users');
 require('./models/Ingredients');
+require('./models/Votes');
 
 var index = require('./routes/index');
 
