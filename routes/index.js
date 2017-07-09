@@ -186,8 +186,18 @@ router.put('/recipes/:recipe/upvote', auth, function(req, res, next) {
     if(err) {
       return next(err);
     }
+    var vote = new Vote({
+      user: req.payload.username,
+      recipe_id: req.recipe._id
+    });
 
-    res.json(recipe);
+    vote.save(function(err, vote) {
+      if(err) {
+        return next(err);
+      }
+
+      res.json(vote);
+    });
   });
 });
 
