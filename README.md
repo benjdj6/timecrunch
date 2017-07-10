@@ -34,6 +34,10 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Move routes into separate files
 
+* Load vote when getting recipe details
+
+* Integrate vote into recipe object in angularApp
+
 * Move factories into separate files
 
 * Reflect proper vote status after refresh
