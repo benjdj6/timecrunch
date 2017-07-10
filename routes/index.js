@@ -181,8 +181,8 @@ router.put('/recipes/:recipe', auth, function(req, res, next) {
 });
 
 // PUT upvote recipe
-router.put('/recipes/:recipe/upvote', auth, function(req, res, next) {
-  req.recipe.upvote(function(err, recipe) {
+router.put('/recipes/:recipe/vote', auth, function(req, res, next) {
+  req.recipe.vote(function(err, recipe) {
     if(err) {
       return next(err);
     }
