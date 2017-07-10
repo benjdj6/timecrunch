@@ -241,7 +241,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 
   // Reverse a vote on a recipe
   o.unvote = function(recipe) {
-    return $http.put('/recipes/' + recipe._id + '/unvote', null, {
+    return $http.delete('/recipes/' + recipe._id + '/vote/' + recipe.vote_id, null, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
       recipe.score -= 1;

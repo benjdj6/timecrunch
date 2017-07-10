@@ -214,8 +214,8 @@ router.put('/recipes/:recipe/vote', auth, function(req, res, next) {
   });
 });
 
-// PUT unvote recipe
-router.put('/recipes/:recipe/unvote', auth, function(req, res, next) {
+// Delete recipe vote
+router.delete('/recipes/:recipe/vote/:vote', auth, function(req, res, next) {
   req.recipe.unvote(function(err, recipe) {
     if(err) {
       return next(err);
