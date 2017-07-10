@@ -57,6 +57,19 @@ router.param('recipe', function(req, res, next, id) {
   });
 });
 
+// Param function for selecting vote objects
+router.param('vote', function(req, res, next, id) {
+  var query = Vote.findById(id);
+
+  query.exec(function(err, vote) {
+    if (err) { return next(err); }
+    if (!vote) { return next(new Error('can\'t find vote')); }
+
+    req.vote = vote;
+    return next();
+  });
+});
+
 // GET all food
 router.get('/food', auth, function(req, res, next) {
   Food.find({ 'owner': req.payload.username }, function(err, food){
