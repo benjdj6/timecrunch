@@ -40,8 +40,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Reflect proper vote status after refresh
 
-* Create vote factory
-
 * Use vote model to track users vote status
 
 * Destroy votes in unvote route
