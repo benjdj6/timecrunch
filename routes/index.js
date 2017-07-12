@@ -141,7 +141,7 @@ router.get('/recipes', auth, function(req, res, next) {
   });
 });
 
-// GET all recipes
+// GET all recipes for logged out users
 router.get('/recipes/public', function(req, res, next) {
   Recipe.find( { $or: [
     { 'private': false },
