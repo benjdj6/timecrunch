@@ -127,7 +127,7 @@ router.delete('/food/:food', function(req, res, next) {
   }); 
 });
 
-// GET all recipes
+// GET all recipes for logged in users
 router.get('/recipes', auth, function(req, res, next) {
   Recipe.find( { $or: [
     { 'private': false },
@@ -154,8 +154,8 @@ router.get('/recipes/public', function(req, res, next) {
   });
 });
 
-// GET specific recipe
 router.get('/recipes/:recipe', function(req, res, next) {
+// GET specific recipe for logged out users
   req.recipe.populate('ingredients', function(err, recipe) {
     if(err) {
       return next(err);
