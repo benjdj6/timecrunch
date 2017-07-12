@@ -154,12 +154,24 @@ router.get('/recipes/public', function(req, res, next) {
   });
 });
 
-router.get('/recipes/:recipe', function(req, res, next) {
 // GET specific recipe for logged out users
+router.get('/recipes/public/:recipe', function(req, res, next) {
   req.recipe.populate('ingredients', function(err, recipe) {
     if(err) {
       return next(err);
     }
+
+    res.json(recipe);
+  });
+});
+
+// GET specific recipe for logged in users
+router.get('/recipes/:recipe', auth, function(req, res, next) {
+  req.recipe.populate('ingredients', function(err, recipe) {
+    if(err) {
+      return next(err);
+    }
+
     res.json(recipe);
   });
 });
