@@ -241,7 +241,7 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 
   // Upvote a recipe
   o.upvote = function(recipe) {
-    return $http.put('/recipes/' + recipe._id + '/upvote', null, {
+    return $http.put('/recipes/' + recipe._id + '/vote', null, {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
       recipe.score += 1;
