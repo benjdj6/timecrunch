@@ -239,11 +239,12 @@ router.put('/recipes/:recipe/vote', auth, function(req, res, next) {
 });
 
 // Delete recipe vote
-router.delete('/recipes/:recipe/vote/:vote', auth, function(req, res, next) {
+router.delete('/recipes/:recipe/vote/:vote', function(req, res, next) {
   Vote.remove({_id: req.vote}, function(err) {
     if(err) {
       res.send(err);
     }
+
     req.recipe.unvote(function(err, recipe) {
       if(err) {
         return next(err);
