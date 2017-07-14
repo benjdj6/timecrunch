@@ -248,15 +248,16 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
       headers: {Authorization: 'Bearer ' + auth.getToken()}
     }).then(function(data) {
       recipe.score += 1;
+      recipe.vote = data.data;
     });
   };
 
   // Reverse a vote on a recipe
   o.unvote = function(recipe) {
-    return $http.delete('/recipes/' + recipe._id + '/vote/' + recipe.vote_id, null, {
-      headers: {Authorization: 'Bearer ' + auth.getToken()}
-    }).then(function(data) {
+    let route = '/recipes/' + recipe._id + '/vote/' + recipe.vote._id;
+    return $http.delete(route).then(function(data) {
       recipe.score -= 1;
+      recipe.vote = null;
     });
   };
 
@@ -480,6 +481,7 @@ app.controller('RecipesCtrl', [
   'auth',
   function($scope, $state, ingredients, recipe, recipes, auth){
     $scope.recipe = recipe;
+    $scope.voted = (recipe.vote != null)
     // Set containing ingredient names
     let ingNames = new Set();
 
@@ -555,8 +557,14 @@ app.controller('RecipesCtrl', [
     // Upvote this recipe
     $scope.upvoteRecipe = function() {
       if(auth.isLoggedIn()) {
-        recipes.upvote($scope.recipe);
-        $scope.voted = true;
+        if($scope.voted) {
+          recipes.unvote($scope.recipe);
+          $scope.voted = false;
+        }
+        else {
+          recipes.upvote($scope.recipe);
+          $scope.voted = true;
+        }
       }
       else {
         $scope.error = {
