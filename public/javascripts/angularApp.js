@@ -211,7 +211,10 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
       return $http.get('/recipes/' + id, {
         headers: {Authorization: 'Bearer ' + auth.getToken()}
       }).then(function(data) {
-        return data.data;
+        let recipe = data.data.recipe;
+        recipe.vote = data.data.vote;
+
+        return recipe;
       });
     }
     else {
