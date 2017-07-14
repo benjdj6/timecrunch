@@ -172,7 +172,19 @@ router.get('/recipes/:recipe', auth, function(req, res, next) {
       return next(err);
     }
 
-    res.json(recipe);
+    Vote.findOne({ 
+      user: req.payload.username,
+      recipe_id: recipe._id
+    },
+    function(err, vote) {
+      if(err) {
+        return next(err);
+      }
+      res.json({
+        recipe: recipe,
+        vote: vote
+      });
+    });
   });
 });
 
@@ -228,12 +240,16 @@ router.put('/recipes/:recipe/vote', auth, function(req, res, next) {
 
 // Delete recipe vote
 router.delete('/recipes/:recipe/vote/:vote', auth, function(req, res, next) {
-  req.recipe.unvote(function(err, recipe) {
+  Vote.remove({_id: req.vote}, function(err) {
     if(err) {
-      return next(err);
+      res.send(err);
     }
-
-    res.json(recipe);
+    req.recipe.unvote(function(err, recipe) {
+      if(err) {
+        return next(err);
+      }
+      res.sendStatus(204);
+    });
   });
 });
 
