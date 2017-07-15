@@ -38,8 +38,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Move factories into separate files
 
-* Use vote model to track users vote status
-
 * Destroy votes in unvote route
 
 * limit user to one like/upvote per recipe
