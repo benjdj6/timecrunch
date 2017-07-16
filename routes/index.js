@@ -219,22 +219,36 @@ router.put('/recipes/:recipe', auth, function(req, res, next) {
 
 // PUT upvote recipe
 router.put('/recipes/:recipe/vote', auth, function(req, res, next) {
-  req.recipe.vote(function(err, recipe) {
+  Vote.findOne({
+    user: req.payload.username,
+    recipe_id: req.recipe._id
+  }, function(err, vote) {
     if(err) {
       return next(err);
     }
-    var vote = new Vote({
-      user: req.payload.username,
-      recipe_id: req.recipe._id
-    });
+    else if(vote) {
+      console.log(vote);
+      res.sendStatus(423);
+    }
+    else {
+      req.recipe.vote(function(err, recipe) {
+        if(err) {
+          return next(err);
+        }
+        var vote = new Vote({
+          user: req.payload.username,
+          recipe_id: req.recipe._id
+        });
 
-    vote.save(function(err, vote) {
-      if(err) {
-        return next(err);
-      }
+        vote.save(function(err, vote) {
+          if(err) {
+            return next(err);
+          }
 
-      res.json(vote);
-    });
+          res.json(vote);
+        });
+      });
+    }
   });
 });
 
