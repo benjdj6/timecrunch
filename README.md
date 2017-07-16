@@ -48,8 +48,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Design recipe categories
 
-* Implement upvotes for recipes
-
 * Backend unit conversions
 
 * Convert all volume to ml on backend
