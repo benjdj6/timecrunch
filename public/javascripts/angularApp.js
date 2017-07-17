@@ -264,7 +264,9 @@ app.factory('recipes', ['$http', 'auth', function($http, auth) {
 
   // Delete a recipe
   o.delete = function(recipe) {
-    return $http.delete('/recipes/' + recipe._id).then(function(data) {
+    return $http.delete('/recipes/' + recipe._id, {
+      headers: {Authorization: 'Bearer ' + auth.getToken()}
+    }).then(function(data) {
       o.getAll();
     });
   };
