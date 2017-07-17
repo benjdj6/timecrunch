@@ -269,13 +269,18 @@ router.delete('/recipes/:recipe/vote/:vote', function(req, res, next) {
 });
 
 // DELETE recipe
-router.delete('/recipes/:recipe', function(req, res, next) {
-  Recipe.remove({_id: req.recipe}, function(err) {
-    if(err) {
-      res.send(err);
-    }
-    res.sendStatus(204);
-  });
+router.delete('/recipes/:recipe', auth, function(req, res, next) {
+  if(req.recipe.author != req.payload.username) {
+    res.sendStatus(403);
+  }
+  else {
+    Recipe.remove({_id: req.recipe}, function(err) {
+      if(err) {
+        res.send(err);
+      }
+      res.sendStatus(204);
+    });
+  }
 });
 
 // POST ingredient
