@@ -411,7 +411,7 @@ app.controller('ListCtrl', [
       // Load existing ingredients into ingNames
       if(ingNames.size == 0 && $scope.ingredients.length > 0) {
         for(i = 0; i < $scope.ingredients.length; i++) {
-          ingNames.add($scope.ing_name);
+          ingNames.add($scope.ingredients[i].name);
         }
       }
       // If ingredient already exists show alert
@@ -492,7 +492,7 @@ app.controller('RecipesCtrl', [
       // Load existing ingredients into ingNames
       if(ingNames.size < $scope.recipe.ingredients.length) {
         for(i = 0; i < $scope.recipe.ingredients.length; i++) {
-          ingNames.add($scope.ing_name);
+          ingNames.add($scope.recipe.ingredients[i].name);
         }
       }
       // If ingredient already exists show alert
