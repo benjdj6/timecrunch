@@ -32,8 +32,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 ## TODO
 
-* Fix periodic false positive on ingredient duplicates
-
 * Move routes into separate files
 
 * Move factories into separate files
