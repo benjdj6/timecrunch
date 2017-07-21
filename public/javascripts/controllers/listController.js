@@ -1,5 +1,5 @@
 // Controller for recipe and food lists
-app.controller('ListCtrl', [
+angular.module('timecrunch').controller('ListCtrl', [
   '$scope',
   '$state',
   'auth',
