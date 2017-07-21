@@ -34,8 +34,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Move routes into separate files
 
-* Move controllers to separate files
-
 * Allow user to select score as sort option
 
 * Implement different recipe sorts selectable by dropdown
