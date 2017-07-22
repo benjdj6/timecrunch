@@ -15,14 +15,14 @@ angular.module('timecrunch').factory('auth', ['$http', '$window', function($http
 
   // register user
   auth.register = function(user) {
-    return $http.post('/register', user).then(function(data) {
+    return $http.post('/users/register', user).then(function(data) {
       auth.saveToken(data.data.token);
     });
   };
 
   // login user save token
   auth.logIn = function(user) {
-    return $http.post('/login', user).then(function(data) {
+    return $http.post('/users/login', user).then(function(data) {
       auth.saveToken(data.data.token);
     });
   };
