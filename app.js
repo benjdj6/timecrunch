@@ -13,6 +13,7 @@ require('./models/Ingredients');
 require('./models/Votes');
 
 var index = require('./routes/index');
+var users = require('./routes/users');
 
 var passport = require('passport');
 require('./config/passport');
@@ -34,6 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/users', users);
 app.use(passport.initialize());
 
 // catch 404 and forward to error handler
