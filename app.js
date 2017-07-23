@@ -14,6 +14,7 @@ require('./models/Votes');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var food = require('./routes/food');
 var recipes = require('./routes/recipes');
 
 var passport = require('passport');
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/recipes', recipes);
+app.use('/food', food);
 app.use(passport.initialize());
 
 // catch 404 and forward to error handler
