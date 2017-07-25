@@ -13,11 +13,6 @@ var passport = require('passport');
 var jwt = require('express-jwt');
 var auth = jwt({ secret: process.env.SECRET, userProperty: 'payload' });
 
-// GET home page.
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'time crunch' });
-});
-
 // Param function for selecting food objects
 router.param('food', function(req, res, next, id) {
   var query = Food.findById(id);
@@ -68,6 +63,11 @@ router.param('vote', function(req, res, next, id) {
     req.vote = vote;
     return next();
   });
+});
+
+// GET home page.
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'time crunch' });
 });
 
 module.exports = router;
