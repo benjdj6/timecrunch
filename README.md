@@ -34,6 +34,12 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Design dashboard
 
+* Implement expiring soon warnings on dashboard
+
+* Implement "add to shopping list" feature
+
+* Add shopping list feature
+
 * Comment angularApp
 
 * Allow user to select score as sort option
