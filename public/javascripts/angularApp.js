@@ -5,11 +5,13 @@ app.config([
 '$urlRouterProvider',
 function($stateProvider, $urlRouterProvider) {
   $stateProvider
+    //Home state for dashboard
     .state('home', {
       url: '/home',
       templateUrl: '/templates/home.html',
       controller: 'DashCtrl'
     })
+    //Food state sends loaded food list to ListCtrl
     .state('food', {
       url: '/food',
       templateUrl: '/templates/food.html',
@@ -20,6 +22,7 @@ function($stateProvider, $urlRouterProvider) {
         }]
       }
     })
+    //Recipes state sends loaded recipe list to ListCtrl
     .state('recipes', {
       url: '/recipes',
       templateUrl: '/templates/recipes.html',
@@ -30,11 +33,13 @@ function($stateProvider, $urlRouterProvider) {
         }]
       }
     })
+    //Recipeform state for recipe creation
     .state('recipeform', {
       url: '/recipes/form',
       templateUrl: '/templates/recipeform.html',
       controller: 'ListCtrl'
     })
+    //Recipe state sends specific recipe data to RecipesCtrl
     .state('recipe', {
       url: '/recipes/{id}',
       templateUrl: '/templates/recipe.html',
@@ -45,6 +50,7 @@ function($stateProvider, $urlRouterProvider) {
         }]
       }
     })
+    //EditRecipe state loads specific recipe in RecipesCtrl
     .state('editRecipe', {
       url: '/recipes/{id}/edit',
       templateUrl: '/templates/recipeeditform.html',
@@ -55,6 +61,7 @@ function($stateProvider, $urlRouterProvider) {
         }]
       }
     })
+    //Login state redirects if user is logged in
     .state('login', {
       url: '/login',
       templateUrl: '/templates/login.html',
@@ -65,6 +72,7 @@ function($stateProvider, $urlRouterProvider) {
         }
       }]
     })
+    //Register state redirects if user is logged in
     .state('register', {
       url: '/register',
       templateUrl: '/templates/register.html',
@@ -76,5 +84,6 @@ function($stateProvider, $urlRouterProvider) {
       }]
     });
 
+  //if no known state go home
   $urlRouterProvider.otherwise('home');
 }]);
