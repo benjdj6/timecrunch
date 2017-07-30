@@ -40,8 +40,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add shopping list feature
 
-* Allow user to select score as sort option
-
 * Implement different recipe sorts selectable by dropdown
 
 * Separate recipe form from ListCtrl
