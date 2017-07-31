@@ -19,8 +19,8 @@
     <!-- Recipes -->
     <div ng-repeat="recipe in recipes | orderBy: sortBy">
       <div class="row recipe">
-        <div class="col-md-1">
-          <font class="score">{{recipe.score}}</font>
+        <div class="col-md-1 score">
+          {{recipe.score}}
         </div>
         <div class="col-md-3">
           <a ui-sref="recipe({id: recipe._id})"><b>{{recipe.name}}</b></a>

@@ -21,6 +21,7 @@ input[type=number] {
   color: #b0b0b0;
   font-weight: bold;
   font-size: 115%;
+  text-align: center;
 }
 
 .voted {
