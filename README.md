@@ -42,6 +42,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Center recipe scores on list
 
+* Center column labels
+
 * Implement different recipe sorts selectable by dropdown
 
 * Separate recipe form from ListCtrl
