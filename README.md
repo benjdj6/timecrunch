@@ -78,7 +78,7 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Implement "active" classes for appropriate navbar links
 
-* Implement pagination
+* Implement pagination in recipe list
 
 * Create favorite recipe function
 
