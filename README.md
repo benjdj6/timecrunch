@@ -80,6 +80,4 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Implement pagination in recipe list
 
-* Create favorite recipe function
-
-* Implement recipe favorite button
+* Create liked recipe list
