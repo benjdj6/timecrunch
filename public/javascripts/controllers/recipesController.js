@@ -12,6 +12,16 @@ angular.module('timecrunch').controller('RecipesCtrl', [
     // Set containing ingredient names
     let ingNames = new Set();
 
+    $scope.metric_units = [
+      "ml",
+      "L",
+      "mg",
+      "g",
+      "kg",
+      "cm",
+      "mm"
+    ];
+
     // Determines if a user is allowed to edit this
     // recipe
     $scope.canEdit = function() {
