@@ -22,6 +22,18 @@ angular.module('timecrunch').controller('RecipesCtrl', [
       "mm"
     ];
 
+    $scope.imperial_units = [
+      "lb",
+      "oz",
+      "fl.oz",
+      "gal",
+      "qt",
+      "pt",
+      "c",
+      "tbsp",
+      "tsp"
+    ];
+
     // Determines if a user is allowed to edit this
     // recipe
     $scope.canEdit = function() {
