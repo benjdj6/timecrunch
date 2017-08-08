@@ -26,6 +26,28 @@ angular.module('timecrunch').controller('ListCtrl', [
       "Other-Produce"
     ];
 
+    $scope.metric_units = [
+      "ml",
+      "L",
+      "mg",
+      "g",
+      "kg",
+      "cm",
+      "mm"
+    ];
+
+    $scope.imperial_units = [
+      "lb",
+      "oz",
+      "fl.oz",
+      "gal",
+      "qt",
+      "pt",
+      "c",
+      "tbsp",
+      "tsp"
+    ];
+
     $scope.sortBy = ["-score", "sellBy", "name"];
     $scope.filterCat = "";
 
