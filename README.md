@@ -64,6 +64,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Standardized unit inputs
 
+* Allow for users to input other types of units (eg Cloves)
+
 * Force users to use https
 
 * HTTPS support
