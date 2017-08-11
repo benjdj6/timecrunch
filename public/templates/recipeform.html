@@ -44,6 +44,9 @@
       <select class="col-md-1" ng-model="ing_unit" ng-options="opt for opt in metric_units">
         <option value="">None</option>
       </select>
+      <select ng-show="imperial" class="col-md-1" ng-model="ing_unit" ng-options="opt for opt in imperial_units">
+        <option value="">None</option>
+      </select>
       <div class="col-md-2">
         <button type="button" class="btn btn-s btn-primary" ng-click="addIngredient();">Add Ingredient</button>
       </div>
