@@ -12,6 +12,7 @@ angular.module('timecrunch').controller('ListCtrl', [
     $scope.recipes = recipes.recipes;
     $scope.ingredients = [];
     $scope.isLoggedIn = auth.isLoggedIn;
+    $scope.imperial = false;
 
     $scope.categories = [
       "Baking",
