@@ -41,7 +41,7 @@
         <input class="form-control" type="number" placeholder="1.5" step="any" min="0" ng-model="ing_amount" id="ingredient-value-input"/>
       </div>
       <label for="ingredient-unit-input" class="col-md-1 col-form-label">Units:</label>
-      <select class="col-md-1" ng-model="ing_unit" ng-options="opt for opt in metric_units">
+      <select ng-hide="imperial" class="col-md-1" ng-model="ing_unit" ng-options="opt for opt in metric_units">
         <option value="">None</option>
       </select>
       <select ng-show="imperial" class="col-md-1" ng-model="ing_unit" ng-options="opt for opt in imperial_units">
