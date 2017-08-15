@@ -64,8 +64,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Allow for users to input other types of units (eg Cloves)
 
-* Allow users to toggle between imperial and metric units
-
 * Add unusual measurements (dash, pinch, etc)
 
 * Force users to use https
