@@ -9,6 +9,17 @@ var Vote = mongoose.model('Vote');
 var jwt = require('express-jwt');
 var auth = jwt({ secret: process.env.SECRET, userProperty: 'payload' });
 
+//Dictionary with conversion rates for various units to mL
+var to_ml = {
+  "gal": 3785.41,
+  "fl.oz": 29.5735,
+  "qt": 946.353,
+  "pt": 473.176,
+  "c": 240,
+  "tbsp": 14.787,
+  "tsp": 4.929
+};
+
 // Param function for selecting ingredient objects
 router.param('ingredient', function(req, res, next, id) {
     var query = Ingredient.findById(id);
