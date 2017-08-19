@@ -58,8 +58,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Assign g and ml conversions to universal_unit value
 
-* Create weight conversion table
-
 * Backend metric to imperial conversions (and reverse)
 
 * Allow for users to input other types of units (eg Cloves)
