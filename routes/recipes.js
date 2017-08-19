@@ -9,7 +9,7 @@ var Vote = mongoose.model('Vote');
 var jwt = require('express-jwt');
 var auth = jwt({ secret: process.env.SECRET, userProperty: 'payload' });
 
-//Dictionary with conversion rates for various units to mL
+//Dictionaries with conversion rates for various units to mL and g
 var to_ml = {
   "gal": 3785.41,
   "fl.oz": 29.5735,
@@ -18,6 +18,11 @@ var to_ml = {
   "c": 240,
   "tbsp": 14.787,
   "tsp": 4.929
+};
+
+var to_g = {
+  "lb": 453.592,
+  "oz": 28.35
 };
 
 // Param function for selecting ingredient objects
