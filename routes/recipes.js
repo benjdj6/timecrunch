@@ -25,6 +25,29 @@ var to_g = {
   "oz": 28.35
 };
 
+//Lists containing metric and imperial units to be used for identifying
+$scope.metric_units = [
+  "ml",
+  "L",
+  "mg",
+  "g",
+  "kg",
+  "cm",
+  "mm"
+];
+
+$scope.imperial_units = [
+  "lb",
+  "oz",
+  "fl.oz",
+  "gal",
+  "qt",
+  "pt",
+  "c",
+  "tbsp",
+  "tsp"
+];
+
 // Param function for selecting ingredient objects
 router.param('ingredient', function(req, res, next, id) {
     var query = Ingredient.findById(id);
