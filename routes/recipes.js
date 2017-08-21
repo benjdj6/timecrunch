@@ -26,7 +26,7 @@ var to_g = {
 };
 
 //Lists containing metric and imperial units to be used for identifying
-$scope.metric_units = [
+var metric_units = [
   "ml",
   "L",
   "mg",
@@ -36,7 +36,7 @@ $scope.metric_units = [
   "mm"
 ];
 
-$scope.imperial_units = [
+var imperial_units = [
   "lb",
   "oz",
   "fl.oz",
