@@ -17,36 +17,16 @@ var to_ml = {
   "pt": 473.176,
   "c": 240,
   "tbsp": 14.787,
-  "tsp": 4.929
+  "tsp": 4.929,
+  "L": 1000.0
 };
 
 var to_g = {
   "lb": 453.592,
-  "oz": 28.35
+  "oz": 28.35,
+  "mg": 0.001,
+  "kg": 1000
 };
-
-//Lists containing metric and imperial units to be used for identifying
-var metric_units = [
-  "ml",
-  "L",
-  "mg",
-  "g",
-  "kg",
-  "cm",
-  "mm"
-];
-
-var imperial_units = [
-  "lb",
-  "oz",
-  "fl.oz",
-  "gal",
-  "qt",
-  "pt",
-  "c",
-  "tbsp",
-  "tsp"
-];
 
 // Param function for selecting ingredient objects
 router.param('ingredient', function(req, res, next, id) {
