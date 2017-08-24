@@ -236,8 +236,8 @@ router.post('/:recipe/ingredients', function(req, res, next) {
 
   ingredient.recipe = req.recipe;
 
-  if ingredient.unit == "L":
-    ingredient.universal_unit = ingredient.amount * 1000;
+  if to_ml(ingredient.unit):
+    ingredient.universal_unit = to_ml(ingredient.unit);
 
   ingredient.save(function(err, ingredient) {
     if(err) {
