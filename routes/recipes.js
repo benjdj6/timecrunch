@@ -240,6 +240,9 @@ router.post('/:recipe/ingredients', function(req, res, next) {
   if (to_ml.unit) {
     ingredient.universal_unit = to_ml.unit;
   }
+  else if(to_g.unit) {
+    ingredient.universal_unit = to_g.unit;
+  }
 
   ingredient.save(function(err, ingredient) {
     if(err) {
