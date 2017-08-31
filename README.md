@@ -50,6 +50,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Design recipe categories
 
+* Use universal units to determine if user can make recipe with current stock
+
 * Allow for users to input other types of units (eg Cloves)
 
 * Add unusual measurements (dash, pinch, etc)
