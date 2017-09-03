@@ -52,8 +52,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Use universal units to determine if user can make recipe with current stock
 
-* Use ingredient determination to sort
-
 * Allow for users to input other types of units (eg Cloves)
 
 * Add unusual measurements (dash, pinch, etc)
