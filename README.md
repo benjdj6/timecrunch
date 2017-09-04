@@ -44,6 +44,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Implement different recipe sorts selectable by dropdown
 
+* Add arrows next to recipe column heads to indicate sorting state
+
 * Separate recipe form from ListCtrl
 
 * Highlight expired foods
