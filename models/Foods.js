@@ -6,7 +6,8 @@ var FoodSchema = new mongoose.Schema({
   sellBy: Date,
   amount: {type: Number, default: 1},
   units: String,
-  category: String
+  category: String,
+  expiring_soon: Boolean
 });
 
 mongoose.model('Food', FoodSchema);
