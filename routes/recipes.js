@@ -9,6 +9,25 @@ var Vote = mongoose.model('Vote');
 var jwt = require('express-jwt');
 var auth = jwt({ secret: process.env.SECRET, userProperty: 'payload' });
 
+//Dictionaries with conversion rates for various units to mL and g
+var to_ml = {
+  "gal": 3785.41,
+  "fl.oz": 29.5735,
+  "qt": 946.353,
+  "pt": 473.176,
+  "c": 240,
+  "tbsp": 14.787,
+  "tsp": 4.929,
+  "L": 1000.0
+};
+
+var to_g = {
+  "lb": 453.592,
+  "oz": 28.35,
+  "mg": 0.001,
+  "kg": 1000
+};
+
 // Param function for selecting ingredient objects
 router.param('ingredient', function(req, res, next, id) {
     var query = Ingredient.findById(id);
@@ -216,6 +235,14 @@ router.post('/:recipe/ingredients', function(req, res, next) {
   }
 
   ingredient.recipe = req.recipe;
+  unit = ingredient.unit;
+
+  if (to_ml.unit) {
+    ingredient.universal_unit = to_ml.unit;
+  }
+  else if(to_g.unit) {
+    ingredient.universal_unit = to_g.unit;
+  }
 
   ingredient.save(function(err, ingredient) {
     if(err) {

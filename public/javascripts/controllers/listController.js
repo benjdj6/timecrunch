@@ -12,6 +12,7 @@ angular.module('timecrunch').controller('ListCtrl', [
     $scope.recipes = recipes.recipes;
     $scope.ingredients = [];
     $scope.isLoggedIn = auth.isLoggedIn;
+    $scope.imperial = false;
 
     $scope.categories = [
       "Baking",
@@ -24,6 +25,28 @@ angular.module('timecrunch').controller('ListCtrl', [
       "Other-Ingredient",
       "Other-Food",
       "Other-Produce"
+    ];
+
+    $scope.metric_units = [
+      "ml",
+      "L",
+      "mg",
+      "g",
+      "kg",
+      "cm",
+      "mm"
+    ];
+
+    $scope.imperial_units = [
+      "lb",
+      "oz",
+      "fl.oz",
+      "gal",
+      "qt",
+      "pt",
+      "c",
+      "tbsp",
+      "tsp"
     ];
 
     $scope.sortBy = ["-score", "sellBy", "name"];

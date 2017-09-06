@@ -41,11 +41,21 @@
         <input class="form-control" type="number" placeholder="1.5" step="any" min="0" ng-model="ing_amount" id="ingredient-value-input"/>
       </div>
       <label for="ingredient-unit-input" class="col-md-1 col-form-label">Units:</label>
-      <div class="col-md-1">
-        <input class="form-control" type="text" placeholder="g" size="4" ng-model="ing_unit" id="ingredient-unit-input"/>
-      </div>
+      <select ng-hide="imperial" class="col-md-1" ng-model="ing_unit" ng-options="opt for opt in metric_units">
+        <option value="">None</option>
+      </select>
+      <select ng-show="imperial" class="col-md-1" ng-model="ing_unit" ng-options="opt for opt in imperial_units">
+        <option value="">None</option>
+      </select>
       <div class="col-md-2">
         <button type="button" class="btn btn-s btn-primary" ng-click="addIngredient();">Add Ingredient</button>
+      </div>
+    </div>
+
+    <!-- Unit toggle -->
+    <div>
+      <div class="col-md-offset-6">
+        <input type="checkbox" ng-model="imperial"/><b>Imperial Units</b>
       </div>
     </div>
 

@@ -44,25 +44,19 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Implement different recipe sorts selectable by dropdown
 
+* Add arrows next to recipe column heads to indicate sorting state
+
 * Separate recipe form from ListCtrl
 
 * Highlight expired foods
 
 * Design recipe categories
 
-* Backend unit conversions
+* Use universal units to determine if user can make recipe with current stock
 
-* Convert all volume to ml on backend
+* Allow for users to input other types of units (eg Cloves)
 
-* Create volume conversion table
-
-* Convert all weight to g on backend
-
-* Create weight conversion table
-
-* Backend metric to imperial conversions (and reverse)
-
-* Standardized unit inputs
+* Add unusual measurements (dash, pinch, etc)
 
 * Force users to use https
 
