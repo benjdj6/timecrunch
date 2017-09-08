@@ -9,8 +9,31 @@ angular.module('timecrunch').controller('RecipesCtrl', [
   function($scope, $state, ingredients, recipe, recipes, auth){
     $scope.recipe = recipe;
     $scope.voted = (recipe.vote != null)
+    $scope.imperial = false;
     // Set containing ingredient names
     let ingNames = new Set();
+
+    $scope.metric_units = [
+      "ml",
+      "L",
+      "mg",
+      "g",
+      "kg",
+      "cm",
+      "mm"
+    ];
+
+    $scope.imperial_units = [
+      "lb",
+      "oz",
+      "fl.oz",
+      "gal",
+      "qt",
+      "pt",
+      "c",
+      "tbsp",
+      "tsp"
+    ];
 
     // Determines if a user is allowed to edit this
     // recipe
