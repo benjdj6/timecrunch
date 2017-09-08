@@ -9,6 +9,7 @@ angular.module('timecrunch').controller('RecipesCtrl', [
   function($scope, $state, ingredients, recipe, recipes, auth){
     $scope.recipe = recipe;
     $scope.voted = (recipe.vote != null)
+    $scope.imperial = false;
     // Set containing ingredient names
     let ingNames = new Set();
 
