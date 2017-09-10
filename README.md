@@ -46,7 +46,7 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Add arrows next to recipe column heads to indicate sorting state
 
-* Force all ingredients to be same unit type (imperial or metric)
+* Force all ingredients to be same unit type (imperial or metric) with exception of non-standard (pinch, dash, etc)
 
 * Allow users to convert recipes to their units of choice
 
