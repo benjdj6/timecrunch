@@ -36,6 +36,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Implement dashboard alerts for expiring food
 
+* Implement top 10 recipe suggestions on dashboard
+
 * Implement expiring soon warnings on dashboard
 
 * Implement "add to shopping list" feature
