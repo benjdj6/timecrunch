@@ -34,6 +34,10 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Design dashboard
 
+* Implement dashboard alerts for expiring food
+
+* Implement top 10 recipe suggestions on dashboard
+
 * Implement expiring soon warnings on dashboard
 
 * Implement "add to shopping list" feature
@@ -45,6 +49,10 @@ Once the server has started up you'll be able to access time crunch by going to 
 * Implement different recipe sorts selectable by dropdown
 
 * Add arrows next to recipe column heads to indicate sorting state
+
+* Force all ingredients to be same unit type (imperial or metric) with exception of non-standard (pinch, dash, etc)
+
+* Allow users to convert recipes to their units of choice
 
 * Separate recipe form from ListCtrl
 
