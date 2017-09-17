@@ -7,6 +7,25 @@ var Food = mongoose.model('Food');
 var jwt = require('express-jwt');
 var auth = jwt({ secret: process.env.SECRET, userProperty: 'payload' });
 
+//Dictionaries with conversion rates for various units to mL and g
+var to_ml = {
+  "gal": 3785.41,
+  "fl.oz": 29.5735,
+  "qt": 946.353,
+  "pt": 473.176,
+  "c": 240,
+  "tbsp": 14.787,
+  "tsp": 4.929,
+  "L": 1000.0
+};
+
+var to_g = {
+  "lb": 453.592,
+  "oz": 28.35,
+  "mg": 0.001,
+  "kg": 1000
+};
+
 // Param function for selecting food objects
 router.param('food', function(req, res, next, id) {
   var query = Food.findById(id);
