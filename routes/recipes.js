@@ -235,7 +235,6 @@ router.post('/:recipe/ingredients', function(req, res, next) {
   }
 
   ingredient.recipe = req.recipe;
-  unit = ingredient.unit;
 
   if (to_ml.unit) {
     ingredient.universal_unit = to_ml.unit;
