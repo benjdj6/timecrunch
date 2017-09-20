@@ -62,6 +62,12 @@ router.post('/', auth, function(req, res, next) {
     }
   }
 
+  var unit = food.unit;
+
+  if (to_ml.unit) {
+    food.universal_unit = to_ml.unit;
+  }
+
   food.save(function(err, food){
     if(err) {
       return next(err);
