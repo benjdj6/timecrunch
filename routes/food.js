@@ -67,6 +67,9 @@ router.post('/', auth, function(req, res, next) {
   if (to_ml.unit) {
     food.universal_unit = to_ml.unit;
   }
+  else if (to_g.unit) {
+    food.universal_unit = to_g.unit;
+  }
 
   food.save(function(err, food){
     if(err) {
