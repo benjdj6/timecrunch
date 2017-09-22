@@ -46,8 +46,6 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Calculate volume unit for food
 
-* Calculate weight unit for food
-
 * Add shopping list feature
 
 * Center column labels
