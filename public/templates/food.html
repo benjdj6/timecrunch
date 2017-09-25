@@ -21,7 +21,12 @@
           <label>Quantity: </label>
           <input type="number" placeholder="1" ng-model="amount" min="0" step="any"/>
           <label>Unit: </label>
-          <input type="text" placeholder="g" ng-model="units" size="3">
+          <select ng-hide="imperial" size="3" ng-model="units" ng-options="opt for opt in metric_units">
+            <option value="">None</option>
+          </select>
+          <select ng-show="imperial" size="3" ng-model="units" ng-options="opt for opt in imperial_units">
+            <option value="">None</option>
+          </select>
           <label>Category: </label>
           <select ng-model="category" ng-options="opt for opt in categories">
             <option value="">None</option>
