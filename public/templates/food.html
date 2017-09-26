@@ -38,6 +38,11 @@
 
       <!-- Category filter option -->
       <div class="row">
+        <!-- Unit toggle -->
+        <div class="col-md-offset-6 col-md-2">
+          <input type="checkbox" ng-model="imperial"/><b>Imperial Units</b>
+        </div>
+
         <div class="col-md-offset-8 col-md-3">
           <label>Filter Category: </label>
           <select ng-model="filterCat" ng-options="cat for cat in categories">
