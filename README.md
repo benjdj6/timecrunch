@@ -44,6 +44,8 @@ Once the server has started up you'll be able to access time crunch by going to 
 
 * Use new unit input for food
 
+* Make new unit input on food less ugly
+
 * Add shopping list feature
 
 * Add shopping list page
