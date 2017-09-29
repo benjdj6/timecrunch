@@ -21,7 +21,12 @@
           <label>Quantity: </label>
           <input type="number" placeholder="1" ng-model="amount" min="0" step="any"/>
           <label>Unit: </label>
-          <input type="text" placeholder="g" ng-model="units" size="3">
+          <select ng-hide="imperial" size="3" ng-model="units" ng-options="opt for opt in metric_units">
+            <option value="">None</option>
+          </select>
+          <select ng-show="imperial" size="3" ng-model="units" ng-options="opt for opt in imperial_units">
+            <option value="">None</option>
+          </select>
           <label>Category: </label>
           <select ng-model="category" ng-options="opt for opt in categories">
             <option value="">None</option>
@@ -33,6 +38,11 @@
 
       <!-- Category filter option -->
       <div class="row">
+        <!-- Unit toggle -->
+        <div class="col-md-offset-6 col-md-2">
+          <input type="checkbox" ng-model="imperial"/><b>Imperial Units</b>
+        </div>
+
         <div class="col-md-offset-8 col-md-3">
           <label>Filter Category: </label>
           <select ng-model="filterCat" ng-options="cat for cat in categories">
